@@ -107,14 +107,14 @@ const Contact: React.FC = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
                         </div>
                     </div>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
                         Let's Create{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Together
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-lg md:text-xl max-w-4xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-[var(--text-secondary)] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed animate-slide-up"
                         style={{animationDelay: "0.2s"}}>
                         Have an amazing project in mind? I'd love to hear about
                         it! Let's collaborate and bring your vision to life with

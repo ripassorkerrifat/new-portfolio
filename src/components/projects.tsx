@@ -176,11 +176,11 @@ const Projects: React.FC = () => {
     <section id="projects" className="py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 animate-slide-up">
-            My <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] bg-clip-text text-transparent animate-glow">Projects</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+            My <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">Projects</span>
           </h2>
-          <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto animate-slide-up" style={{animationDelay: '0.2s'}}>
-            A showcase of my recent work and creative solutions
+          <p className="text-[var(--text-secondary)] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
+            A showcase of my recent work and creative solutions that demonstrate my expertise in modern web development
           </p>
         </div>
 
