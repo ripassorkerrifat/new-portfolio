@@ -13,6 +13,8 @@ import {
     FaRocket,
     FaUsers,
     FaBrain,
+    FaLightbulb,
+    FaDatabase,
     FaServer,
     FaPalette,
     FaTools,
@@ -43,39 +45,39 @@ const Skills = () => {
             skills: [
                 {
                     name: "React.js",
-                    level: 95,
                     icon: <FaReact />,
                     color: "text-blue-400",
+                    description: "Modern UI Library",
                 },
                 {
                     name: "Next.js",
-                    level: 90,
                     icon: <SiNextdotjs />,
                     color: "text-gray-300",
+                    description: "Full-Stack Framework",
                 },
                 {
                     name: "TypeScript",
-                    level: 85,
                     icon: <SiTypescript />,
                     color: "text-blue-600",
+                    description: "Type-Safe JavaScript",
                 },
                 {
                     name: "Tailwind CSS",
-                    level: 92,
                     icon: <SiTailwindcss />,
                     color: "text-cyan-400",
+                    description: "Utility-First CSS",
                 },
                 {
                     name: "JavaScript",
-                    level: 90,
                     icon: <SiJavascript />,
                     color: "text-yellow-400",
+                    description: "Core Language",
                 },
                 {
                     name: "HTML5/CSS3",
-                    level: 95,
                     icon: <SiHtml5 />,
                     color: "text-orange-500",
+                    description: "Web Fundamentals",
                 },
             ],
         },
@@ -87,39 +89,39 @@ const Skills = () => {
             skills: [
                 {
                     name: "Node.js",
-                    level: 88,
                     icon: <FaNodeJs />,
                     color: "text-green-500",
+                    description: "Server Runtime",
                 },
                 {
                     name: "Express.js",
-                    level: 85,
                     icon: <SiExpress />,
                     color: "text-gray-300",
+                    description: "Web Framework",
                 },
                 {
                     name: "Python",
-                    level: 80,
                     icon: <FaPython />,
                     color: "text-yellow-400",
+                    description: "Versatile Language",
                 },
                 {
                     name: "MongoDB",
-                    level: 85,
                     icon: <SiMongodb />,
                     color: "text-green-400",
+                    description: "NoSQL Database",
                 },
                 {
                     name: "PostgreSQL",
-                    level: 82,
                     icon: <SiPostgresql />,
                     color: "text-blue-400",
+                    description: "SQL Database",
                 },
                 {
                     name: "Redis",
-                    level: 75,
                     icon: <SiRedis />,
                     color: "text-red-500",
+                    description: "In-Memory Store",
                 },
             ],
         },
@@ -131,39 +133,39 @@ const Skills = () => {
             skills: [
                 {
                     name: "Git/GitHub",
-                    level: 90,
                     icon: <FaGitAlt />,
                     color: "text-orange-500",
+                    description: "Version Control",
                 },
                 {
                     name: "Docker",
-                    level: 80,
                     icon: <FaDocker />,
                     color: "text-blue-500",
+                    description: "Containerization",
                 },
                 {
                     name: "AWS",
-                    level: 75,
                     icon: <FaAws />,
                     color: "text-orange-400",
+                    description: "Cloud Platform",
                 },
                 {
                     name: "Vercel",
-                    level: 85,
                     icon: <SiVercel />,
                     color: "text-gray-300",
+                    description: "Deployment",
                 },
                 {
                     name: "Figma",
-                    level: 70,
                     icon: <FaFigma />,
                     color: "text-purple-500",
+                    description: "UI/UX Design",
                 },
                 {
                     name: "VS Code",
-                    level: 95,
                     icon: <VscCode />,
                     color: "text-blue-400",
+                    description: "Code Editor",
                 },
             ],
         },
@@ -269,7 +271,7 @@ const Skills = () => {
                             ].skills.map((skill, index) => (
                                 <div
                                     key={skill.name}
-                                    className="group glass rounded-2xl p-6 border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden animate-slide-up"
+                                    className="group glass rounded-3xl p-8 border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden animate-slide-up"
                                     style={{animationDelay: `${index * 0.1}s`}}>
                                     {/* Hover Background Effect */}
                                     <div
@@ -279,51 +281,51 @@ const Skills = () => {
                                             ].bgColor
                                         } opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
-                                    <div className="relative z-10">
-                                        <div className="flex items-center justify-between mb-6">
-                                            <div className="flex items-center space-x-4">
-                                                <div
-                                                    className={`w-12 h-12 bg-gradient-to-br from-[var(--surface-color)] to-[var(--border-color)] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                                    <div
-                                                        className={`text-xl ${skill.color} group-hover:animate-pulse`}>
-                                                        {skill.icon}
-                                                    </div>
-                                                </div>
-                                                <h4 className="text-xl font-bold text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors duration-300">
-                                                    {skill.name}
-                                                </h4>
-                                            </div>
+                                    {/* Floating Glow Effect */}
+                                    <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div className="relative z-10 text-center">
+                                        {/* Icon Container */}
+                                        <div className="flex justify-center mb-6">
                                             <div
-                                                className={`px-3 py-1 bg-gradient-to-r ${
+                                                className={`w-20 h-20 bg-gradient-to-br ${
                                                     skillCategories[
                                                         activeCategory as keyof typeof skillCategories
                                                     ].color
-                                                } rounded-full`}>
-                                                <span className="text-white font-bold text-sm">
-                                                    {skill.level}%
-                                                </span>
+                                                } rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                                                <div className="text-3xl text-white group-hover:animate-pulse">
+                                                    {skill.icon}
+                                                </div>
                                             </div>
                                         </div>
 
-                                        {/* Enhanced Progress Bar */}
-                                        <div className="relative">
-                                            <div className="w-full bg-[var(--surface-color)]/50 rounded-full h-3 overflow-hidden">
-                                                <div
-                                                    className={`bg-gradient-to-r ${
-                                                        skillCategories[
-                                                            activeCategory as keyof typeof skillCategories
-                                                        ].color
-                                                    } h-3 rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
-                                                    style={{
-                                                        width: `${skill.level}%`,
-                                                    }}>
-                                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-                                                </div>
-                                            </div>
-                                            <div className="flex justify-between text-xs text-[var(--text-secondary)] mt-2">
-                                                <span>Beginner</span>
-                                                <span>Expert</span>
-                                            </div>
+                                        {/* Skill Name */}
+                                        <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                                            {skill.name}
+                                        </h4>
+
+                                        {/* Description */}
+                                        <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 group-hover:text-[var(--text-primary)] transition-colors duration-300">
+                                            {skill.description}
+                                        </p>
+
+                                        {/* Decorative Elements */}
+                                        <div className="flex justify-center space-x-2">
+                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${
+                                                skillCategories[
+                                                    activeCategory as keyof typeof skillCategories
+                                                ].color
+                                            } animate-pulse`}></div>
+                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${
+                                                skillCategories[
+                                                    activeCategory as keyof typeof skillCategories
+                                                ].color
+                                            } animate-pulse`} style={{animationDelay: '0.2s'}}></div>
+                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${
+                                                skillCategories[
+                                                    activeCategory as keyof typeof skillCategories
+                                                ].color
+                                            } animate-pulse`} style={{animationDelay: '0.4s'}}></div>
                                         </div>
                                     </div>
                                 </div>

@@ -52,16 +52,16 @@ const Contact: React.FC = () => {
         {
             icon: "📧",
             title: "Email",
-            value: "rifat@example.com",
+            value: "ripassorkerrifat@gmail.com",
             description: "Send me an email anytime",
-            link: "mailto:rifat@example.com",
+            link: "mailto:ripassorkerrifat@gmail.com",
         },
         {
             icon: "📱",
             title: "Phone",
-            value: "+880 123 456 789",
+            value: "+880 1744876681",
             description: "Call me for urgent matters",
-            link: "tel:+880123456789",
+            link: "tel:+8801744876681",
         },
         {
             icon: "📍",

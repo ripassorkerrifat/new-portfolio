@@ -173,7 +173,7 @@ const About = () => {
                                                     </span>
                                                 </div>
                                                 <p className="text-[var(--text-primary)] font-medium">
-                                                    rifat@example.com
+                                                    ripassorkerrifat@gmail.com
                                                 </p>
                                             </div>
                                             <div className="glass p-4 rounded-2xl border border-[var(--border-color)]/50">
@@ -184,7 +184,7 @@ const About = () => {
                                                     </span>
                                                 </div>
                                                 <p className="text-[var(--text-primary)] font-medium">
-                                                    +880 123 456 789
+                                                    +880 1744876681
                                                 </p>
                                             </div>
                                         </div>

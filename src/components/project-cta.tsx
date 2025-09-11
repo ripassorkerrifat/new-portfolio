@@ -65,7 +65,7 @@ const ProjectCTA: React.FC = () => {
             </a>
             
             <a
-              href="https://github.com/ripas"
+              href="https://github.com/ripassorkerrifat"
               target="_blank"
               rel="noopener noreferrer"
               className="group glass border-2 border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] hover:text-[var(--secondary-color)] font-bold py-5 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/30 relative overflow-hidden"
