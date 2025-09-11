@@ -235,14 +235,14 @@ const Projects: React.FC = () => {
             <ProjectCTA />
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
                         My{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Projects
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-[var(--text-secondary)] text-base md:text-lg max-w-3xl mx-auto leading-relaxed animate-slide-up"
                         style={{animationDelay: "0.2s"}}>
                         A showcase of my recent work and creative solutions that
                         demonstrate my expertise in modern web development
@@ -262,7 +262,7 @@ const Projects: React.FC = () => {
                         <button
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id)}
-                            className={`relative px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500 transform hover:scale-105 ${
+                            className={`relative px-6 py-3 rounded-2xl font-semibold text-base transition-all duration-500 transform hover:scale-105 ${
                                 activeFilter === filter.id
                                     ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-2xl shadow-[var(--glow-primary)]/50 scale-105"
                                     : "glass border-2 border-[var(--border-color)]/50 text-[var(--text-secondary)] hover:border-[var(--secondary-color)]/80 hover:text-[var(--text-primary)] hover:shadow-xl hover:shadow-[var(--glow-secondary)]/30 backdrop-blur-lg"

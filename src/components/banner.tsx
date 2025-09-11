@@ -29,7 +29,7 @@ const Banner = () => {
                     {/* Left Content */}
                     <div className="flex-1 text-center lg:text-left mb-10 lg:mb-0 z-10">
                         <div className="mb-6 animate-slide-up">
-                            <h1 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
+                            <h1 className="text-3xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
                                 <span className="text-[var(--secondary-color)] animate-glow">
                                     Hello!
                                 </span>{" "}
@@ -42,7 +42,7 @@ const Banner = () => {
                         </div>
 
                         <div
-                            className="text-xl lg:text-2xl text-[var(--primary-color)] font-semibold mb-8 h-12 animate-slide-up"
+                            className="text-lg lg:text-xl text-[var(--primary-color)] font-semibold mb-8 h-12 animate-slide-up"
                             style={{animationDelay: "0.2s"}}>
                             <Typewriter
                                 options={{
@@ -61,7 +61,7 @@ const Banner = () => {
                         </div>
 
                         <p
-                            className="text-lg lg:text-xl text-[var(--text-secondary)] mb-8 max-w-2xl leading-relaxed animate-slide-up"
+                            className="text-base lg:text-lg text-[var(--text-secondary)] mb-8 max-w-2xl leading-relaxed animate-slide-up"
                             style={{animationDelay: "0.4s"}}>
                             Passionate about creating innovative web solutions
                             with modern technologies. I specialize in building

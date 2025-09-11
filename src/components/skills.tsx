@@ -132,7 +132,7 @@ const Skills = () => {
                         <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
                             <FaCode className="text-2xl text-white" />
                         </div>
-                        <h2 className="text-4xl lg:text-6xl font-bold text-[var(--text-primary)] animate-slide-up">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-[var(--text-primary)] animate-slide-up">
                             My{" "}
                             <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] bg-clip-text text-transparent animate-glow">
                                 Skills
@@ -140,7 +140,7 @@ const Skills = () => {
                         </h2>
                     </div>
                     <p
-                        className="text-[var(--text-secondary)] text-xl max-w-3xl mx-auto animate-slide-up leading-relaxed"
+                        className="text-[var(--text-secondary)] text-base lg:text-lg max-w-3xl mx-auto animate-slide-up leading-relaxed"
                         style={{animationDelay: "0.2s"}}>
                         Technologies and tools I use to build exceptional
                         digital experiences

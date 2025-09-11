@@ -84,13 +84,13 @@ const Footer = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
                         </div>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6">
                         Ripas{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Sorker Rifat
                         </span>
                     </h2>
-                    <p className="text-[var(--text-secondary)] text-xl max-w-3xl mx-auto leading-relaxed mb-8">
+                    <p className="text-[var(--text-secondary)] text-lg max-w-3xl mx-auto leading-relaxed mb-8">
                         Full Stack Developer crafting beautiful digital
                         experiences with modern technologies
                     </p>
@@ -129,10 +129,7 @@ const Footer = () => {
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="group text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 text-lg flex items-center justify-center lg:justify-start gap-3 hover:translate-x-2"
-                                        style={{
-                                            animationDelay: `${index * 0.1}s`,
-                                        }}>
+                                        className="group text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 text-base flex items-center justify-center lg:justify-start gap-3 hover:translate-x-2">
                                         <span className="w-2 h-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                                         {link.name}
                                     </a>
@@ -184,7 +181,7 @@ const Footer = () => {
                                 <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
                                     📧
                                 </span>
-                                <span className="text-lg">
+                                <span className="text-base">
                                     ripassorkerrifat@gmail.com
                                 </span>
                             </a>
@@ -194,7 +191,9 @@ const Footer = () => {
                                 <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
                                     📱
                                 </span>
-                                <span className="text-lg">+880 1744876681</span>
+                                <span className="text-base">
+                                    +880 1744876681
+                                </span>
                             </a>
                             <div className="group flex items-center justify-center lg:justify-start gap-3 text-[var(--text-secondary)]">
                                 <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
@@ -215,7 +214,7 @@ const Footer = () => {
                             </span>
                             Let's Connect
                         </h4>
-                        <p className="text-[var(--text-secondary)] text-lg mb-6 leading-relaxed">
+                        <p className="text-[var(--text-secondary)] text-base mb-6 leading-relaxed">
                             Ready to bring your ideas to life? Let's discuss
                             your next project!
                         </p>

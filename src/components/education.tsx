@@ -92,14 +92,14 @@ const Education = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
                         </div>
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
                         My{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Education
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-[var(--text-secondary)] text-base md:text-lg max-w-3xl mx-auto leading-relaxed animate-slide-up"
                         style={{animationDelay: "0.2s"}}>
                         My academic journey from secondary school to pursuing
                         Computer Science & Engineering at university level.
@@ -139,10 +139,10 @@ const Education = () => {
                                                             </span>
                                                         </div>
                                                         <div>
-                                                            <h3 className="text-2xl lg:text-3xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                                                            <h3 className="text-xl lg:text-2xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--primary-color)] transition-colors duration-300">
                                                                 {edu.degree}
                                                             </h3>
-                                                            <p className="text-[var(--primary-color)] font-semibold text-lg">
+                                                            <p className="text-[var(--primary-color)] font-semibold text-base">
                                                                 {
                                                                     edu.institution
                                                                 }
@@ -178,13 +178,13 @@ const Education = () => {
                                                 </div>
 
                                                 {/* Description */}
-                                                <p className="text-[var(--text-secondary)] leading-relaxed text-lg mb-6">
+                                                <p className="text-[var(--text-secondary)] leading-relaxed text-base mb-6">
                                                     {edu.description}
                                                 </p>
 
                                                 {/* Achievements */}
                                                 <div className="border-t border-[var(--border-color)] pt-6">
-                                                    <h4 className="text-[var(--text-primary)] font-bold text-xl mb-4 flex items-center space-x-2">
+                                                    <h4 className="text-[var(--text-primary)] font-bold text-lg mb-4 flex items-center space-x-2">
                                                         <FaStar className="text-[var(--primary-color)]" />
                                                         <span>
                                                             Key Highlights
