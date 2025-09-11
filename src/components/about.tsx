@@ -1,36 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
 
-import {useState, useEffect} from "react";
 import {
     FaUser,
     FaCode,
-    FaTrophy,
     FaMapMarkerAlt,
     FaEnvelope,
-    FaPhone,
-    FaCalendarAlt,
-    FaRocket,
-    FaLightbulb,
-    FaHeart,
     FaDownload,
-    FaEye,
+    FaCalendarAlt,
+    FaGraduationCap,
 } from "react-icons/fa";
 
 const About = () => {
-    const [activeTab, setActiveTab] = useState("about");
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
-
-    const tabs = [
-        {id: "about", label: "About Me", icon: <FaUser />},
-        {id: "experience", label: "Experience", icon: <FaCode />},
-        {id: "achievements", label: "Achievements", icon: <FaTrophy />},
-    ];
-
     return (
         <section
             id="about"
@@ -43,20 +23,12 @@ const About = () => {
                     style={{animationDelay: "3s"}}></div>
                 <div
                     className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[var(--accent-color)]/10 to-[var(--primary-color)]/10 rounded-full blur-3xl animate-pulse"
-                    style={{animationDelay: "1.5s"}}></div>
+                    style={{animationDelay: "4s"}}></div>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
-                {/* Modern Header */}
+            <div className="container mx-auto px-4 relative z-10">
+                {/* Enhanced Header */}
                 <div className="text-center mb-20">
-                    <div className="inline-flex items-center justify-center mb-8">
-                        <div className="relative">
-                            <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm">
-                                <FaUser className="text-4xl text-[var(--primary-color)] animate-bounce" />
-                            </div>
-                            <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
-                        </div>
-                    </div>
                     <h2 className="text-4xl md:text-6xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
                         About{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
@@ -72,444 +44,312 @@ const About = () => {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
-                    {/* Left Content */}
-                    <div className="space-y-8">
-                        {/* Enhanced Tab Navigation */}
-                        <div className="flex flex-wrap justify-center gap-6 mb-12">
-                            {tabs.map((tab, index) => (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id)}
-                                    className={`group flex items-center space-x-3 px-8 py-4 rounded-2xl font-semibold transition-all duration-500 transform hover:scale-105 animate-slide-up ${
-                                        activeTab === tab.id
-                                            ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-2xl shadow-[var(--primary-color)]/30 backdrop-blur-xl"
-                                            : "glass border border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--primary-color)]/50 hover:shadow-xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl"
-                                    }`}
-                                    style={{animationDelay: `${index * 0.1}s`}}>
-                                    <span
-                                        className={`text-xl transition-transform duration-300 ${
-                                            activeTab === tab.id
-                                                ? "scale-110"
-                                                : "group-hover:scale-110"
-                                        }`}>
-                                        {tab.icon}
-                                    </span>
-                                    <span className="text-lg">{tab.label}</span>
-                                </button>
-                            ))}
-                        </div>
-
-                        {/* Enhanced Tab Content */}
-                        <div className="group glass rounded-3xl p-10 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden">
+                {/* About Me Section */}
+                <div className="grid lg:grid-cols-2 gap-16 mb-20">
+                    {/* Left Column - About Me */}
+                    <div className="space-y-8 h-full">
+                        <div
+                            className="group glass rounded-3xl p-8 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 backdrop-blur-xl relative overflow-hidden animate-slide-up h-full flex flex-col"
+                            style={{animationDelay: "0.1s"}}>
                             {/* Background Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                            <div className="relative z-10">
-                                {activeTab === "about" && (
-                                    <div className="space-y-8">
-                                        <div className="flex items-center space-x-4 mb-6">
-                                            <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-2xl flex items-center justify-center shadow-lg">
-                                                <FaRocket className="text-2xl text-white" />
-                                            </div>
-                                            <h3 className="text-3xl font-bold text-[var(--text-primary)]">
-                                                Full Stack Developer
-                                            </h3>
-                                        </div>
-
-                                        <div className="space-y-6">
-                                            <p className="text-[var(--text-secondary)] leading-relaxed text-lg">
-                                                I'm a passionate full-stack
-                                                developer with over 3+ years of
-                                                experience crafting modern web
-                                                applications that make a
-                                                difference. I specialize in
-                                                React, Next.js, Node.js, and
-                                                cutting-edge technologies to
-                                                build scalable, user-centric
-                                                solutions.
-                                            </p>
-                                            <p className="text-[var(--text-secondary)] leading-relaxed text-lg">
-                                                When I'm not coding, you'll find
-                                                me exploring emerging
-                                                technologies, contributing to
-                                                open-source projects, or
-                                                mentoring fellow developers. I
-                                                believe in continuous learning
-                                                and sharing knowledge with the
-                                                community.
-                                            </p>
-                                        </div>
-
-                                        {/* Enhanced Personal Info */}
-                                        <div className="grid md:grid-cols-2 gap-6 mt-8">
-                                            <div className="glass p-4 rounded-2xl border border-[var(--border-color)]/50">
-                                                <div className="flex items-center space-x-3 mb-2">
-                                                    <FaUser className="text-[var(--primary-color)]" />
-                                                    <span className="text-[var(--primary-color)] font-semibold">
-                                                        Name
-                                                    </span>
-                                                </div>
-                                                <p className="text-[var(--text-primary)] font-medium">
-                                                    Ripas Sorker Rifat
-                                                </p>
-                                            </div>
-                                            <div className="glass p-4 rounded-2xl border border-[var(--border-color)]/50">
-                                                <div className="flex items-center space-x-3 mb-2">
-                                                    <FaMapMarkerAlt className="text-[var(--secondary-color)]" />
-                                                    <span className="text-[var(--primary-color)] font-semibold">
-                                                        Location
-                                                    </span>
-                                                </div>
-                                                <p className="text-[var(--text-primary)] font-medium">
-                                                    Bangladesh
-                                                </p>
-                                            </div>
-                                            <div className="glass p-4 rounded-2xl border border-[var(--border-color)]/50">
-                                                <div className="flex items-center space-x-3 mb-2">
-                                                    <FaEnvelope className="text-[var(--accent-color)]" />
-                                                    <span className="text-[var(--primary-color)] font-semibold">
-                                                        Email
-                                                    </span>
-                                                </div>
-                                                <p className="text-[var(--text-primary)] font-medium">
-                                                    ripassorkerrifat@gmail.com
-                                                </p>
-                                            </div>
-                                            <div className="glass p-4 rounded-2xl border border-[var(--border-color)]/50">
-                                                <div className="flex items-center space-x-3 mb-2">
-                                                    <FaPhone className="text-[var(--primary-color)]" />
-                                                    <span className="text-[var(--primary-color)] font-semibold">
-                                                        Phone
-                                                    </span>
-                                                </div>
-                                                <p className="text-[var(--text-primary)] font-medium">
-                                                    +880 1744876681
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        {/* Action Buttons */}
-                                        <div className="flex flex-wrap gap-4 mt-8">
-                                            <button className="group flex items-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                                                <FaDownload className="group-hover:animate-bounce" />
-                                                <span>Download CV</span>
-                                            </button>
-                                            <button className="group flex items-center space-x-2 glass border border-[var(--primary-color)]/30 text-[var(--primary-color)] px-6 py-3 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 hover:bg-[var(--primary-color)]/10">
-                                                <FaEye className="group-hover:animate-pulse" />
-                                                <span>View Portfolio</span>
-                                            </button>
-                                        </div>
+                            <div className="relative z-10 flex flex-col h-full">
+                                <div className="flex items-center space-x-4 mb-6">
+                                    <div className="w-14 h-14 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-2xl flex items-center justify-center shadow-lg">
+                                        <FaUser className="text-xl text-white" />
                                     </div>
-                                )}
+                                    <h3 className="text-2xl font-bold text-[var(--text-primary)]">
+                                        About Me
+                                    </h3>
+                                </div>
 
-                                {activeTab === "experience" && (
-                                    <div className="space-y-8">
-                                        <div className="flex items-center space-x-4 mb-6">
-                                            <div className="w-16 h-16 bg-gradient-to-br from-[var(--secondary-color)] to-[var(--accent-color)] rounded-2xl flex items-center justify-center shadow-lg">
-                                                <FaCode className="text-2xl text-white" />
+                                <div className="space-y-4 flex-grow">
+                                    <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                                        Hi, I'm{" "}
+                                        <span className="text-[var(--primary-color)] font-semibold">
+                                            Ripas Sorker Rifat
+                                        </span>
+                                        , a passionate full-stack developer
+                                        currently pursuing my Bachelor's degree
+                                        in Computer Science & Engineering at
+                                        Dhaka International University.
+                                    </p>
+                                    <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                                        With over 2 years of professional
+                                        experience, I've worked on diverse
+                                        projects ranging from e-commerce
+                                        platforms to educational technology
+                                        solutions. I'm passionate about writing
+                                        clean, maintainable code and creating
+                                        intuitive user interfaces that solve
+                                        real-world problems.
+                                    </p>
+                                    <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                                        My technical expertise spans across
+                                        modern web technologies including
+                                        TypeScript, Python, MongoDB, PostgreSQL,
+                                        and cloud platforms like AWS and Vercel.
+                                        I'm always eager to learn new
+                                        technologies and stay updated with the
+                                        latest industry trends.
+                                    </p>
+                                    <p className="text-[var(--text-secondary)] text-base leading-relaxed">
+                                        When I'm not coding, I enjoy exploring
+                                        new technologies, contributing to
+                                        open-source projects, and sharing
+                                        knowledge with the developer community.
+                                        I believe in continuous learning and
+                                        love mentoring fellow developers.
+                                    </p>
+                                </div>
+
+                                {/* Skills & Interests */}
+                                <div className="mt-6">
+                                    <h4 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
+                                        Core Interests
+                                    </h4>
+                                    <div className="flex flex-wrap gap-2 mb-6">
+                                        {[
+                                            "Web Development",
+                                            "UI/UX Design",
+                                            "Open Source",
+                                            "Cloud Computing",
+                                            "Mobile Apps",
+                                            "AI/ML",
+                                        ].map((interest, index) => (
+                                            <span
+                                                key={index}
+                                                className="px-3 py-1 bg-[var(--primary-color)]/10 text-[var(--primary-color)] rounded-full text-sm font-medium border border-[var(--primary-color)]/20">
+                                                {interest}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Personal Info Grid */}
+                                <div className="grid grid-cols-2 gap-4 mt-6">
+                                    <div className="bg-[var(--card-bg)]/30 rounded-2xl p-4 border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/40 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-xl flex items-center justify-center">
+                                                <FaMapMarkerAlt className="text-white text-sm" />
                                             </div>
-                                            <h3 className="text-3xl font-bold text-[var(--text-primary)]">
-                                                Professional Journey
-                                            </h3>
-                                        </div>
-
-                                        <div className="space-y-8">
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-4 h-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mt-2 flex-shrink-0"></div>
-                                                    <div className="flex-1">
-                                                        <div className="flex items-center space-x-2 mb-2">
-                                                            <FaCalendarAlt className="text-[var(--primary-color)]" />
-                                                            <span className="text-[var(--primary-color)] font-medium text-sm">
-                                                                2022 - Present
-                                                            </span>
-                                                        </div>
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Senior Full Stack
-                                                            Developer
-                                                        </h4>
-                                                        <p className="text-[var(--secondary-color)] font-semibold mb-3">
-                                                            Tech Solutions Inc.
-                                                        </p>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Leading development
-                                                            of enterprise-level
-                                                            web applications
-                                                            using React,
-                                                            Next.js, and
-                                                            Node.js. Mentoring
-                                                            junior developers
-                                                            and architecting
-                                                            scalable solutions
-                                                            for high-traffic
-                                                            applications.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-4 h-4 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] rounded-full mt-2 flex-shrink-0"></div>
-                                                    <div className="flex-1">
-                                                        <div className="flex items-center space-x-2 mb-2">
-                                                            <FaCalendarAlt className="text-[var(--secondary-color)]" />
-                                                            <span className="text-[var(--secondary-color)] font-medium text-sm">
-                                                                2021 - 2022
-                                                            </span>
-                                                        </div>
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Full Stack Developer
-                                                        </h4>
-                                                        <p className="text-[var(--secondary-color)] font-semibold mb-3">
-                                                            Digital Agency
-                                                        </p>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Developed responsive
-                                                            web applications and
-                                                            RESTful APIs.
-                                                            Collaborated with
-                                                            design teams to
-                                                            implement
-                                                            pixel-perfect UI/UX
-                                                            designs and optimize
-                                                            user experiences.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-4 h-4 bg-gradient-to-r from-[var(--accent-color)] to-[var(--primary-color)] rounded-full mt-2 flex-shrink-0"></div>
-                                                    <div className="flex-1">
-                                                        <div className="flex items-center space-x-2 mb-2">
-                                                            <FaCalendarAlt className="text-[var(--accent-color)]" />
-                                                            <span className="text-[var(--accent-color)] font-medium text-sm">
-                                                                2020 - 2021
-                                                            </span>
-                                                        </div>
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Frontend Developer
-                                                        </h4>
-                                                        <p className="text-[var(--secondary-color)] font-semibold mb-3">
-                                                            StartUp Co.
-                                                        </p>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Built modern,
-                                                            responsive web
-                                                            interfaces using
-                                                            React and
-                                                            TypeScript.
-                                                            Optimized
-                                                            application
-                                                            performance and
-                                                            implemented industry
-                                                            best practices.
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                            <div>
+                                                <p className="text-xs text-[var(--text-secondary)] font-medium">
+                                                    Location
+                                                </p>
+                                                <p className="text-sm font-semibold text-[var(--text-primary)]">
+                                                    Dhaka, Bangladesh
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                )}
 
-                                {activeTab === "achievements" && (
-                                    <div className="space-y-8">
-                                        <div className="flex items-center space-x-4 mb-6">
-                                            <div className="w-16 h-16 bg-gradient-to-br from-[var(--accent-color)] to-[var(--primary-color)] rounded-2xl flex items-center justify-center shadow-lg">
-                                                <FaTrophy className="text-2xl text-white" />
+                                    <div className="bg-[var(--card-bg)]/30 rounded-2xl p-4 border border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/40 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-[var(--secondary-color)] to-[var(--accent-color)] rounded-xl flex items-center justify-center">
+                                                <FaGraduationCap className="text-white text-sm" />
                                             </div>
-                                            <h3 className="text-3xl font-bold text-[var(--text-primary)]">
-                                                Achievements & Recognition
-                                            </h3>
-                                        </div>
-
-                                        <div className="grid gap-6">
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300 group">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                                        <FaTrophy className="text-white text-lg" />
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Best Developer Award
-                                                            2023
-                                                        </h4>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Recognized for
-                                                            outstanding
-                                                            performance and
-                                                            innovation in
-                                                            full-stack
-                                                            development
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300 group">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                                        <FaCode className="text-white text-lg" />
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Open Source
-                                                            Contributor
-                                                        </h4>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Active contributor
-                                                            to popular React and
-                                                            Node.js projects
-                                                            with 500+ GitHub
-                                                            contributions
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300 group">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                                        <FaLightbulb className="text-white text-lg" />
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Tech Speaker &
-                                                            Mentor
-                                                        </h4>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Regular speaker at
-                                                            developer
-                                                            conferences and
-                                                            mentor to 50+ junior
-                                                            developers
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div className="glass p-6 rounded-2xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300 group">
-                                                <div className="flex items-start space-x-4">
-                                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                                        <FaHeart className="text-white text-lg" />
-                                                    </div>
-                                                    <div className="flex-1">
-                                                        <h4 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                            Community Leader
-                                                        </h4>
-                                                        <p className="text-[var(--text-secondary)] leading-relaxed">
-                                                            Founded local
-                                                            developer community
-                                                            with 1000+ members
-                                                            and organized 20+
-                                                            tech events
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                            <div>
+                                                <p className="text-xs text-[var(--text-secondary)] font-medium">
+                                                    Education
+                                                </p>
+                                                <p className="text-sm font-semibold text-[var(--text-primary)]">
+                                                    CSE Student
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                )}
+
+                                    <div className="bg-[var(--card-bg)]/30 rounded-2xl p-4 border border-[var(--border-color)]/50 hover:border-[var(--accent-color)]/40 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-[var(--accent-color)] to-[var(--primary-color)] rounded-xl flex items-center justify-center">
+                                                <FaCode className="text-white text-sm" />
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-[var(--text-secondary)] font-medium">
+                                                    Specialization
+                                                </p>
+                                                <p className="text-sm font-semibold text-[var(--text-primary)]">
+                                                    Full Stack
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-[var(--card-bg)]/30 rounded-2xl p-4 border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/40 transition-all duration-300">
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-xl flex items-center justify-center">
+                                                <FaCalendarAlt className="text-white text-sm" />
+                                            </div>
+                                            <div>
+                                                <p className="text-xs text-[var(--text-secondary)] font-medium">
+                                                    Experience
+                                                </p>
+                                                <p className="text-sm font-semibold text-[var(--text-primary)]">
+                                                    2+ Years
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="flex flex-wrap gap-4 mt-8">
+                                    <button className="flex items-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-2xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 transform hover:-translate-y-1">
+                                        <FaDownload className="text-sm" />
+                                        <span>Download CV</span>
+                                    </button>
+                                    <a
+                                        href="#contact"
+                                        className="flex items-center space-x-2 border border-[var(--primary-color)] text-[var(--primary-color)] px-6 py-3 rounded-2xl font-semibold hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                                        <FaEnvelope className="text-sm" />
+                                        <span>Get In Touch</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    {/* Enhanced Right Content - Profile & Stats */}
-                    <div className="space-y-8">
-                        {/* Enhanced Profile Card */}
-                        <div className="group relative animate-slide-up">
-                            <div className="glass rounded-3xl p-8 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden">
-                                {/* Background Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                <div className="relative z-10 text-center">
-                                    {/* Enhanced Avatar */}
-                                    <div className="relative mb-6">
-                                        <div className="w-40 h-40 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mx-auto p-2 shadow-2xl group-hover:scale-110 transition-all duration-500">
-                                            <div className="w-full h-full bg-gradient-to-br from-[var(--accent-color)] to-[var(--primary-color)] rounded-full flex items-center justify-center">
-                                                <span className="text-5xl font-bold text-white">
-                                                    RS
-                                                </span>
+                    {/* Right Column - Experience */}
+                    <div className="space-y-8 h-full">
+                        <div
+                            className="group glass rounded-3xl p-8 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 backdrop-blur-xl relative overflow-hidden animate-slide-up h-full flex flex-col"
+                            style={{animationDelay: "0.2s"}}>
+                            {/* Background Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--secondary-color)]/5 to-[var(--accent-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                            <div className="relative z-10">
+                                <div className="flex items-center space-x-4 mb-6">
+                                    <div className="w-14 h-14 bg-gradient-to-br from-[var(--secondary-color)] to-[var(--accent-color)] rounded-2xl flex items-center justify-center shadow-lg">
+                                        <FaCode className="text-xl text-white" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-[var(--text-primary)]">
+                                        Professional Journey
+                                    </h3>
+                                </div>
+
+                                <div className="space-y-6">
+                                    {/* Current Job */}
+                                    <div className="glass p-5 rounded-xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
+                                        <div className="flex items-start space-x-4">
+                                            <div className="w-3 h-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mt-2 flex-shrink-0"></div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center space-x-2 mb-2">
+                                                    <FaCalendarAlt className="text-[var(--primary-color)] text-sm" />
+                                                    <span className="text-[var(--primary-color)] font-medium text-xs">
+                                                        March 2023 - Present
+                                                    </span>
+                                                </div>
+                                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                                    Full Stack Developer
+                                                </h4>
+                                                <p className="text-[var(--secondary-color)] font-semibold mb-2 text-sm">
+                                                    Codenco IT • Remote
+                                                </p>
+                                                <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                                                    Developing and maintaining
+                                                    full-stack web applications
+                                                    using modern technologies.
+                                                    Working with React, Next.js,
+                                                    Node.js, and various
+                                                    databases to create scalable
+                                                    solutions.
+                                                </p>
                                             </div>
                                         </div>
-                                        <div className="absolute -inset-4 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-2xl animate-pulse"></div>
                                     </div>
 
-                                    <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-3">
-                                        Ripas Sorker Rifat
-                                    </h3>
-                                    <p className="text-[var(--primary-color)] font-semibold text-xl mb-4">
-                                        Full Stack Developer
-                                    </p>
-                                    <div className="glass px-6 py-3 rounded-2xl border border-[var(--border-color)]/50 inline-block">
-                                        <p className="text-[var(--text-secondary)] italic">
-                                            "Code is poetry written in logic"
-                                        </p>
+                                    {/* Freelance Projects */}
+                                    <div className="glass p-5 rounded-xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
+                                        <div className="flex items-start space-x-4">
+                                            <div className="w-3 h-3 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] rounded-full mt-2 flex-shrink-0"></div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center space-x-2 mb-2">
+                                                    <FaCalendarAlt className="text-[var(--secondary-color)] text-sm" />
+                                                    <span className="text-[var(--secondary-color)] font-medium text-xs">
+                                                        2022 - Present
+                                                    </span>
+                                                </div>
+                                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                                    Freelance Developer
+                                                </h4>
+                                                <p className="text-[var(--secondary-color)] font-semibold mb-2 text-sm">
+                                                    Independent Projects •
+                                                    Remote
+                                                </p>
+                                                <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                                                    Working on various freelance
+                                                    projects including
+                                                    e-commerce platforms,
+                                                    portfolio websites, and
+                                                    custom web applications for
+                                                    clients worldwide.
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        {/* Enhanced Quick Stats */}
-                        <div className="grid grid-cols-2 gap-6">
-                            <div className="group glass rounded-2xl p-6 border border-[var(--border-color)] hover:border-[var(--primary-color)]/50 transition-all duration-500 text-center backdrop-blur-xl relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <FaRocket className="text-white text-lg" />
+                                    {/* Internship 1 */}
+                                    <div className="glass p-5 rounded-xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
+                                        <div className="flex items-start space-x-4">
+                                            <div className="w-3 h-3 bg-gradient-to-r from-[var(--accent-color)] to-[var(--primary-color)] rounded-full mt-2 flex-shrink-0"></div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center space-x-2 mb-2">
+                                                    <FaCalendarAlt className="text-[var(--accent-color)] text-sm" />
+                                                    <span className="text-[var(--accent-color)] font-medium text-xs">
+                                                        November 2023 - February
+                                                        2024
+                                                    </span>
+                                                </div>
+                                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                                    Junior Full Stack Developer
+                                                    (Internship)
+                                                </h4>
+                                                <p className="text-[var(--secondary-color)] font-semibold mb-2 text-sm">
+                                                    Eduphy Academy • Remote
+                                                </p>
+                                                <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                                                    Gained hands-on experience
+                                                    in full-stack development
+                                                    through practical projects.
+                                                    Worked with educational
+                                                    technology platforms and
+                                                    learned industry best
+                                                    practices.
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="text-4xl font-bold text-[var(--text-primary)] mb-2">
-                                        120+
-                                    </div>
-                                    <div className="text-[var(--text-secondary)] font-medium">
-                                        Projects Completed
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div className="group glass rounded-2xl p-6 border border-[var(--border-color)] hover:border-[var(--primary-color)]/50 transition-all duration-500 text-center backdrop-blur-xl relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--secondary-color)]/5 to-[var(--accent-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--secondary-color)] to-[var(--accent-color)] rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <FaCalendarAlt className="text-white text-lg" />
-                                    </div>
-                                    <div className="text-4xl font-bold text-[var(--text-primary)] mb-2">
-                                        3+
-                                    </div>
-                                    <div className="text-[var(--text-secondary)] font-medium">
-                                        Years Experience
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="group glass rounded-2xl p-6 border border-[var(--border-color)] hover:border-[var(--primary-color)]/50 transition-all duration-500 text-center backdrop-blur-xl relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-color)]/5 to-[var(--primary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--accent-color)] to-[var(--primary-color)] rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <FaHeart className="text-white text-lg" />
-                                    </div>
-                                    <div className="text-4xl font-bold text-[var(--text-primary)] mb-2">
-                                        45+
-                                    </div>
-                                    <div className="text-[var(--text-secondary)] font-medium">
-                                        Happy Clients
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="group glass rounded-2xl p-6 border border-[var(--border-color)] hover:border-[var(--primary-color)]/50 transition-all duration-500 text-center backdrop-blur-xl relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-[var(--accent-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <div className="relative z-10">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-color)] to-[var(--accent-color)] rounded-xl mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                        <FaTrophy className="text-white text-lg" />
-                                    </div>
-                                    <div className="text-4xl font-bold text-[var(--text-primary)] mb-2">
-                                        8+
-                                    </div>
-                                    <div className="text-[var(--text-secondary)] font-medium">
-                                        Awards Won
+                                    {/* Internship 2 */}
+                                    <div className="glass p-5 rounded-xl border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-300">
+                                        <div className="flex items-start space-x-4">
+                                            <div className="w-3 h-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--accent-color)] rounded-full mt-2 flex-shrink-0"></div>
+                                            <div className="flex-1">
+                                                <div className="flex items-center space-x-2 mb-2">
+                                                    <FaCalendarAlt className="text-[var(--primary-color)] text-sm" />
+                                                    <span className="text-[var(--primary-color)] font-medium text-xs">
+                                                        April 2023 - September
+                                                        2023
+                                                    </span>
+                                                </div>
+                                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">
+                                                    Web Developer (Internship)
+                                                </h4>
+                                                <p className="text-[var(--secondary-color)] font-semibold mb-2 text-sm">
+                                                    The Change • Remote
+                                                </p>
+                                                <p className="text-[var(--text-secondary)] leading-relaxed text-sm">
+                                                    Started my professional
+                                                    journey as a web developer
+                                                    intern. Focused on frontend
+                                                    development, learning
+                                                    responsive design principles
+                                                    and modern web technologies.
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

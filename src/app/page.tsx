@@ -1,9 +1,9 @@
 import Header from "../components/header";
 import Banner from "../components/banner";
-import About from "../components/about";
+import AboutMe from "../components/about-me";
+import Experience from "../components/experience";
 import Skills from "../components/skills";
 import Projects from "../components/projects";
-import Stats from "../components/stats";
 import Education from "../components/education";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
@@ -17,11 +17,10 @@ export default function Home() {
                     <Banner />
                 </section>
                 <Projects />
-                <About />
+                <Experience />
                 <Skills />
-                <Stats />
+                <AboutMe />
                 <Education />
-
                 <Contact />
             </main>
             <Footer />

@@ -11,11 +11,11 @@ const Header = () => {
 
     const navLinks = [
         { name: "Home", href: "#home" },
-        { name: "About", href: "#about" },
-        { name: "Skills", href: "#skills" },
         { name: "Projects", href: "#projects" },
+        { name: "Experience", href: "#experience" },
+        { name: "Skills", href: "#skills" },
+        { name: "About", href: "#about" },
         { name: "Education", href: "#education" },
-        { name: "Testimonials", href: "#testimonials" },
         { name: "Contact", href: "#contact" },
     ];
 
@@ -36,9 +36,9 @@ const Header = () => {
     };
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
             isScrolled 
-                ? 'bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 shadow-lg' 
+                ? 'bg-[var(--card-bg)]/95 backdrop-blur-xl border-b border-[var(--border-color)]/50 shadow-2xl shadow-[var(--primary-color)]/10' 
                 : 'bg-transparent'
         }`}>
             <div className="container mx-auto px-4">
@@ -53,10 +53,10 @@ const Header = () => {
                             className="rounded-full"
                         />
                         <div className="hidden sm:block">
-                            <h1 className="text-xl font-bold text-white">
-                                Ripas <span className="text-cyan-400">Sorker</span>
+                            <h1 className="text-xl font-bold text-[var(--text-primary)]">
+                                Ripas <span className="text-[var(--primary-color)]">Sorker</span>
                             </h1>
-                            <p className="text-xs text-gray-400">Full Stack Developer</p>
+                            <p className="text-xs text-[var(--text-secondary)]">Full Stack Developer</p>
                         </div>
                     </div>
 
@@ -67,10 +67,10 @@ const Header = () => {
                                 <Link
                                     href={link.href}
                                     onClick={() => scrollToSection(link.href)}
-                                    className="group text-gray-300 hover:text-cyan-400 font-medium transition-all duration-300 relative"
+                                    className="group text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-all duration-300 relative"
                                 >
                                     <span>{link.name}</span>
-                                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-600 group-hover:w-full transition-all duration-300"></div>
+                                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] group-hover:w-full transition-all duration-300"></div>
                                 </Link>
                             </li>
                         ))}
@@ -81,7 +81,7 @@ const Header = () => {
                         <Link
                             href="#contact"
                             onClick={() => scrollToSection('#contact')}
-                            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+                            className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--primary-color)]/25"
                         >
                             Hire Me
                         </Link>
@@ -90,7 +90,7 @@ const Header = () => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="lg:hidden w-10 h-10 bg-slate-800/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-cyan-500/20 transition-all duration-300"
+                        className="lg:hidden w-10 h-10 bg-[var(--card-bg)]/50 backdrop-blur-sm rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-[var(--primary-color)]/20 transition-all duration-300"
                     >
                         {isMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
                     </button>
@@ -100,25 +100,25 @@ const Header = () => {
                 <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
                     isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                    <div className="bg-slate-800/95 backdrop-blur-md rounded-2xl mt-4 p-6 border border-slate-700/50">
+                    <div className="bg-[var(--card-bg)]/95 backdrop-blur-md rounded-2xl mt-4 p-6 border border-[var(--border-color)]/50">
                         <ul className="space-y-4">
                             {navLinks.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
                                         onClick={() => scrollToSection(link.href)}
-                                        className="w-full text-gray-300 hover:text-cyan-400 font-medium transition-all duration-300 p-3 rounded-lg hover:bg-slate-700/50 block"
+                                        className="w-full text-[var(--text-secondary)] hover:text-[var(--primary-color)] font-medium transition-all duration-300 p-3 rounded-lg hover:bg-[var(--card-bg)]/50 block"
                                     >
                                         <span>{link.name}</span>
                                     </Link>
                                 </li>
                             ))}
                         </ul>
-                        <div className="mt-6 pt-4 border-t border-slate-700/50">
+                        <div className="mt-6 pt-4 border-t border-[var(--border-color)]/50">
                             <Link
                                 href="#contact"
                                 onClick={() => scrollToSection('#contact')}
-                                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-3 rounded-full transition-all duration-300"
+                                className="w-full bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold py-3 rounded-full transition-all duration-300 text-center block"
                             >
                                 Hire Me
                             </Link>
