@@ -1,6 +1,4 @@
-"use client";
-
-import {useState} from "react";
+import React from "react";
 import {
     FaReact,
     FaNodeJs,
@@ -13,11 +11,6 @@ import {
     FaRocket,
     FaUsers,
     FaBrain,
-    FaLightbulb,
-    FaDatabase,
-    FaServer,
-    FaPalette,
-    FaTools,
 } from "react-icons/fa";
 import {
     SiNextdotjs,
@@ -30,146 +23,97 @@ import {
     SiPostgresql,
     SiRedis,
     SiVercel,
+    SiPrisma,
+    SiFirebase,
 } from "react-icons/si";
 import {VscCode} from "react-icons/vsc";
 
 const Skills = () => {
-    const [activeCategory, setActiveCategory] = useState("frontend");
-
-    const skillCategories = {
-        frontend: {
-            title: "Frontend Development",
-            icon: <FaPalette />,
-            color: "from-blue-400 to-cyan-600",
-            bgColor: "from-blue-400/10 to-cyan-600/10",
-            skills: [
-                {
-                    name: "React.js",
-                    icon: <FaReact />,
-                    color: "text-blue-400",
-                    description: "Modern UI Library",
-                },
-                {
-                    name: "Next.js",
-                    icon: <SiNextdotjs />,
-                    color: "text-gray-300",
-                    description: "Full-Stack Framework",
-                },
-                {
-                    name: "TypeScript",
-                    icon: <SiTypescript />,
-                    color: "text-blue-600",
-                    description: "Type-Safe JavaScript",
-                },
-                {
-                    name: "Tailwind CSS",
-                    icon: <SiTailwindcss />,
-                    color: "text-cyan-400",
-                    description: "Utility-First CSS",
-                },
-                {
-                    name: "JavaScript",
-                    icon: <SiJavascript />,
-                    color: "text-yellow-400",
-                    description: "Core Language",
-                },
-                {
-                    name: "HTML5/CSS3",
-                    icon: <SiHtml5 />,
-                    color: "text-orange-500",
-                    description: "Web Fundamentals",
-                },
-            ],
+    const allSkills = [
+        {name: "React", icon: <FaReact />, color: "from-blue-400 to-blue-600"},
+        {
+            name: "Next.js",
+            icon: <SiNextdotjs />,
+            color: "from-gray-600 to-gray-800",
         },
-        backend: {
-            title: "Backend Development",
-            icon: <FaServer />,
-            color: "from-green-400 to-emerald-600",
-            bgColor: "from-green-400/10 to-emerald-600/10",
-            skills: [
-                {
-                    name: "Node.js",
-                    icon: <FaNodeJs />,
-                    color: "text-green-500",
-                    description: "Server Runtime",
-                },
-                {
-                    name: "Express.js",
-                    icon: <SiExpress />,
-                    color: "text-gray-300",
-                    description: "Web Framework",
-                },
-                {
-                    name: "Python",
-                    icon: <FaPython />,
-                    color: "text-yellow-400",
-                    description: "Versatile Language",
-                },
-                {
-                    name: "MongoDB",
-                    icon: <SiMongodb />,
-                    color: "text-green-400",
-                    description: "NoSQL Database",
-                },
-                {
-                    name: "PostgreSQL",
-                    icon: <SiPostgresql />,
-                    color: "text-blue-400",
-                    description: "SQL Database",
-                },
-                {
-                    name: "Redis",
-                    icon: <SiRedis />,
-                    color: "text-red-500",
-                    description: "In-Memory Store",
-                },
-            ],
+        {
+            name: "TypeScript",
+            icon: <SiTypescript />,
+            color: "from-blue-500 to-blue-700",
         },
-        tools: {
-            title: "Tools & Technologies",
-            icon: <FaTools />,
-            color: "from-purple-400 to-pink-600",
-            bgColor: "from-purple-400/10 to-pink-600/10",
-            skills: [
-                {
-                    name: "Git/GitHub",
-                    icon: <FaGitAlt />,
-                    color: "text-orange-500",
-                    description: "Version Control",
-                },
-                {
-                    name: "Docker",
-                    icon: <FaDocker />,
-                    color: "text-blue-500",
-                    description: "Containerization",
-                },
-                {
-                    name: "AWS",
-                    icon: <FaAws />,
-                    color: "text-orange-400",
-                    description: "Cloud Platform",
-                },
-                {
-                    name: "Vercel",
-                    icon: <SiVercel />,
-                    color: "text-gray-300",
-                    description: "Deployment",
-                },
-                {
-                    name: "Figma",
-                    icon: <FaFigma />,
-                    color: "text-purple-500",
-                    description: "UI/UX Design",
-                },
-                {
-                    name: "VS Code",
-                    icon: <VscCode />,
-                    color: "text-blue-400",
-                    description: "Code Editor",
-                },
-            ],
+        {
+            name: "JavaScript",
+            icon: <SiJavascript />,
+            color: "from-yellow-400 to-yellow-600",
         },
-    };
+        {
+            name: "Node.js",
+            icon: <FaNodeJs />,
+            color: "from-green-500 to-green-700",
+        },
+        {
+            name: "Express.js",
+            icon: <SiExpress />,
+            color: "from-gray-500 to-gray-700",
+        },
+        {
+            name: "MongoDB",
+            icon: <SiMongodb />,
+            color: "from-green-400 to-green-600",
+        },
+        {
+            name: "PostgreSQL",
+            icon: <SiPostgresql />,
+            color: "from-blue-400 to-blue-600",
+        },
+        {
+            name: "Prisma",
+            icon: <SiPrisma />,
+            color: "from-indigo-400 to-indigo-600",
+        },
+        {
+            name: "Tailwind CSS",
+            icon: <SiTailwindcss />,
+            color: "from-cyan-400 to-cyan-600",
+        },
+        {
+            name: "Redux",
+            icon: <FaReact />,
+            color: "from-purple-500 to-purple-700",
+        },
+        {name: "Redis", icon: <SiRedis />, color: "from-red-500 to-red-700"},
+        {
+            name: "Firebase",
+            icon: <SiFirebase />,
+            color: "from-orange-400 to-orange-600",
+        },
+        {
+            name: "Git",
+            icon: <FaGitAlt />,
+            color: "from-orange-500 to-orange-700",
+        },
+        {
+            name: "Docker",
+            icon: <FaDocker />,
+            color: "from-blue-500 to-blue-700",
+        },
+        {name: "AWS", icon: <FaAws />, color: "from-orange-400 to-orange-600"},
+        {
+            name: "Vercel",
+            icon: <SiVercel />,
+            color: "from-gray-600 to-gray-800",
+        },
+        {
+            name: "Figma",
+            icon: <FaFigma />,
+            color: "from-purple-500 to-purple-700",
+        },
+        {
+            name: "Python",
+            icon: <FaPython />,
+            color: "from-yellow-400 to-yellow-600",
+        },
+    ];
 
     return (
         <section
@@ -198,140 +142,132 @@ const Skills = () => {
                     <p
                         className="text-[var(--text-secondary)] text-xl max-w-3xl mx-auto animate-slide-up leading-relaxed"
                         style={{animationDelay: "0.2s"}}>
-                        Cutting-edge technologies and tools I master to
-                        transform innovative ideas into exceptional digital
-                        experiences
+                        Technologies and tools I use to build exceptional
+                        digital experiences
                     </p>
                 </div>
 
-                {/* Enhanced Category Tabs */}
-                <div className="flex flex-wrap justify-center gap-6 mb-16">
-                    {Object.entries(skillCategories).map(([key, category]) => (
-                        <button
-                            key={key}
-                            onClick={() => setActiveCategory(key)}
-                            className={`group relative px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500 transform hover:scale-105 ${
-                                activeCategory === key
-                                    ? `bg-gradient-to-r ${category.color} text-white shadow-2xl shadow-[var(--primary-color)]/30 glass border border-white/20`
-                                    : "glass border border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--primary-color)]/50 hover:shadow-xl hover:shadow-[var(--primary-color)]/20"
-                            }}`}>
-                            <div className="flex items-center space-x-3">
-                                <div
-                                    className={`text-xl transition-transform duration-300 group-hover:scale-110 ${
-                                        activeCategory === key
-                                            ? "text-white"
-                                            : "text-[var(--primary-color)]"
-                                    }`}>
-                                    {category.icon}
-                                </div>
-                                <span>{category.title}</span>
-                            </div>
-                            {activeCategory === key && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 rounded-2xl animate-pulse"></div>
-                            )}
-                        </button>
-                    ))}
-                </div>
+                {/* Skills Floating Layout */}
+                <div className="relative max-w-6xl mx-auto min-h-[600px]">
+                    {/* Floating Skills */}
+                    <div className="absolute inset-0">
+                        {allSkills.map((skill, index) => {
+                            // Create a more organic floating layout
+                            const positions = [
+                                {top: "10%", left: "15%"},
+                                {top: "25%", left: "75%"},
+                                {top: "5%", left: "45%"},
+                                {top: "35%", left: "25%"},
+                                {top: "15%", left: "85%"},
+                                {top: "45%", left: "65%"},
+                                {top: "55%", left: "15%"},
+                                {top: "25%", left: "55%"},
+                                {top: "65%", left: "80%"},
+                                {top: "75%", left: "35%"},
+                                {top: "85%", left: "65%"},
+                                {top: "43%", left: "5%"},
+                                {top: "75%", left: "75%"},
+                                {top: "55%", left: "45%"},
+                                {top: "85%", left: "15%"},
+                                {top: "35%", left: "85%"},
+                                {top: "65%", left: "25%"},
+                                {top: "95%", left: "55%"},
+                                {top: "5%", left: "75%"},
+                            ];
 
-                {/* Enhanced Skills Grid */}
-                <div className="max-w-6xl mx-auto">
-                    <div
-                        className={`glass rounded-3xl p-8 border border-[var(--border-color)] bg-gradient-to-br ${
-                            skillCategories[
-                                activeCategory as keyof typeof skillCategories
-                            ].bgColor
-                        } backdrop-blur-xl mb-12`}>
-                        <div className="flex items-center justify-center space-x-4 mb-8">
-                            <div
-                                className={`w-16 h-16 bg-gradient-to-br ${
-                                    skillCategories[
-                                        activeCategory as keyof typeof skillCategories
-                                    ].color
-                                } rounded-2xl flex items-center justify-center shadow-lg`}>
-                                <div className="text-2xl text-white">
-                                    {
-                                        skillCategories[
-                                            activeCategory as keyof typeof skillCategories
-                                        ].icon
-                                    }
-                                </div>
-                            </div>
-                            <h3 className="text-4xl font-bold text-[var(--text-primary)]">
-                                {
-                                    skillCategories[
-                                        activeCategory as keyof typeof skillCategories
-                                    ].title
-                                }
-                            </h3>
-                        </div>
+                            const position =
+                                positions[index % positions.length];
 
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {skillCategories[
-                                activeCategory as keyof typeof skillCategories
-                            ].skills.map((skill, index) => (
+                            return (
                                 <div
                                     key={skill.name}
-                                    className="group glass rounded-3xl p-8 border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden animate-slide-up"
-                                    style={{animationDelay: `${index * 0.1}s`}}>
-                                    {/* Hover Background Effect */}
-                                    <div
-                                        className={`absolute inset-0 bg-gradient-to-br ${
-                                            skillCategories[
-                                                activeCategory as keyof typeof skillCategories
-                                            ].bgColor
-                                        } opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-
-                                    {/* Floating Glow Effect */}
-                                    <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                    <div className="relative z-10 text-center">
-                                        {/* Icon Container */}
-                                        <div className="flex justify-center mb-6">
-                                            <div
-                                                className={`w-20 h-20 bg-gradient-to-br ${
-                                                    skillCategories[
-                                                        activeCategory as keyof typeof skillCategories
-                                                    ].color
-                                                } rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                                                <div className="text-3xl text-white group-hover:animate-pulse">
-                                                    {skill.icon}
-                                                </div>
+                                    className="absolute group animate-slide-up"
+                                    style={{
+                                        top: position.top,
+                                        left: position.left,
+                                        transform: "translate(-50%, -50%)",
+                                        animationDelay: `${index * 0.1}s`,
+                                    }}>
+                                    <div className="relative">
+                                        {/* Floating Orb */}
+                                        <div
+                                            className={`w-20 h-20 bg-gradient-to-br ${skill.color} rounded-full flex items-center justify-center shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-125 cursor-pointer group-hover:animate-pulse border-4 border-white/20 backdrop-blur-sm`}>
+                                            <div className="text-2xl text-white group-hover:scale-110 transition-transform duration-300">
+                                                {skill.icon}
                                             </div>
                                         </div>
 
-                                        {/* Skill Name */}
-                                        <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--primary-color)] transition-colors duration-300">
-                                            {skill.name}
-                                        </h4>
-
-                                        {/* Description */}
-                                        <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 group-hover:text-[var(--text-primary)] transition-colors duration-300">
-                                            {skill.description}
-                                        </p>
-
-                                        {/* Decorative Elements */}
-                                        <div className="flex justify-center space-x-2">
-                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${
-                                                skillCategories[
-                                                    activeCategory as keyof typeof skillCategories
-                                                ].color
-                                            } animate-pulse`}></div>
-                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${
-                                                skillCategories[
-                                                    activeCategory as keyof typeof skillCategories
-                                                ].color
-                                            } animate-pulse`} style={{animationDelay: '0.2s'}}></div>
-                                            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${
-                                                skillCategories[
-                                                    activeCategory as keyof typeof skillCategories
-                                                ].color
-                                            } animate-pulse`} style={{animationDelay: '0.4s'}}></div>
+                                        {/* Skill Name Tooltip */}
+                                        <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                                            <div className="bg-[var(--card-bg)] backdrop-blur-xl border border-[var(--border-color)] rounded-lg px-3 py-2 shadow-xl">
+                                                <p className="text-sm font-semibold text-[var(--text-primary)] whitespace-nowrap">
+                                                    {skill.name}
+                                                </p>
+                                            </div>
+                                            {/* Arrow */}
+                                            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-[var(--card-bg)] border-l border-t border-[var(--border-color)] rotate-45"></div>
                                         </div>
+
+                                        {/* Floating Animation Rings */}
+                                        <div
+                                            className={`absolute inset-0 rounded-full bg-gradient-to-br ${skill.color} opacity-20 animate-ping group-hover:animate-pulse`}></div>
+                                        <div
+                                            className={`absolute -inset-2 rounded-full bg-gradient-to-br ${skill.color} opacity-10 animate-pulse`}
+                                            style={{
+                                                animationDelay: "0.5s",
+                                            }}></div>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            );
+                        })}
                     </div>
+
+                    {/* Connecting Lines Animation */}
+                    <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20">
+                        <defs>
+                            <linearGradient
+                                id="lineGradient"
+                                x1="0%"
+                                y1="0%"
+                                x2="100%"
+                                y2="100%">
+                                <stop
+                                    offset="0%"
+                                    stopColor="var(--primary-color)"
+                                    stopOpacity="0.3"
+                                />
+                                <stop
+                                    offset="100%"
+                                    stopColor="var(--secondary-color)"
+                                    stopOpacity="0.1"
+                                />
+                            </linearGradient>
+                        </defs>
+                        {/* Animated connecting lines */}
+                        <path
+                            d="M 100 60 Q 300 100 500 80 T 900 120"
+                            stroke="url(#lineGradient)"
+                            strokeWidth="2"
+                            fill="none"
+                            className="animate-pulse"
+                        />
+                        <path
+                            d="M 150 200 Q 400 150 650 180 T 850 160"
+                            stroke="url(#lineGradient)"
+                            strokeWidth="1.5"
+                            fill="none"
+                            className="animate-pulse"
+                            style={{animationDelay: "1s"}}
+                        />
+                        <path
+                            d="M 80 350 Q 350 300 600 340 T 920 320"
+                            stroke="url(#lineGradient)"
+                            strokeWidth="1"
+                            fill="none"
+                            className="animate-pulse"
+                            style={{animationDelay: "2s"}}
+                        />
+                    </svg>
                 </div>
 
                 {/* Enhanced Soft Skills Section */}
