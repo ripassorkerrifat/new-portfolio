@@ -123,9 +123,9 @@ const Experience = () => {
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
                         Professional{" "}
-                        <span className="text-[var(--secondary-color)]">
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Journey
                         </span>
                     </h2>

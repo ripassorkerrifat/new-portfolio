@@ -125,7 +125,7 @@ const Footer = () => {
                             Navigation
                         </h4>
                         <ul className="space-y-4">
-                            {quickLinks.map((link, index) => (
+                            {quickLinks.map((link) => (
                                 <li key={link.name}>
                                     <a
                                         href={link.href}

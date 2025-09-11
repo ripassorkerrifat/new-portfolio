@@ -61,9 +61,11 @@ const AboutMe = () => {
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
                         About{" "}
-                        <span className="text-[var(--primary-color)]">Me</span>
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
+                            Me
+                        </span>
                     </h2>
                     <p
                         className="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed animate-slide-up"
@@ -134,18 +136,33 @@ const AboutMe = () => {
                                     <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
                                         With over 2 years of professional
                                         experience, I've worked on diverse
-                                        projects including <span className="text-[var(--primary-color)] font-medium">OTA (Online Travel Agency) platforms</span> as a frontend expert, 
-                                        comprehensive <span className="text-[var(--primary-color)] font-medium">HRMS (Human Resource Management Systems)</span>, 
-                                        and elegant <span className="text-[var(--primary-color)] font-medium">jewelry e-commerce platforms</span>. 
-                                        I'm passionate about writing clean, maintainable code and creating
-                                        intuitive user interfaces that solve
-                                        real-world problems.
+                                        projects including{" "}
+                                        <span className="text-[var(--primary-color)] font-medium">
+                                            OTA (Online Travel Agency) platforms
+                                        </span>{" "}
+                                        as a frontend expert, comprehensive{" "}
+                                        <span className="text-[var(--primary-color)] font-medium">
+                                            HRMS (Human Resource Management
+                                            Systems)
+                                        </span>
+                                        , and elegant{" "}
+                                        <span className="text-[var(--primary-color)] font-medium">
+                                            jewelry e-commerce platforms
+                                        </span>
+                                        . I'm passionate about writing clean,
+                                        maintainable code and creating intuitive
+                                        user interfaces that solve real-world
+                                        problems.
                                     </p>
                                     <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
-                                        My expertise spans across frontend development with modern frameworks, 
-                                        full-stack application architecture, and creating seamless user experiences 
-                                        for complex business domains. I enjoy tackling challenging projects that 
-                                        require both technical excellence and creative problem-solving.
+                                        My expertise spans across frontend
+                                        development with modern frameworks,
+                                        full-stack application architecture, and
+                                        creating seamless user experiences for
+                                        complex business domains. I enjoy
+                                        tackling challenging projects that
+                                        require both technical excellence and
+                                        creative problem-solving.
                                     </p>
                                 </div>
 
