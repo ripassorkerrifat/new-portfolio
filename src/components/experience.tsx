@@ -114,23 +114,23 @@ const Experience = () => {
     return (
         <section
             id="experience"
-            className="py-20 bg-gradient-to-br from-[var(--secondary-bg)] via-[var(--primary-bg)] to-[var(--secondary-bg)] relative overflow-hidden">
+            className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--secondary-bg)] via-[var(--primary-bg)] to-[var(--secondary-bg)] relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--secondary-color)]/5 via-transparent to-[var(--accent-color)]/5"></div>
             <div className="absolute top-20 right-10 w-80 h-80 bg-[var(--secondary-color)]/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--accent-color)]/10 rounded-full blur-3xl"></div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6 animate-slide-up">
                         Professional{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Journey
                         </span>
                     </h2>
                     <p
-                        className="text-base lg:text-lg text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
                         style={{animationDelay: "0.2s"}}>
                         My career path showcases a progression from curious
                         beginner to experienced full-stack developer, with each
@@ -139,10 +139,10 @@ const Experience = () => {
                 </div>
 
                 {/* Experience Timeline */}
-                <div className="container mx-auto px-4">
+                <div className="">
                     <div className="relative">
                         {/* Timeline Line */}
-                        <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] rounded-full"></div>
+                        <div className="absolute left-4 sm:left-8 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] opacity-30"></div>
 
                         {/* Experience Items */}
                         <div className="space-y-8">
@@ -153,101 +153,107 @@ const Experience = () => {
                                 return (
                                     <div
                                         key={exp.id}
-                                        className={`relative flex items-center ${
-                                            isEven
-                                                ? "md:flex-row"
-                                                : "md:flex-row-reverse"
-                                        } animate-slide-up`}
+                                        className="relative animate-slide-up"
                                         style={{
                                             animationDelay: `${
                                                 0.3 + index * 0.2
                                             }s`,
                                         }}>
-                                        {/* Timeline Node */}
-                                        <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
-                                            <div
-                                                className={`w-16 h-16 bg-gradient-to-br ${exp.color} rounded-full flex items-center justify-center shadow-lg border-4 border-[var(--primary-bg)]`}>
-                                                <IconComponent className="text-white text-xl" />
-                                            </div>
-                                        </div>
-
-                                        {/* Content Card */}
                                         <div
-                                            className={`w-full md:w-[48%] ml-20 md:ml-0 ${
+                                            className={`flex items-start ${
                                                 isEven
-                                                    ? "md:mr-auto md:pr-8"
-                                                    : "md:ml-auto md:pl-8"
+                                                    ? "md:flex-row"
+                                                    : "md:flex-row-reverse"
                                             }`}>
-                                            <div className="group glass rounded-3xl p-6 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 backdrop-blur-xl relative overflow-hidden">
-                                                {/* Background Gradient */}
+                                            {/* Timeline Node */}
+                                            <div className="absolute left-4 sm:left-8 md:left-1/2 transform md:-translate-x-1/2 top-8 z-10">
                                                 <div
-                                                    className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                                                    className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${exp.color} rounded-full flex items-center justify-center shadow-lg border-2 sm:border-4 border-[var(--primary-bg)]`}>
+                                                    <IconComponent className="text-white text-sm sm:text-xl" />
+                                                </div>
+                                            </div>
 
-                                                {/* Current Badge */}
-                                                {exp.current && (
-                                                    <div className="absolute top-4 right-4">
-                                                        <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full border border-green-500/30">
-                                                            Current
-                                                        </span>
-                                                    </div>
-                                                )}
+                                            {/* Content Card */}
+                                            <div
+                                                className={`w-full md:w-[48%] ml-12 sm:ml-20 md:ml-0 ${
+                                                    isEven
+                                                        ? "md:mr-auto md:pr-8"
+                                                        : "md:ml-auto md:pl-8"
+                                                }`}>
+                                                <div className="group glass rounded-3xl p-4 sm:p-6 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 backdrop-blur-xl relative overflow-hidden">
+                                                    {/* Background Gradient */}
+                                                    <div
+                                                        className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
 
-                                                <div className="relative z-10">
-                                                    {/* Period */}
-                                                    <div className="flex items-center space-x-2 mb-4">
-                                                        <FaCalendarAlt
-                                                            className={`text-sm bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}
-                                                        />
-                                                        <span
-                                                            className={`font-medium text-sm bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}>
-                                                            {exp.period}
-                                                        </span>
-                                                        <span className="px-2 py-1 bg-[var(--card-bg)]/50 text-[var(--text-secondary)] text-xs rounded-full border border-[var(--border-color)]">
-                                                            {exp.type}
-                                                        </span>
-                                                    </div>
+                                                    {/* Current Badge */}
+                                                    {exp.current && (
+                                                        <div className="absolute top-4 right-4">
+                                                            <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full border border-green-500/30">
+                                                                Current
+                                                            </span>
+                                                        </div>
+                                                    )}
 
-                                                    {/* Title & Company */}
-                                                    <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
-                                                        {exp.title}
-                                                    </h3>
-                                                    <div className="flex items-center space-x-2 mb-4">
-                                                        <FaBriefcase className="text-[var(--secondary-color)] text-sm" />
-                                                        <p className="text-[var(--secondary-color)] font-semibold">
-                                                            {exp.company} •{" "}
-                                                            {exp.location}
+                                                    <div className="relative z-10">
+                                                        {/* Period */}
+                                                        <div className="flex items-center space-x-2 mb-4">
+                                                            <FaCalendarAlt
+                                                                className={`text-sm bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}
+                                                            />
+                                                            <span
+                                                                className={`font-medium text-sm bg-gradient-to-r ${exp.color} bg-clip-text text-transparent`}>
+                                                                {exp.period}
+                                                            </span>
+                                                            <span className="px-2 py-1 bg-[var(--card-bg)]/50 text-[var(--text-secondary)] text-xs rounded-full border border-[var(--border-color)]">
+                                                                {exp.type}
+                                                            </span>
+                                                        </div>
+
+                                                        {/* Title & Company */}
+                                                        <h3 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2">
+                                                            {exp.title}
+                                                        </h3>
+                                                        <div className="flex items-center space-x-2 mb-4">
+                                                            <FaBriefcase className="text-[var(--secondary-color)] text-sm" />
+                                                            <p className="text-sm sm:text-base text-[var(--secondary-color)] font-semibold">
+                                                                {exp.company} •{" "}
+                                                                {exp.location}
+                                                            </p>
+                                                        </div>
+
+                                                        {/* Description */}
+                                                        <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed mb-6">
+                                                            {exp.description}
                                                         </p>
-                                                    </div>
 
-                                                    {/* Description */}
-                                                    <p className="text-[var(--text-secondary)] leading-relaxed mb-6">
-                                                        {exp.description}
-                                                    </p>
-
-                                                    {/* Technologies */}
-                                                    <div>
-                                                        <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-3">
-                                                            Technologies Used:
-                                                        </h4>
-                                                        <div className="flex flex-wrap gap-2">
-                                                            {exp.technologies.map(
-                                                                (
-                                                                    tech,
-                                                                    techIndex
-                                                                ) => (
-                                                                    <span
-                                                                        key={
-                                                                            techIndex
-                                                                        }
-                                                                        className={`px-3 py-1 bg-gradient-to-r ${exp.color} bg-opacity-10 text-sm font-medium rounded-full border border-current border-opacity-20`}
-                                                                        style={{
-                                                                            background: `linear-gradient(135deg, var(--primary-color)/10, var(--secondary-color)/10)`,
-                                                                            color: "var(--primary-color)",
-                                                                        }}>
-                                                                        {tech}
-                                                                    </span>
-                                                                )
-                                                            )}
+                                                        {/* Technologies */}
+                                                        <div>
+                                                            <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-3">
+                                                                Technologies
+                                                                Used:
+                                                            </h4>
+                                                            <div className="flex flex-wrap gap-2">
+                                                                {exp.technologies.map(
+                                                                    (
+                                                                        tech,
+                                                                        techIndex
+                                                                    ) => (
+                                                                        <span
+                                                                            key={
+                                                                                techIndex
+                                                                            }
+                                                                            className={`px-3 py-1 bg-gradient-to-r ${exp.color} bg-opacity-10 text-sm font-medium rounded-full border border-current border-opacity-20`}
+                                                                            style={{
+                                                                                background: `linear-gradient(135deg, var(--primary-color)/10, var(--secondary-color)/10)`,
+                                                                                color: "var(--primary-color)",
+                                                                            }}>
+                                                                            {
+                                                                                tech
+                                                                            }
+                                                                        </span>
+                                                                    )
+                                                                )}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

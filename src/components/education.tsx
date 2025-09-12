@@ -69,7 +69,7 @@ const Education = () => {
     return (
         <section
             id="education"
-            className="py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] relative overflow-hidden">
+            className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] relative overflow-hidden">
             {/* Enhanced Background Elements */}
             <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-3xl animate-pulse"></div>
@@ -81,9 +81,9 @@ const Education = () => {
                     style={{animationDelay: "1.5s"}}></div>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Modern Header */}
-                <div className="text-center mb-20">
+                <div className="text-center mb-12 sm:mb-16 lg:mb-20">
                     <div className="inline-flex items-center justify-center mb-8">
                         <div className="relative">
                             <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm">
@@ -92,14 +92,14 @@ const Education = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
                         </div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6 animate-slide-up">
                         My{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Education
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-base md:text-lg max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-sm sm:text-base md:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
                         style={{animationDelay: "0.2s"}}>
                         My academic journey from secondary school to pursuing
                         Computer Science & Engineering at university level.
@@ -110,47 +110,47 @@ const Education = () => {
                 <div className="max-w-5xl mx-auto">
                     <div className="relative">
                         {/* Timeline Line */}
-                        <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] rounded-full opacity-30"></div>
+                        <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] rounded-full opacity-30"></div>
 
-                        <div className="space-y-12">
+                        <div className="space-y-8 sm:space-y-12">
                             {educationData.map((edu, index) => (
                                 <div
                                     key={index}
                                     className="relative animate-slide-up"
                                     style={{animationDelay: `${index * 0.2}s`}}>
                                     {/* Timeline Node */}
-                                    <div className="absolute left-6 top-8 w-5 h-5 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full border-4 border-[var(--primary-bg)] shadow-lg z-10"></div>
+                                    <div className="absolute left-2 sm:left-6 top-8 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full border-2 sm:border-4 border-[var(--primary-bg)] shadow-lg z-10"></div>
 
                                     {/* Timeline Content */}
-                                    <div className="ml-20 group">
-                                        <div className="glass rounded-3xl p-8 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden">
+                                    <div className="ml-12 sm:ml-20 group">
+                                        <div className="glass rounded-3xl p-4 sm:p-6 lg:p-8 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-700 transform hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden">
                                             {/* Background Gradient */}
                                             <div
                                                 className={`absolute inset-0 bg-gradient-to-br ${edu.bgColor} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
                                             <div className="relative z-10">
                                                 {/* Header */}
-                                                <div className="flex items-start justify-between mb-6">
+                                                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 space-y-4 sm:space-y-0">
                                                     <div className="flex items-center space-x-4">
                                                         <div
-                                                            className={`w-16 h-16 bg-gradient-to-br ${edu.color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
-                                                            <span className="text-2xl">
+                                                            className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${edu.color} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
+                                                            <span className="text-lg sm:text-2xl">
                                                                 {edu.icon}
                                                             </span>
                                                         </div>
                                                         <div>
-                                                            <h3 className="text-xl lg:text-2xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                                                            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-[var(--text-primary)] mb-1 group-hover:text-[var(--primary-color)] transition-colors duration-300">
                                                                 {edu.degree}
                                                             </h3>
-                                                            <p className="text-[var(--primary-color)] font-semibold text-base">
+                                                            <p className="text-sm sm:text-base text-[var(--primary-color)] font-semibold">
                                                                 {
                                                                     edu.institution
                                                                 }
                                                             </p>
                                                         </div>
                                                     </div>
-                                                    <div className="text-right">
-                                                        <div className="glass px-4 py-2 text-nowrap rounded-full border border-[var(--primary-color)]/30">
+                                                    <div className="text-left sm:text-right">
+                                                        <div className="glass px-3 sm:px-4 py-2 text-nowrap rounded-full border border-[var(--primary-color)]/30">
                                                             <span className="text-[var(--primary-color)] font-bold">
                                                                 {edu.year}
                                                             </span>
@@ -178,7 +178,7 @@ const Education = () => {
                                                 </div>
 
                                                 {/* Description */}
-                                                <p className="text-[var(--text-secondary)] leading-relaxed text-base mb-6">
+                                                <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed mb-6">
                                                     {edu.description}
                                                 </p>
 
@@ -190,7 +190,7 @@ const Education = () => {
                                                             Key Highlights
                                                         </span>
                                                     </h4>
-                                                    <div className="grid md:grid-cols-2 gap-4">
+                                                    <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                                                         {edu.achievements.map(
                                                             (
                                                                 achievement,

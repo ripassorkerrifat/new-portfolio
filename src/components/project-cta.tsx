@@ -27,7 +27,7 @@ const ProjectCTA: React.FC = () => {
 
             <div className="relative z-10 max-w-7xl mx-auto px-6">
                 {/* Main CTA Container */}
-                <div className="glass rounded-4xl p-16 border border-[var(--border-color)]/40 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/95 to-[var(--secondary-bg)]/95 overflow-hidden relative group">
+                <div className="glass rounded-4xl md:p-16 p-6 py-12  border border-[var(--border-color)]/40 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/95 to-[var(--secondary-bg)]/95 overflow-hidden relative group">
                     {/* Floating Elements */}
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute top-8 left-8 w-24 h-24 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full blur-xl animate-pulse"></div>
@@ -66,7 +66,7 @@ const ProjectCTA: React.FC = () => {
                         </div>
 
                         {/* Enhanced Heading */}
-                        <h3 className="text-5xl lg:text-7xl font-bold text-[var(--text-primary)] mb-8 leading-tight animate-slide-up">
+                        <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[var(--text-primary)] mb-8 leading-tight animate-slide-up">
                             Ready to Build Something{" "}
                             <span className="relative inline-block">
                                 <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
@@ -155,13 +155,13 @@ const ProjectCTA: React.FC = () => {
                         </div>
 
                         {/* Enhanced Action Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-8 justify-center mb-16">
+                        <div className="flex flex-col md:flex-row md:gap-8 gap-4 justify-center">
                             <a
                                 href="#contact"
-                                className="group relative bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white font-bold py-6 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 shadow-2xl hover:shadow-[var(--primary-color)]/50 overflow-hidden animate-slide-up"
+                                className="group flex items-center justify-center relative bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white font-bold py-6 md:px-16 px-8 rounded-3xl transition-all duration-500 transform hover:scale-110 shadow-2xl hover:shadow-[var(--primary-color)]/50 overflow-hidden animate-slide-up"
                                 style={{animationDelay: "0.7s"}}>
                                 <span className="relative z-10 flex items-center gap-4 text-lg">
-                                    <FaRocket className="text-xl group-hover:rotate-12 transition-transform duration-300" />
+                                    <FaRocket className="md:text-xl text-lg group-hover:rotate-12 transition-transform duration-300" />
                                     <span>Start Your Project</span>
                                     <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
                                 </span>
@@ -173,29 +173,15 @@ const ProjectCTA: React.FC = () => {
                                 href="https://github.com/ripassorkerrifat"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group glass border-2 border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] hover:text-[var(--secondary-color)] font-bold py-6 px-16 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-[var(--secondary-color)]/30 relative overflow-hidden animate-slide-up"
+                                className="group flex items-center justify-center glass border-2 border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] hover:text-[var(--secondary-color)] font-bold py-6 md:px-16 px-8 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-[var(--secondary-color)]/30 relative overflow-hidden animate-slide-up"
                                 style={{animationDelay: "0.8s"}}>
                                 <span className="relative z-10 flex items-center gap-4 text-lg">
-                                    <FaCode className="text-xl group-hover:rotate-12 transition-transform duration-300" />
+                                    <FaCode className="md:text-xl text-lg group-hover:rotate-12 transition-transform duration-300" />
                                     <span>Explore My Work</span>
                                     <FaExternalLinkAlt className="group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform duration-300" />
                                 </span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--secondary-color)]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             </a>
-                        </div>
-
-                        {/* Enhanced Contact Info */}
-                        <div
-                            className="pt-12 border-t border-[var(--border-color)]/30 animate-slide-up"
-                            style={{animationDelay: "0.9s"}}>
-                            <div className="flex items-center justify-center gap-3 text-[var(--text-secondary)] text-lg">
-                                <FaCoffee className="text-[var(--primary-color)] text-xl animate-bounce" />
-                                <span>
-                                    Have questions? Let&apos;s discuss your
-                                    project over a coffee (virtual or real!)
-                                </span>
-                                <FaHeart className="text-[var(--secondary-color)] text-xl animate-pulse" />
-                            </div>
                         </div>
                     </div>
                 </div>

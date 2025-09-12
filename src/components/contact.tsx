@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
     return (
         <section
             id="contact"
-            className="py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] relative overflow-hidden">
+            className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] relative overflow-hidden">
             {/* Enhanced Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-3xl animate-float"></div>
@@ -108,9 +108,9 @@ const Contact: React.FC = () => {
                     style={{animationDelay: "4s"}}></div>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Modern Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                     <div className="inline-flex items-center justify-center mb-8">
                         <div className="relative">
                             <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm">
@@ -121,14 +121,14 @@ const Contact: React.FC = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
                         </div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6 animate-slide-up">
                         Let's Create{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Together
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-base md:text-lg max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-sm sm:text-base md:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
                         style={{animationDelay: "0.2s"}}>
                         Have an amazing project in mind? I'd love to hear about
                         it! Let's collaborate and bring your vision to life with
@@ -137,12 +137,12 @@ const Contact: React.FC = () => {
                 </div>
 
                 {/* Enhanced Contact Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-20 lg:mb-24">
                     {contactMethods.map((method, index) => (
                         <a
                             key={method.title}
                             href={method.link}
-                            className={`group relative overflow-hidden glass rounded-3xl p-8 border border-[var(--border-color)]/30 ${method.hoverColor} transition-all duration-700 hover:scale-110 hover:shadow-2xl backdrop-blur-xl animate-slide-up transform hover:-translate-y-2`}
+                            className={`group relative overflow-hidden glass rounded-3xl p-4 sm:p-6 lg:p-8 border border-[var(--border-color)]/30 ${method.hoverColor} transition-all duration-700 hover:scale-110 hover:shadow-2xl backdrop-blur-xl animate-slide-up transform hover:-translate-y-2`}
                             style={{animationDelay: `${index * 0.15}s`}}>
                             {/* Enhanced Animated Background */}
                             <div
@@ -158,18 +158,18 @@ const Contact: React.FC = () => {
                             <div className="relative text-center">
                                 {/* Enhanced Icon Container */}
                                 <div
-                                    className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${method.color} rounded-3xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-white/40 transition-all duration-500 group-hover:rotate-12 group-hover:scale-125 shadow-lg group-hover:shadow-2xl`}>
-                                    <span className="text-3xl group-hover:scale-125 transition-transform duration-500 filter drop-shadow-lg">
+                                    className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 bg-gradient-to-br ${method.color} rounded-3xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-white/40 transition-all duration-500 group-hover:rotate-12 group-hover:scale-125 shadow-lg group-hover:shadow-2xl`}>
+                                    <span className="text-2xl sm:text-3xl group-hover:scale-125 transition-transform duration-500 filter drop-shadow-lg">
                                         {method.icon}
                                     </span>
                                 </div>
 
                                 {/* Enhanced Typography */}
                                 <h3
-                                    className={`text-xl font-bold text-[var(--text-primary)] mb-3 group-hover:${method.textColor} transition-colors duration-300`}>
+                                    className={`text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-2 sm:mb-3 group-hover:${method.textColor} transition-colors duration-300`}>
                                     {method.title}
                                 </h3>
-                                <p className="text-[var(--text-primary)] font-bold mb-2 text-lg group-hover:text-white transition-colors duration-300">
+                                <p className="text-sm sm:text-base lg:text-lg text-[var(--text-primary)] font-bold mb-2 group-hover:text-white transition-colors duration-300">
                                     {method.value}
                                 </p>
                                 <p className="text-[var(--text-secondary)] text-sm leading-relaxed group-hover:text-white/90 transition-colors duration-300">
@@ -192,27 +192,27 @@ const Contact: React.FC = () => {
 
                 {/* Enhanced Main Contact Section */}
                 <div className="max-w-5xl mx-auto">
-                    <div className="relative glass rounded-3xl p-12 border border-[var(--border-color)]/40 hover:border-[var(--primary-color)]/60 transition-all duration-700 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/95 to-[var(--secondary-bg)]/95 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 group overflow-hidden">
+                    <div className="relative glass rounded-3xl p-6 sm:p-8 lg:p-12 border border-[var(--border-color)]/40 hover:border-[var(--primary-color)]/60 transition-all duration-700 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/95 to-[var(--secondary-bg)]/95 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 group overflow-hidden">
                         {/* Floating Background Elements */}
                         <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[var(--primary-color)]/10 to-[var(--secondary-color)]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-br from-[var(--accent-color)]/10 to-[var(--primary-color)]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
                         {/* Form Header */}
-                        <div className="text-center mb-16 relative z-10">
-                            <div className="inline-flex items-center gap-8 mb-10">
+                        <div className="text-center mb-12 sm:mb-16 relative z-10">
+                            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 mb-8 sm:mb-10">
                                 <div className="relative">
-                                    <div className="w-24 h-24 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-[var(--primary-color)]/60 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-xl">
-                                        <span className="text-5xl group-hover:scale-110 transition-transform duration-500 animate-pulse">
+                                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-[var(--primary-color)]/60 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 shadow-xl">
+                                        <span className="text-3xl sm:text-4xl lg:text-5xl group-hover:scale-110 transition-transform duration-500 animate-pulse">
                                             💌
                                         </span>
                                     </div>
                                     <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 </div>
-                                <div className="text-left">
-                                    <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-4 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                                <div className="text-center sm:text-left">
+                                    <h3 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3 sm:mb-4 group-hover:text-[var(--primary-color)] transition-colors duration-300">
                                         Start a Conversation
                                     </h3>
-                                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+                                    <p className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] leading-relaxed">
                                         Tell me about your project and let's
                                         <br />
                                         <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] bg-clip-text text-transparent font-semibold">
@@ -223,9 +223,9 @@ const Contact: React.FC = () => {
                             </div>
 
                             {/* Enhanced Stats */}
-                            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+                            <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-xl sm:max-w-2xl mx-auto">
                                 <div className="text-center">
-                                    <div className="text-2xl font-bold text-[var(--primary-color)] mb-2">
+                                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-[var(--primary-color)] mb-1 sm:mb-2">
                                         24h
                                     </div>
                                     <div className="text-[var(--text-secondary)] text-sm">
@@ -233,7 +233,7 @@ const Contact: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-2xl font-bold text-[var(--secondary-color)] mb-2">
+                                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-[var(--secondary-color)] mb-1 sm:mb-2">
                                         100%
                                     </div>
                                     <div className="text-[var(--text-secondary)] text-sm">
@@ -241,7 +241,7 @@ const Contact: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-2xl font-bold text-[var(--accent-color)] mb-2">
+                                    <div className="text-lg sm:text-xl lg:text-2xl font-bold text-[var(--accent-color)] mb-1 sm:mb-2">
                                         50+
                                     </div>
                                     <div className="text-[var(--text-secondary)] text-sm">
@@ -288,14 +288,16 @@ const Contact: React.FC = () => {
 
                         <form
                             onSubmit={handleSubmit}
-                            className="space-y-10 relative z-10">
-                            <div className="grid md:grid-cols-2 gap-10">
+                            className="space-y-6 sm:space-y-8 lg:space-y-10 relative z-10">
+                            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
                                 <div className="group relative">
                                     <label
                                         htmlFor="name"
                                         className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-blue-400/60 transition-all duration-300 group-hover:scale-110">
-                                            <span className="text-lg">👤</span>
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-blue-400/60 transition-all duration-300 group-hover:scale-110">
+                                            <span className="text-sm sm:text-lg">
+                                                👤
+                                            </span>
                                         </div>
                                         Your Name
                                     </label>
@@ -317,8 +319,10 @@ const Contact: React.FC = () => {
                                     <label
                                         htmlFor="email"
                                         className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                        <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-green-400/60 transition-all duration-300 group-hover:scale-110">
-                                            <span className="text-lg">📧</span>
+                                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-green-400/60 transition-all duration-300 group-hover:scale-110">
+                                            <span className="text-sm sm:text-lg">
+                                                📧
+                                            </span>
                                         </div>
                                         Email Address
                                     </label>
@@ -342,8 +346,10 @@ const Contact: React.FC = () => {
                                 <label
                                     htmlFor="subject"
                                     className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-purple-400/60 transition-all duration-300 group-hover:scale-110">
-                                        <span className="text-lg">💡</span>
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-purple-400/60 transition-all duration-300 group-hover:scale-110">
+                                        <span className="text-sm sm:text-lg">
+                                            💡
+                                        </span>
                                     </div>
                                     Project Subject
                                 </label>
@@ -366,8 +372,10 @@ const Contact: React.FC = () => {
                                 <label
                                     htmlFor="message"
                                     className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-orange-400/60 transition-all duration-300 group-hover:scale-110">
-                                        <span className="text-lg">💬</span>
+                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-orange-400/60 transition-all duration-300 group-hover:scale-110">
+                                        <span className="text-sm sm:text-lg">
+                                            💬
+                                        </span>
                                     </div>
                                     Tell Me More
                                 </label>
@@ -378,8 +386,8 @@ const Contact: React.FC = () => {
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
-                                        rows={8}
-                                        className="w-full px-6 py-4 glass border-2 border-[var(--border-color)]/40 rounded-3xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/30 focus:border-[var(--primary-color)] transition-all duration-500 hover:border-[var(--secondary-color)]/60 backdrop-blur-sm resize-none text-base leading-relaxed group-hover:shadow-2xl bg-gradient-to-r from-[var(--primary-bg)]/50 to-[var(--secondary-bg)]/50"
+                                        rows={6}
+                                        className="w-full px-4 sm:px-6 py-3 sm:py-4 glass border-2 border-[var(--border-color)]/40 rounded-3xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/30 focus:border-[var(--primary-color)] transition-all duration-500 hover:border-[var(--secondary-color)]/60 backdrop-blur-sm resize-none text-sm sm:text-base leading-relaxed group-hover:shadow-2xl bg-gradient-to-r from-[var(--primary-bg)]/50 to-[var(--secondary-bg)]/50"
                                         placeholder="Share your vision! Tell me about your project goals, timeline, budget, or any specific requirements. The more details you provide, the better I can help bring your ideas to life."
                                     />
                                     <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -390,7 +398,7 @@ const Contact: React.FC = () => {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="group relative w-full bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] hover:from-[var(--primary-color)]/90 hover:via-[var(--secondary-color)]/90 hover:to-[var(--accent-color)]/90 text-white font-bold py-6 px-8 rounded-3xl transition-all duration-500 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/40 focus:ring-offset-4 focus:ring-offset-[var(--primary-bg)] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none shadow-2xl hover:shadow-3xl hover:shadow-[var(--primary-color)]/40 text-lg overflow-hidden">
+                                    className="group relative w-full bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] hover:from-[var(--primary-color)]/90 hover:via-[var(--secondary-color)]/90 hover:to-[var(--accent-color)]/90 text-white font-bold py-4 sm:py-5 lg:py-6 px-6 sm:px-8 rounded-3xl transition-all duration-500 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/40 focus:ring-offset-4 focus:ring-offset-[var(--primary-bg)] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none shadow-2xl hover:shadow-3xl hover:shadow-[var(--primary-color)]/40 text-base sm:text-lg overflow-hidden">
                                     {/* Button Background Animation */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
@@ -404,14 +412,14 @@ const Contact: React.FC = () => {
                                             </>
                                         ) : (
                                             <>
-                                                <span className="text-4xl group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
+                                                <span className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                                                     🚀
                                                 </span>
-                                                <span className="text-lg">
+                                                <span className="text-sm sm:text-base lg:text-lg">
                                                     Let's Start Building
                                                     Together
                                                 </span>
-                                                <span className="text-lg group-hover:translate-x-2 transition-transform duration-300">
+                                                <span className="text-sm sm:text-base lg:text-lg group-hover:translate-x-2 transition-transform duration-300">
                                                     →
                                                 </span>
                                             </>
@@ -422,11 +430,13 @@ const Contact: React.FC = () => {
                         </form>
 
                         {/* Enhanced Bottom Section */}
-                        <div className="mt-12 pt-8 border-t border-[var(--border-color)]/20">
-                            <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[var(--border-color)]/20">
+                            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border border-green-500/30">
-                                        <span className="text-2xl">🔒</span>
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border border-green-500/30">
+                                        <span className="text-lg sm:text-2xl">
+                                            🔒
+                                        </span>
                                     </div>
                                     <div>
                                         <div className="font-bold text-[var(--text-primary)] text-lg">
@@ -439,8 +449,10 @@ const Contact: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center border border-blue-500/30">
-                                        <span className="text-2xl">⚡</span>
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center border border-blue-500/30">
+                                        <span className="text-lg sm:text-2xl">
+                                            ⚡
+                                        </span>
                                     </div>
                                     <div>
                                         <div className="font-bold text-[var(--text-primary)] text-lg">

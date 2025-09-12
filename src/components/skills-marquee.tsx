@@ -102,11 +102,11 @@ const SkillsMarquee = () => {
                 {skills.map((skill, index) => (
                     <div
                         key={`first-${index}`}
-                        className="inline-flex items-center mx-4 px-6 py-3 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
+                        className="inline-flex items-center md:mx-4 mx-2 md:px-6 px-4 py-3 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
                         <img
                             src={skill.logo}
                             alt={skill.name}
-                            className="size-7 mr-4 filter drop-shadow-lg"
+                            className="md:size-7 size-6 mr-4 filter drop-shadow-lg"
                         />
                         <span className="pr-6 font-bold text-[var(--text-primary)] tracking-wide">
                             {skill.name}
@@ -118,11 +118,11 @@ const SkillsMarquee = () => {
                 {skills.map((skill, index) => (
                     <div
                         key={`second-${index}`}
-                        className="inline-flex items-center mx-4 px-6 py-3 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
+                        className="inline-flex items-center md:mx-4 mx-2 md:px-6 px-4 py-3 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
                         <img
                             src={skill.logo}
                             alt={skill.name}
-                            className="size-7 mr-4 filter drop-shadow-lg"
+                            className="md:size-7 size-6 mr-4 filter drop-shadow-lg"
                         />
                         <span className="pr-6 font-bold text-[var(--text-primary)] tracking-wide">
                             {skill.name}

@@ -230,19 +230,19 @@ const Projects: React.FC = () => {
     return (
         <section
             id="projects"
-            className="py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)]">
+            className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)]">
             {/* Call to Action */}
             <ProjectCTA />
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-[var(--text-primary)] mb-6 animate-slide-up">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12 sm:mb-16">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6 animate-slide-up">
                         My{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Projects
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-base md:text-lg max-w-3xl mx-auto leading-relaxed animate-slide-up"
+                        className="text-[var(--text-secondary)] text-sm sm:text-base md:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
                         style={{animationDelay: "0.2s"}}>
                         A showcase of my recent work and creative solutions that
                         demonstrate my expertise in modern web development
@@ -257,12 +257,12 @@ const Projects: React.FC = () => {
                 />
 
                 {/* Enhanced Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-6 mb-16">
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 mb-12 sm:mb-16 px-4">
                     {filters.map((filter) => (
                         <button
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id)}
-                            className={`relative px-6 py-3 rounded-2xl font-semibold text-base transition-all duration-500 transform hover:scale-105 ${
+                            className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-2xl font-semibold text-sm sm:text-base transition-all duration-500 transform hover:scale-105 ${
                                 activeFilter === filter.id
                                     ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-2xl shadow-[var(--glow-primary)]/50 scale-105"
                                     : "glass border-2 border-[var(--border-color)]/50 text-[var(--text-secondary)] hover:border-[var(--secondary-color)]/80 hover:text-[var(--text-primary)] hover:shadow-xl hover:shadow-[var(--glow-secondary)]/30 backdrop-blur-lg"
@@ -278,7 +278,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* All Projects Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                     {filteredProjects.map((project, index) => (
                         <ProjectCard
                             key={project.id}

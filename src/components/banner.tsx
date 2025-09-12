@@ -25,11 +25,11 @@ const Banner = () => {
                     className="absolute top-1/2 right-10 w-16 h-16 bg-[var(--success-color)]/15 rounded-full blur-lg animate-float"
                     style={{animationDelay: "1s"}}></div>
 
-                <div className="container mx-auto px-4 py-20 md:-mt-20 md:mb-20 flex flex-col lg:flex-row items-center justify-between min-h-screen">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between min-h-screen md:!-mt-20">
                     {/* Left Content */}
-                    <div className="flex-1 text-center lg:text-left mb-10 lg:mb-0 z-10">
+                    <div className="flex-1 text-center lg:text-left mb-8 lg:mb-0 z-10 max-w-2xl lg:max-w-none">
                         <div className="mb-6 animate-slide-up">
-                            <h1 className="text-3xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
                                 <span className="text-[var(--secondary-color)] animate-glow">
                                     Hello!
                                 </span>{" "}
@@ -42,7 +42,7 @@ const Banner = () => {
                         </div>
 
                         <div
-                            className="text-lg lg:text-xl text-[var(--primary-color)] font-semibold mb-8 h-12 animate-slide-up"
+                            className="text-base sm:text-lg lg:text-xl text-[var(--primary-color)] font-semibold mb-6 sm:mb-8 h-10 sm:h-12 animate-slide-up"
                             style={{animationDelay: "0.2s"}}>
                             <Typewriter
                                 options={{
@@ -61,7 +61,7 @@ const Banner = () => {
                         </div>
 
                         <p
-                            className="text-base lg:text-lg text-[var(--text-secondary)] mb-8 max-w-2xl leading-relaxed animate-slide-up"
+                            className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] mb-6 sm:mb-8 max-w-xl lg:max-w-2xl mx-auto lg:mx-0 leading-relaxed animate-slide-up"
                             style={{animationDelay: "0.4s"}}>
                             Passionate about creating innovative web solutions
                             with modern technologies. I specialize in building
@@ -70,19 +70,19 @@ const Banner = () => {
                         </p>
 
                         <div
-                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up"
+                            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-slide-up"
                             style={{animationDelay: "0.6s"}}>
-                            <button className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)] glass">
+                            <button className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)] glass text-sm sm:text-base">
                                 Resume ↓
                             </button>
-                            <button className="border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--primary-bg)] font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 glass">
+                            <button className="border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--primary-bg)] font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 glass text-sm sm:text-base">
                                 View Projects
                             </button>
                         </div>
 
                         {/* Social Links */}
                         <div
-                            className="flex gap-6 justify-center lg:justify-start mt-8 animate-slide-up"
+                            className="flex gap-4 sm:gap-6 justify-center lg:justify-start mt-6 sm:mt-8 animate-slide-up"
                             style={{animationDelay: "0.8s"}}>
                             <a
                                 href="#"
@@ -118,21 +118,23 @@ const Banner = () => {
                     </div>
 
                     {/* Right Content - Hero Image/Graphic */}
-                    <div className="flex-1 flex justify-center lg:justify-end z-10">
-                        <div className="relative w-[600px] h-[600px]">
+                    <div className="flex-1 flex justify-center lg:justify-end z-10 mt-8 lg:mt-0">
+                        <div className="relative w-full max-w-[330px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[560px] aspect-square">
                             {/* Glow Effect */}
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl transform scale-110"></div>
 
                             {/* Hero Graphic with Lottie Animation */}
-                            <div className="relative glass rounded-full p-4 shadow-2xl size-[500px] mx-auto mt-16 flex items-center justify-center animate-float animate-glow">
-                                <div className="text-center">
-                                    <div className="w-96 h-96 mx-auto flex items-center justify-center">
+                            <div className="relative glass rounded-full p-2 sm:p-4 shadow-2xl w-full aspect-square flex items-center justify-center animate-float animate-glow">
+                                <div className="text-center w-full h-full">
+                                    <div className="w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8">
                                         <Lottie
                                             loop
                                             animationData={coding}
                                             style={{
                                                 width: "100%",
                                                 height: "100%",
+                                                maxWidth: "350px",
+                                                maxHeight: "350px",
                                             }}
                                             className="filter drop-shadow-lg"
                                         />
@@ -144,7 +146,7 @@ const Banner = () => {
                 </div>
 
                 {/* Skills Marquee Section - Moved to Banner */}
-                <div className="absolute bottom-24 left-0 right-0 z-10">
+                <div className="absolute bottom-12 sm:bottom-16 md:bottom-20 lg:bottom-24 left-0 right-0 z-10">
                     <SkillsMarquee />
                 </div>
             </section>

@@ -41,8 +41,8 @@ const Header = () => {
                 ? 'bg-[var(--card-bg)]/95 backdrop-blur-xl border-b border-[var(--border-color)]/50 shadow-2xl shadow-[var(--primary-color)]/10' 
                 : 'bg-transparent'
         }`}>
-            <div className="container mx-auto px-4">
-                <nav className="flex items-center justify-between py-4">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <nav className="flex items-center justify-between py-3 sm:py-4">
                     {/* Logo */}
                     <div className="flex items-center space-x-3">
                         <Image
@@ -53,7 +53,7 @@ const Header = () => {
                             className="rounded-full"
                         />
                         <div className="hidden sm:block">
-                            <h1 className="text-xl font-bold text-[var(--text-primary)]">
+                            <h1 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
                                 Ripas <span className="text-[var(--primary-color)]">Sorker</span>
                             </h1>
                             <p className="text-xs text-[var(--text-secondary)]">Full Stack Developer</p>
@@ -81,7 +81,7 @@ const Header = () => {
                         <Link
                             href="#contact"
                             onClick={() => scrollToSection('#contact')}
-                            className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--primary-color)]/25"
+                            className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold px-4 lg:px-6 py-2 text-sm lg:text-base rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--primary-color)]/25"
                         >
                             Hire Me
                         </Link>
@@ -100,7 +100,7 @@ const Header = () => {
                 <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
                     isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                    <div className="bg-[var(--card-bg)]/95 backdrop-blur-md rounded-2xl mt-4 p-6 border border-[var(--border-color)]/50">
+                    <div className="bg-[var(--card-bg)]/95 backdrop-blur-md rounded-2xl mt-4 p-4 sm:p-6 border border-[var(--border-color)]/50">
                         <ul className="space-y-4">
                             {navLinks.map((link) => (
                                 <li key={link.href}>

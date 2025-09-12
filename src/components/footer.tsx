@@ -73,9 +73,9 @@ const Footer = () => {
             </div>
 
             {/* Main Footer Content */}
-            <div className="relative z-10 container mx-auto px-6 py-20">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 {/* Enhanced Header Section */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12 sm:mb-16">
                     <div className="inline-flex items-center justify-center mb-8">
                         <div className="relative">
                             <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm animate-pulse">
@@ -84,22 +84,22 @@ const Footer = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
                         </div>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6">
                         Ripas{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Sorker Rifat
                         </span>
                     </h2>
-                    <p className="text-[var(--text-secondary)] text-lg max-w-3xl mx-auto leading-relaxed mb-8">
+                    <p className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl lg:max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
                         Full Stack Developer crafting beautiful digital
                         experiences with modern technologies
                     </p>
 
                     {/* Call to Action */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
                         <a
                             href="#contact"
-                            className="group bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3">
+                            className="group bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-sm sm:text-base">
                             <span>Let's Work Together</span>
                             <span className="group-hover:translate-x-1 transition-transform duration-300">
                                 →
@@ -107,7 +107,7 @@ const Footer = () => {
                         </a>
                         <a
                             href="mailto:ripassorkerrifat@gmail.com"
-                            className="group glass border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/60 text-[var(--text-primary)] hover:text-[var(--primary-color)] px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 backdrop-blur-sm flex items-center gap-3">
+                            className="group glass border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/60 text-[var(--text-primary)] hover:text-[var(--primary-color)] px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-3 text-sm sm:text-base">
                             <span>📧</span>
                             <span>Send Email</span>
                         </a>
@@ -115,7 +115,7 @@ const Footer = () => {
                 </div>
 
                 {/* Enhanced Grid Layout */}
-                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
                     {/* Quick Links */}
                     <div className="text-center lg:text-left">
                         <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-8 flex items-center justify-center lg:justify-start gap-3">
@@ -124,12 +124,12 @@ const Footer = () => {
                             </span>
                             Navigation
                         </h4>
-                        <ul className="space-y-4">
+                        <ul className="space-y-3 sm:space-y-4">
                             {quickLinks.map((link) => (
                                 <li key={link.name}>
                                     <a
                                         href={link.href}
-                                        className="group text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 text-base flex items-center justify-center lg:justify-start gap-3 hover:translate-x-2">
+                                        className="group text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 text-sm sm:text-base flex items-center justify-center lg:justify-start gap-3 hover:translate-x-2">
                                         <span className="w-2 h-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                                         {link.name}
                                     </a>
@@ -146,19 +146,19 @@ const Footer = () => {
                             </span>
                             Connect
                         </h4>
-                        <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
                             {socialLinks.map((social, index) => (
                                 <a
                                     key={social.name}
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`group relative size-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] ${social.color} border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-110 backdrop-blur-sm animate-slide-up overflow-hidden`}
+                                    className={`group relative w-10 h-10 sm:w-12 sm:h-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] ${social.color} border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-110 backdrop-blur-sm animate-slide-up overflow-hidden`}
                                     style={{animationDelay: `${index * 0.1}s`}}
                                     title={social.name}>
                                     <div
                                         className={`absolute inset-0 bg-gradient-to-br ${social.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                                    <span className="relative text-xl group-hover:scale-125 transition-transform duration-300">
+                                    <span className="relative text-lg sm:text-xl group-hover:scale-125 transition-transform duration-300">
                                         {social.icon}
                                     </span>
                                 </a>
@@ -174,7 +174,7 @@ const Footer = () => {
                             </span>
                             Contact
                         </h4>
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             <a
                                 href="mailto:ripassorkerrifat@gmail.com"
                                 className="group flex items-center justify-center lg:justify-start gap-3 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">
@@ -199,7 +199,7 @@ const Footer = () => {
                                 <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
                                     📍
                                 </span>
-                                <span className="text-lg">
+                                <span className="text-sm sm:text-base lg:text-lg">
                                     Dhaka, Bangladesh
                                 </span>
                             </div>
@@ -214,13 +214,13 @@ const Footer = () => {
                             </span>
                             Let's Connect
                         </h4>
-                        <p className="text-[var(--text-secondary)] text-base mb-6 leading-relaxed">
+                        <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
                             Ready to bring your ideas to life? Let's discuss
                             your next project!
                         </p>
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg">
+                            className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg text-sm sm:text-base">
                             <span>Get In Touch</span>
                             <span>🚀</span>
                         </a>
@@ -230,8 +230,8 @@ const Footer = () => {
 
             {/* Simple Bottom Bar */}
             <div className="relative z-10 border-t border-[var(--border-color)]/30 bg-[var(--primary-bg)]/80 backdrop-blur-xl">
-                <div className="container mx-auto px-6 py-6">
-                    <div className="text-center text-[var(--text-secondary)]">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+                    <div className="text-center text-sm sm:text-base text-[var(--text-secondary)]">
                         &copy; {new Date().getFullYear()} Ripas Sorker Rifat.
                         Made with{" "}
                         <span className="text-red-400 animate-pulse">❤️</span>
@@ -242,9 +242,9 @@ const Footer = () => {
             {/* Simple Scroll to Top Button */}
             <button
                 onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
-                className="fixed bottom-8 right-8 w-12 h-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-300 hover:scale-110 z-50 backdrop-blur-sm"
+                className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-300 hover:scale-110 z-50 backdrop-blur-sm"
                 aria-label="Scroll to top">
-                <span className="text-xl">↑</span>
+                <span className="text-lg sm:text-xl">↑</span>
             </button>
         </footer>
     );
