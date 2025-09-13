@@ -1,14 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-    FaProjectDiagram, 
     FaCheckCircle, 
-    FaClock, 
-    FaUsers,
     FaArrowUp,
-    FaArrowDown
+    FaArrowDown,
+    FaEnvelope,
+    FaEye
 } from 'react-icons/fa';
+import { emailAPI } from '@/api/email-api';
+import { useNotifications } from '@/contexts/NotificationContext';
 
 interface StatCardProps {
     title: string;
@@ -64,37 +65,50 @@ const StatCard: React.FC<StatCardProps> = ({
 };
 
 const StatsGrid: React.FC = () => {
+    const { unreadCount } = useNotifications();
+    const [emailStats, setEmailStats] = useState({ total: 0, todayCount: 0 });
+    const [visitorStats, setVisitorStats] = useState({ todayVisitors: 0, totalVisitors: 0 });
+
+    useEffect(() => {
+        const fetchEmailStats = async () => {
+            try {
+                const response = await emailAPI.getMessages();
+                const stats = emailAPI.getEmailStats(response.data);
+                setEmailStats({ total: stats.total, todayCount: stats.todayCount });
+            } catch (error) {
+                console.error('Error fetching email stats:', error);
+            }
+        };
+
+        // Simulate visitor stats (in production, this would come from analytics)
+        setVisitorStats({ todayVisitors: 127, totalVisitors: 2847 });
+        
+        fetchEmailStats();
+    }, []);
+
     const stats = [
         {
-            title: 'Total Projects',
-            value: 24,
-            change: '+12%',
-            changeType: 'increase' as const,
-            icon: FaProjectDiagram,
-            color: 'from-blue-500 to-cyan-500'
+            title: 'New Messages',
+            value: unreadCount,
+            change: `${emailStats.todayCount} today`,
+            changeType: unreadCount > 0 ? 'increase' as const : 'neutral' as const,
+            icon: FaEnvelope,
+            color: 'from-orange-500 to-red-500'
         },
         {
-            title: 'Completed Tasks',
-            value: 156,
-            change: '+8%',
-            changeType: 'increase' as const,
+            title: 'Total Emails',
+            value: emailStats.total,
+            change: emailStats.todayCount > 0 ? `+${emailStats.todayCount}` : 'No new',
+            changeType: emailStats.todayCount > 0 ? 'increase' as const : 'neutral' as const,
             icon: FaCheckCircle,
             color: 'from-green-500 to-emerald-500'
         },
         {
-            title: 'Pending Tasks',
-            value: 23,
-            change: '-5%',
-            changeType: 'decrease' as const,
-            icon: FaClock,
-            color: 'from-orange-500 to-red-500'
-        },
-        {
-            title: 'Team Members',
-            value: 8,
-            change: '+2',
+            title: 'Today Visitors',
+            value: visitorStats.todayVisitors,
+            change: `${visitorStats.totalVisitors} total`,
             changeType: 'increase' as const,
-            icon: FaUsers,
+            icon: FaEye,
             color: 'from-purple-500 to-pink-500'
         }
     ];

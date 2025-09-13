@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import {useState} from "react";
+import React, {useState} from "react";
+import ContactForm from "./contact-form";
 
 interface FormData {
     name: string;
@@ -250,184 +251,16 @@ const Contact: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* Success/Error Messages */}
-                        {submitStatus === "success" && (
-                            <div className="mb-10 p-8 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-3xl text-green-400 flex items-center gap-6 backdrop-blur-sm animate-slide-up shadow-lg">
-                                <div className="w-16 h-16 bg-green-500/20 rounded-3xl flex items-center justify-center border border-green-500/40">
-                                    <span className="text-3xl animate-bounce">
-                                        🎉
-                                    </span>
-                                </div>
-                                <div>
-                                    <div className="font-bold text-lg mb-2">
-                                        Message sent successfully!
-                                    </div>
-                                    <div className="text-green-300/80 text-base">
-                                        I'll get back to you within 24 hours.
-                                        Excited to discuss your project!
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        {submitStatus === "error" && (
-                            <div className="mb-10 p-8 bg-gradient-to-r from-red-500/10 to-pink-500/10 border border-red-500/30 rounded-3xl text-red-400 flex items-center gap-6 backdrop-blur-sm animate-slide-up shadow-lg">
-                                <div className="w-16 h-16 bg-red-500/20 rounded-3xl flex items-center justify-center border border-red-500/40">
-                                    <span className="text-3xl">⚠️</span>
-                                </div>
-                                <div>
-                                    <div className="font-bold text-lg mb-2">
-                                        Something went wrong!
-                                    </div>
-                                    <div className="text-red-300/80 text-base">
-                                        Please try again or reach out directly
-                                        via email or phone.
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-
-                        <form
-                            onSubmit={handleSubmit}
-                            className="space-y-6 sm:space-y-8 lg:space-y-10 relative z-10">
-                            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-                                <div className="group relative">
-                                    <label
-                                        htmlFor="name"
-                                        className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-blue-400/60 transition-all duration-300 group-hover:scale-110">
-                                            <span className="text-sm sm:text-lg">
-                                                👤
-                                            </span>
-                                        </div>
-                                        Your Name
-                                    </label>
-                                    <div className="relative">
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-6 py-4 glass border-2 border-[var(--border-color)]/40 rounded-3xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/30 focus:border-[var(--primary-color)] transition-all duration-500 hover:border-[var(--secondary-color)]/60 backdrop-blur-sm text-base group-hover:shadow-2xl bg-gradient-to-r from-[var(--primary-bg)]/50 to-[var(--secondary-bg)]/50"
-                                            placeholder="What should I call you?"
-                                        />
-                                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                                    </div>
-                                </div>
-                                <div className="group relative">
-                                    <label
-                                        htmlFor="email"
-                                        className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-green-400/60 transition-all duration-300 group-hover:scale-110">
-                                            <span className="text-sm sm:text-lg">
-                                                📧
-                                            </span>
-                                        </div>
-                                        Email Address
-                                    </label>
-                                    <div className="relative">
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
-                                            className="w-full px-6 py-4 glass border-2 border-[var(--border-color)]/40 rounded-3xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/30 focus:border-[var(--primary-color)] transition-all duration-500 hover:border-[var(--secondary-color)]/60 backdrop-blur-sm text-base group-hover:shadow-2xl bg-gradient-to-r from-[var(--primary-bg)]/50 to-[var(--secondary-bg)]/50"
-                                            placeholder="your@email.com"
-                                        />
-                                        <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="group relative">
-                                <label
-                                    htmlFor="subject"
-                                    className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-purple-400/60 transition-all duration-300 group-hover:scale-110">
-                                        <span className="text-sm sm:text-lg">
-                                            💡
-                                        </span>
-                                    </div>
-                                    Project Subject
-                                </label>
-                                <div className="relative">
-                                    <input
-                                        type="text"
-                                        id="subject"
-                                        name="subject"
-                                        value={formData.subject}
-                                        onChange={handleChange}
-                                        required
-                                        className="w-full px-6 py-4 glass border-2 border-[var(--border-color)]/40 rounded-3xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/30 focus:border-[var(--primary-color)] transition-all duration-500 hover:border-[var(--secondary-color)]/60 backdrop-blur-sm text-base group-hover:shadow-2xl bg-gradient-to-r from-[var(--primary-bg)]/50 to-[var(--secondary-bg)]/50"
-                                        placeholder="What's your project about?"
-                                    />
-                                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                                </div>
-                            </div>
-
-                            <div className="group relative">
-                                <label
-                                    htmlFor="message"
-                                    className="block text-base font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-3">
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-2xl flex items-center justify-center border-2 border-[var(--border-color)]/40 group-hover:border-orange-400/60 transition-all duration-300 group-hover:scale-110">
-                                        <span className="text-sm sm:text-lg">
-                                            💬
-                                        </span>
-                                    </div>
-                                    Tell Me More
-                                </label>
-                                <div className="relative">
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        value={formData.message}
-                                        onChange={handleChange}
-                                        required
-                                        rows={6}
-                                        className="w-full px-4 sm:px-6 py-3 sm:py-4 glass border-2 border-[var(--border-color)]/40 rounded-3xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/30 focus:border-[var(--primary-color)] transition-all duration-500 hover:border-[var(--secondary-color)]/60 backdrop-blur-sm resize-none text-sm sm:text-base leading-relaxed group-hover:shadow-2xl bg-gradient-to-r from-[var(--primary-bg)]/50 to-[var(--secondary-bg)]/50"
-                                        placeholder="Share your vision! Tell me about your project goals, timeline, budget, or any specific requirements. The more details you provide, the better I can help bring your ideas to life."
-                                    />
-                                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                                </div>
-                            </div>
-
-                            <div className="relative">
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="group relative w-full bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] hover:from-[var(--primary-color)]/90 hover:via-[var(--secondary-color)]/90 hover:to-[var(--accent-color)]/90 text-white font-bold py-4 sm:py-5 lg:py-6 px-6 sm:px-8 rounded-3xl transition-all duration-500 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-[var(--primary-color)]/40 focus:ring-offset-4 focus:ring-offset-[var(--primary-bg)] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none shadow-2xl hover:shadow-3xl hover:shadow-[var(--primary-color)]/40 text-base sm:text-lg overflow-hidden">
-                                    {/* Button Background Animation */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                                    <span className="relative flex items-center justify-center gap-4">
-                                        {isSubmitting ? (
-                                            <>
-                                                <div className="w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
-                                                <span className="text-base">
-                                                    Sending Your Message...
-                                                </span>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <span className="text-2xl sm:text-3xl lg:text-4xl group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
-                                                    🚀
-                                                </span>
-                                                <span className="text-sm sm:text-base lg:text-lg">
-                                                    Let's Start Building
-                                                    Together
-                                                </span>
-                                                <span className="text-sm sm:text-base lg:text-lg group-hover:translate-x-2 transition-transform duration-300">
-                                                    →
-                                                </span>
-                                            </>
-                                        )}
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
+                        {/* Dynamic Contact Form */}
+                        <ContactForm
+                            className="relative z-10"
+                            onSuccess={() => {
+                                // Optional: Add any additional success handling here
+                                console.log(
+                                    "Message sent successfully from homepage!"
+                                );
+                            }}
+                        />
 
                         {/* Enhanced Bottom Section */}
                         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[var(--border-color)]/20">

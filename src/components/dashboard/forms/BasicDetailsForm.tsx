@@ -8,8 +8,28 @@ import dynamic from 'next/dynamic';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
+interface ProjectFormData {
+    title: string;
+    name: string;
+    description: string;
+    category: string;
+    status: string;
+    priority: string;
+    tags: string[];
+    startDate: string;
+    endDate: string;
+    budget: number;
+    teamLead: string;
+    teamMembers: string[];
+    technologies: string[];
+    repository: string;
+    notes: string;
+    thumbnail: File | string;
+    is_featured: boolean;
+}
+
 interface BasicDetailsFormProps {
-    form: UseFormReturn<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+    form: UseFormReturn<ProjectFormData>;
 }
 
 const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({form}) => {

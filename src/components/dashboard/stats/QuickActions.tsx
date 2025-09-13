@@ -8,7 +8,9 @@ import {
     FaFileAlt, 
     FaCog,
     FaChartBar,
-    FaCalendarAlt
+    FaCalendarAlt,
+    FaEnvelope,
+    FaEye
 } from 'react-icons/fa';
 
 interface QuickAction {
@@ -29,25 +31,25 @@ const QuickActions: React.FC = () => {
             color: 'from-blue-500 to-cyan-500'
         },
         {
-            title: 'Invite Team',
-            description: 'Add new members to your workspace',
-            href: '/dashboard/team/invite',
-            icon: FaUsers,
-            color: 'from-green-500 to-emerald-500'
+            title: 'Check Emails',
+            description: 'View and manage contact messages',
+            href: '/dashboard/emails',
+            icon: FaEnvelope,
+            color: 'from-orange-500 to-red-500'
         },
         {
-            title: 'View Reports',
-            description: 'Check project analytics and insights',
-            href: '/dashboard/reports',
-            icon: FaChartBar,
+            title: 'View Analytics',
+            description: 'Check site visitors and engagement',
+            href: '/dashboard/analytics',
+            icon: FaEye,
             color: 'from-purple-500 to-pink-500'
         },
         {
-            title: 'Schedule Meeting',
-            description: 'Plan team meetings and reviews',
-            href: '/dashboard/calendar',
-            icon: FaCalendarAlt,
-            color: 'from-orange-500 to-red-500'
+            title: 'Manage Projects',
+            description: 'View and organize all projects',
+            href: '/dashboard/projects',
+            icon: FaChartBar,
+            color: 'from-green-500 to-emerald-500'
         }
     ];
 
