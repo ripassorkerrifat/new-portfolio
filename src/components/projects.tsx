@@ -230,12 +230,12 @@ const Projects: React.FC = () => {
     return (
         <section
             id="projects"
-            className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)]">
+            className="py-8 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)]">
             {/* Call to Action */}
             <ProjectCTA />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6 animate-slide-up">
+                <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-3 sm:mb-6 animate-slide-up">
                         My{" "}
                         <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
                             Projects
@@ -250,19 +250,19 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Featured Projects */}
-                <FeaturedProjects
+                {/* <FeaturedProjects
                     projects={projects}
                     onMoreInfo={openProjectModal}
                     onGalleryOpen={openGalleryModal}
-                />
+                /> */}
 
                 {/* Enhanced Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 lg:gap-6 mb-12 sm:mb-16 px-4">
+                {/* <div className="flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 px-4">
                     {filters.map((filter) => (
                         <button
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id)}
-                            className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-2xl font-semibold text-sm sm:text-base transition-all duration-500 transform hover:scale-105 ${
+                            className={`relative px-3 sm:px-6 py-2 sm:py-3 rounded-2xl font-semibold text-xs sm:text-base transition-all duration-500 transform hover:scale-105 ${
                                 activeFilter === filter.id
                                     ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-2xl shadow-[var(--glow-primary)]/50 scale-105"
                                     : "glass border-2 border-[var(--border-color)]/50 text-[var(--text-secondary)] hover:border-[var(--secondary-color)]/80 hover:text-[var(--text-primary)] hover:shadow-xl hover:shadow-[var(--glow-secondary)]/30 backdrop-blur-lg"
@@ -275,10 +275,10 @@ const Projects: React.FC = () => {
                             )}
                         </button>
                     ))}
-                </div>
+                </div> */}
 
                 {/* All Projects Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                     {filteredProjects.map((project, index) => (
                         <ProjectCard
                             key={project.id}
@@ -288,7 +288,7 @@ const Projects: React.FC = () => {
                             onGalleryOpen={openGalleryModal}
                         />
                     ))}
-                </div>
+                </div> */}
 
                 {/* Modals */}
                 <ProjectDetailsModal

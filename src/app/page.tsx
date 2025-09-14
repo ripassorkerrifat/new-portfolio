@@ -15,7 +15,7 @@ export default function Home() {
                 <section id="home">
                     <Banner />
                 </section>
-                {/* <Projects /> */}
+                <Projects />
                 <ExperienceEducationTabs />
                 <Skills />
                 <Contact />
