@@ -13,10 +13,10 @@ const Header = () => {
     const navLinks = [
         {name: "Home", href: "#home"},
         {name: "Projects", href: "#projects"},
-        {name: "Skills", href: "#skills"},
         {name: "Experience", href: "#experience"},
-        {name: "About", href: "#about"},
+        {name: "Skills", href: "#skills"},
         {name: "Contact", href: "#contact"},
+        {name: "About", href: "#about"},
     ];
     const router = useRouter();
 
@@ -57,10 +57,9 @@ const Header = () => {
                             className="rounded-full"
                         />
                         <div className="hidden sm:block">
-                            <h1 className="text-lg sm:text-xl font-bold text-[var(--text-primary)]">
-                                Ripas{" "}
-                                <span className="text-[var(--primary-color)]">
-                                    Sorker
+                            <h1 className="text-lg sm:text-xl font-bold">
+                                <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent">
+                                    Ripas Sorker Rifat
                                 </span>
                             </h1>
                             <p className="text-xs text-[var(--text-secondary)]">
@@ -140,10 +139,9 @@ const Header = () => {
                                         className="rounded-full border-2 border-cyan-400/30"
                                     />
                                     <div>
-                                        <h1 className="text-lg font-bold text-white">
-                                            Ripas{" "}
-                                            <span className="text-cyan-400">
-                                                Sorker
+                                        <h1 className="text-lg font-bold">
+                                            <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent">
+                                                Ripas Sorker Rifat
                                             </span>
                                         </h1>
                                         <p className="text-xs text-slate-300">
