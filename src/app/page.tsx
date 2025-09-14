@@ -16,10 +16,10 @@ export default function Home() {
                     <Banner />
                 </section>
                 {/* <Projects /> */}
+                <ExperienceEducationTabs />
                 <Skills />
-                {/* <ExperienceEducationTabs /> */}
-                <AboutMe />
                 <Contact />
+                <AboutMe />
             </main>
             <Footer />
         </>

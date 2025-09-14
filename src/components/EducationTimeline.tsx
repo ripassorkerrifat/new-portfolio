@@ -67,22 +67,22 @@ const EducationTimeline: React.FC = () => {
     return (
         <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--primary-color)]"></div>
+            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--primary-color)]"></div>
 
             {/* Education Items */}
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
                 {education.map((edu, index) => (
                     <div
                         key={edu.id}
-                        className={`relative flex items-center ${
+                        className={`relative flex items-start ${
                             index % 2 === 0
                                 ? "md:flex-row"
                                 : "md:flex-row-reverse"
                         } flex-col md:space-x-8`}>
                         {/* Timeline Node */}
-                        <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
+                        <div className="absolute -left-1 md:left-1/2 transform md:-translate-x-1/2 top-6 md:top-1/2 md:-translate-y-1/2">
                             <div
-                                className={`w-4 h-4 rounded-full border-4 border-white shadow-lg ${
+                                className={`w-3 h-3 md:w-4 md:h-4 rounded-full border-2 md:border-4 border-white shadow-lg ${
                                     edu.current
                                         ? "bg-gradient-to-r from-green-500 to-emerald-500"
                                         : "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)]"
@@ -91,45 +91,59 @@ const EducationTimeline: React.FC = () => {
 
                         {/* Content Card */}
                         <div
-                            className={`w-full md:w-[45%] ml-16 md:ml-0 ${
+                            className={`w-[96%] md:w-[46%] ml-4 md:ml-0 text-left ${
                                 index % 2 === 0
                                     ? "md:text-right"
                                     : "md:text-left"
                             }`}>
-                            <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-6 border border-[var(--border-color)]/30 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                            <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-[var(--border-color)]/30 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                                 {/* Header */}
-                                <div className="mb-4">
-                                    <div className="flex items-center justify-between mb-2">
-                                        <span className="text-sm font-medium text-[var(--text-secondary)] bg-[var(--primary-color)]/20 px-3 py-1 rounded-full">
+                                <div className="mb-3 md:mb-4">
+                                    <div className={`flex items-center mb-2 ${
+                                        index % 2 === 0 
+                                            ? "justify-start md:justify-end" 
+                                            : "justify-start md:justify-start"
+                                    }`}>
+                                        <span className="text-xs md:text-sm font-medium text-[var(--text-secondary)] bg-[var(--primary-color)]/20 px-2 md:px-3 py-1 rounded-full">
                                             {edu.period}
                                         </span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-[var(--text-primary)] mb-1">
+                                    <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] mb-1 leading-tight">
                                         {edu.degree}
                                     </h3>
-                                    <div className="flex items-center space-x-2 text-[var(--primary-color)] font-semibold">
+                                    <div className="text-[var(--primary-color)] font-semibold text-sm md:text-base">
                                         <span>{edu.institution}</span>
-                                        <span>•</span>
-                                        <span>{edu.location}</span>
+                                        <span className="mx-2">•</span>
+                                        <span className="text-xs sm:text-sm">
+                                            {edu.location}
+                                        </span>
                                     </div>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-[var(--text-secondary)] mb-4 leading-relaxed">
+                                <p className="text-[var(--text-secondary)] mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
                                     {edu.description}
                                 </p>
 
                                 {/* Achievements */}
                                 <div>
-                                    <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-3">
+                                    <h4 className="text-xs md:text-sm font-semibold text-[var(--text-primary)] mb-2 md:mb-3">
                                         Key Achievements:
                                     </h4>
-                                    <ul className="space-y-2">
+                                    <ul className={`space-y-1.5 md:space-y-2 ${
+                                        index % 2 === 0 
+                                            ? "text-left md:text-right" 
+                                            : "text-left md:text-left"
+                                    }`}>
                                         {edu.achievements.map(
                                             (achievement, achievementIndex) => (
                                                 <li
                                                     key={achievementIndex}
-                                                    className="flex items-start space-x-2 text-sm text-[var(--text-secondary)]">
+                                                    className={`flex items-start space-x-2 text-xs md:text-sm text-[var(--text-secondary)] ${
+                                                        index % 2 === 0 
+                                                            ? "md:flex-row-reverse md:space-x-reverse" 
+                                                            : ""
+                                                    }`}>
                                                     <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mt-2 flex-shrink-0"></span>
                                                     <span>{achievement}</span>
                                                 </li>
@@ -139,9 +153,6 @@ const EducationTimeline: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Spacer for alternating layout */}
-                        <div className="hidden md:block w-[45%]"></div>
                     </div>
                 ))}
             </div>
