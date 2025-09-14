@@ -24,8 +24,22 @@ const ExperienceTimeline: React.FC = () => {
             type: "Full Time",
             period: "March 2024 - Present",
             current: true,
-            description: "Developing and maintaining full-stack web applications including OTA platforms, HRMS systems, and e-commerce solutions. Leading frontend development with React/Next.js and building robust backend APIs with Node.js and modern databases.",
-            technologies: ["React", "Next.js", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "TypeScript", "JavaScript", "Prisma", "Tailwind CSS", "Redux", "React"]
+            description:
+                "Developing and maintaining full-stack web applications including OTA platforms, HRMS systems, and e-commerce solutions. Leading frontend development with React/Next.js and building robust backend APIs with Node.js and modern databases.",
+            technologies: [
+                "React",
+                "Next.js",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "PostgreSQL",
+                "TypeScript",
+                "JavaScript",
+                "Prisma",
+                "Tailwind CSS",
+                "Redux",
+                "React",
+            ],
         },
         {
             id: 2,
@@ -35,8 +49,22 @@ const ExperienceTimeline: React.FC = () => {
             type: "Freelance",
             period: "2022 - Present",
             current: true,
-            description: "Working on various freelance projects including jewelry e-commerce platforms, portfolio websites, HRMS solutions, and custom web applications for clients worldwide. Specializing in modern React/Next.js frontends with full-stack capabilities.",
-            technologies: ["React", "Next.js", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "TypeScript", "JavaScript", "Prisma", "Tailwind CSS", "Framer", "Redux"]
+            description:
+                "Working on various freelance projects including jewelry e-commerce platforms, portfolio websites, HRMS solutions, and custom web applications for clients worldwide. Specializing in modern React/Next.js frontends with full-stack capabilities.",
+            technologies: [
+                "React",
+                "Next.js",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "PostgreSQL",
+                "TypeScript",
+                "JavaScript",
+                "Prisma",
+                "Tailwind CSS",
+                "Framer",
+                "Redux",
+            ],
         },
         {
             id: 3,
@@ -45,9 +73,18 @@ const ExperienceTimeline: React.FC = () => {
             location: "Remote",
             type: "Internship",
             period: "November 2023 - February 2024",
-            description: "Gained hands-on experience in full-stack development through practical projects. Worked with educational technology platforms and learned industry best practices.",
-            technologies: ["React", "Node.js", "MongoDB", "Express.js", "JavaScript", "HTML", "CSS"]
-        }
+            description:
+                "Gained hands-on experience in full-stack development through practical projects. Worked with educational technology platforms and learned industry best practices.",
+            technologies: [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Express.js",
+                "JavaScript",
+                "HTML",
+                "CSS",
+            ],
+        },
     ];
 
     return (
@@ -61,23 +98,27 @@ const ExperienceTimeline: React.FC = () => {
                     <div
                         key={experience.id}
                         className={`relative flex items-center ${
-                            index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                        } flex-col md:space-x-8`}
-                    >
+                            index % 2 === 0
+                                ? "md:flex-row"
+                                : "md:flex-row-reverse"
+                        } flex-col md:space-x-8`}>
                         {/* Timeline Node */}
                         <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-                            <div className={`w-4 h-4 rounded-full border-4 border-white shadow-lg ${
-                                experience.current 
-                                    ? "bg-gradient-to-r from-green-500 to-emerald-500" 
-                                    : "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)]"
-                            }`}>
-                            </div>
+                            <div
+                                className={`w-4 h-4 rounded-full border-4 border-white shadow-lg ${
+                                    experience.current
+                                        ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                                        : "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)]"
+                                }`}></div>
                         </div>
 
                         {/* Content Card */}
-                        <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                            index % 2 === 0 ? "md:text-right" : "md:text-left"
-                        }`}>
+                        <div
+                            className={`w-full md:w-[45%] ml-16 md:ml-0 ${
+                                index % 2 === 0
+                                    ? "md:text-right"
+                                    : "md:text-left"
+                            }`}>
                             <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-6 border border-[var(--border-color)]/30 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                                 {/* Header */}
                                 <div className="mb-4">
@@ -115,21 +156,22 @@ const ExperienceTimeline: React.FC = () => {
                                         Technologies Used:
                                     </h4>
                                     <div className="flex flex-wrap gap-2">
-                                        {experience.technologies.map((tech, techIndex) => (
-                                            <span
-                                                key={techIndex}
-                                                className="text-xs font-medium bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 text-[var(--primary-color)] px-3 py-1 rounded-full border border-[var(--primary-color)]/30 hover:bg-[var(--primary-color)]/30 transition-all duration-300"
-                                            >
-                                                {tech}
-                                            </span>
-                                        ))}
+                                        {experience.technologies.map(
+                                            (tech, techIndex) => (
+                                                <span
+                                                    key={techIndex}
+                                                    className="text-xs font-medium bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 text-[var(--primary-color)] px-3 py-1 rounded-full border border-[var(--primary-color)]/30 hover:bg-[var(--primary-color)]/30 transition-all duration-300">
+                                                    {tech}
+                                                </span>
+                                            )
+                                        )}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Spacer for alternating layout */}
-                        <div className="hidden md:block w-5/12"></div>
+                        <div className="hidden md:block w-[45%]"></div>
                     </div>
                 ))}
             </div>

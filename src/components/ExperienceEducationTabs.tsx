@@ -1,26 +1,28 @@
 "use client";
 
-import React, { useState } from "react";
-import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import React, {useState} from "react";
+import {FaBriefcase, FaGraduationCap} from "react-icons/fa";
 import ExperienceTimeline from "./ExperienceTimeline";
 import EducationTimeline from "./EducationTimeline";
 
 const ExperienceEducationTabs: React.FC = () => {
-    const [activeTab, setActiveTab] = useState<"experience" | "education">("experience");
+    const [activeTab, setActiveTab] = useState<"experience" | "education">(
+        "experience"
+    );
 
     const tabs = [
         {
             id: "experience",
             label: "Experience",
             icon: FaBriefcase,
-            component: <ExperienceTimeline />
+            component: <ExperienceTimeline />,
         },
         {
-            id: "education", 
+            id: "education",
             label: "Education",
             icon: FaGraduationCap,
-            component: <EducationTimeline />
-        }
+            component: <EducationTimeline />,
+        },
     ];
 
     return (
@@ -59,13 +61,18 @@ const ExperienceEducationTabs: React.FC = () => {
                                 return (
                                     <button
                                         key={tab.id}
-                                        onClick={() => setActiveTab(tab.id as "experience" | "education")}
-                                        className={`flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                                        onClick={() =>
+                                            setActiveTab(
+                                                tab.id as
+                                                    | "experience"
+                                                    | "education"
+                                            )
+                                        }
+                                        className={`cursor-pointer flex items-center space-x-3 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                                             activeTab === tab.id
                                                 ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-lg transform scale-105"
                                                 : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--primary-bg)]/50"
-                                        }`}
-                                    >
+                                        }`}>
                                         <IconComponent className="text-lg" />
                                         <span>{tab.label}</span>
                                     </button>
@@ -76,8 +83,10 @@ const ExperienceEducationTabs: React.FC = () => {
                 </div>
 
                 {/* Tab Content */}
-                <div className="animate-slide-up" style={{animationDelay: "0.4s"}}>
-                    {tabs.find(tab => tab.id === activeTab)?.component}
+                <div
+                    className="animate-slide-up"
+                    style={{animationDelay: "0.4s"}}>
+                    {tabs.find((tab) => tab.id === activeTab)?.component}
                 </div>
             </div>
         </section>

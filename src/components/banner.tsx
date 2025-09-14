@@ -26,8 +26,35 @@ const Banner = () => {
                     style={{animationDelay: "1s"}}></div>
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between min-h-screen md:!-mt-20">
-                    {/* Left Content */}
-                    <div className="flex-1 text-center lg:text-left mb-8 lg:mb-0 z-10 max-w-2xl lg:max-w-none">
+                    {/* Mobile: Skills Animation First */}
+                    <div className="flex-1 flex justify-center lg:justify-end z-10 mt-8 lg:mt-0 order-1 lg:order-2 mb-8 lg:mb-0">
+                        <div className="relative w-full max-w-[330px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[560px] aspect-square">
+                            {/* Glow Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl transform scale-110"></div>
+
+                            {/* Hero Graphic with Lottie Animation */}
+                            <div className="relative glass rounded-full p-2 sm:p-4 shadow-2xl w-full aspect-square flex items-center justify-center animate-float animate-glow">
+                                <div className="text-center w-full h-full">
+                                    <div className="w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8">
+                                        <Lottie
+                                            loop
+                                            animationData={coding}
+                                            style={{
+                                                width: "100%",
+                                                height: "100%",
+                                                maxWidth: "350px",
+                                                maxHeight: "350px",
+                                            }}
+                                            className="filter drop-shadow-lg"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Mobile: Introduction Content Second */}
+                    <div className="flex-1 text-center lg:text-left mb-8 lg:mb-0 z-10 max-w-2xl lg:max-w-none order-2 lg:order-1">
                         <div className="mb-6 animate-slide-up">
                             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--text-primary)] mb-4 leading-tight">
                                 <span className="text-[var(--secondary-color)] animate-glow">
@@ -116,37 +143,10 @@ const Banner = () => {
                             </a>
                         </div>
                     </div>
-
-                    {/* Right Content - Hero Image/Graphic */}
-                    <div className="flex-1 flex justify-center lg:justify-end z-10 mt-8 lg:mt-0">
-                        <div className="relative w-full max-w-[330px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[560px] aspect-square">
-                            {/* Glow Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl transform scale-110"></div>
-
-                            {/* Hero Graphic with Lottie Animation */}
-                            <div className="relative glass rounded-full p-2 sm:p-4 shadow-2xl w-full aspect-square flex items-center justify-center animate-float animate-glow">
-                                <div className="text-center w-full h-full">
-                                    <div className="w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8">
-                                        <Lottie
-                                            loop
-                                            animationData={coding}
-                                            style={{
-                                                width: "100%",
-                                                height: "100%",
-                                                maxWidth: "350px",
-                                                maxHeight: "350px",
-                                            }}
-                                            className="filter drop-shadow-lg"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                {/* Skills Marquee Section - Moved to Banner */}
-                <div className="absolute bottom-12 sm:bottom-16 md:bottom-20 lg:bottom-24 left-0 right-0 z-10">
+                {/* Skills Marquee Section */}
+                <div className="md:absolute  md:bottom-20 lg:bottom-10 left-0 right-0 z-10">
                     <SkillsMarquee />
                 </div>
             </section>

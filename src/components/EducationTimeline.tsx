@@ -22,14 +22,15 @@ const EducationTimeline: React.FC = () => {
             institution: "Dhaka International University",
             location: "Dhaka, Bangladesh",
             period: "2021 - 2025",
-            description: "Currently pursuing comprehensive computer science education with focus on software engineering, algorithms, data structures, and modern web technologies. Actively participating in programming competitions and tech events.",
+            description:
+                "Currently pursuing comprehensive computer science education with focus on software engineering, algorithms, data structures, and modern web technologies. Actively participating in programming competitions and tech events.",
             achievements: [
                 "Active member of Computer Society",
                 "Participating in programming competitions",
                 "Working on various web development projects",
                 "Learning modern software development practices",
-                "Building expertise in full-stack development"
-            ]
+                "Building expertise in full-stack development",
+            ],
         },
         {
             id: 2,
@@ -37,13 +38,14 @@ const EducationTimeline: React.FC = () => {
             institution: "Moqbular Rahman Govt. College",
             location: "Panchagarh, Bangladesh",
             period: "2018 - 2020",
-            description: "Completed higher secondary education in Science group with concentration in Mathematics, Physics, and Chemistry. Developed strong analytical and problem-solving skills that laid the foundation for computer science studies.",
+            description:
+                "Completed higher secondary education in Science group with concentration in Mathematics, Physics, and Chemistry. Developed strong analytical and problem-solving skills that laid the foundation for computer science studies.",
             achievements: [
                 "Completed Science group successfully",
                 "Strong foundation in Mathematics and Physics",
                 "Developed analytical thinking skills",
-                "Prepared for engineering entrance exams"
-            ]
+                "Prepared for engineering entrance exams",
+            ],
         },
         {
             id: 3,
@@ -51,14 +53,15 @@ const EducationTimeline: React.FC = () => {
             institution: "Thekorpara High School",
             location: "Bangladesh",
             period: "Below 2018",
-            description: "Completed secondary education with good academic performance. Built strong foundation in mathematics, science, and developed early interest in technology and problem-solving.",
+            description:
+                "Completed secondary education with good academic performance. Built strong foundation in mathematics, science, and developed early interest in technology and problem-solving.",
             achievements: [
                 "Strong foundation in core subjects",
                 "Developed interest in mathematics and science",
                 "Active participation in school activities",
-                "Built fundamental academic skills"
-            ]
-        }
+                "Built fundamental academic skills",
+            ],
+        },
     ];
 
     return (
@@ -72,23 +75,27 @@ const EducationTimeline: React.FC = () => {
                     <div
                         key={edu.id}
                         className={`relative flex items-center ${
-                            index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                        } flex-col md:space-x-8`}
-                    >
+                            index % 2 === 0
+                                ? "md:flex-row"
+                                : "md:flex-row-reverse"
+                        } flex-col md:space-x-8`}>
                         {/* Timeline Node */}
                         <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-                            <div className={`w-4 h-4 rounded-full border-4 border-white shadow-lg ${
-                                edu.current 
-                                    ? "bg-gradient-to-r from-green-500 to-emerald-500" 
-                                    : "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)]"
-                            }`}>
-                            </div>
+                            <div
+                                className={`w-4 h-4 rounded-full border-4 border-white shadow-lg ${
+                                    edu.current
+                                        ? "bg-gradient-to-r from-green-500 to-emerald-500"
+                                        : "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)]"
+                                }`}></div>
                         </div>
 
                         {/* Content Card */}
-                        <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                            index % 2 === 0 ? "md:text-right" : "md:text-left"
-                        }`}>
+                        <div
+                            className={`w-full md:w-[45%] ml-16 md:ml-0 ${
+                                index % 2 === 0
+                                    ? "md:text-right"
+                                    : "md:text-left"
+                            }`}>
                             <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-6 border border-[var(--border-color)]/30 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                                 {/* Header */}
                                 <div className="mb-4">
@@ -118,22 +125,23 @@ const EducationTimeline: React.FC = () => {
                                         Key Achievements:
                                     </h4>
                                     <ul className="space-y-2">
-                                        {edu.achievements.map((achievement, achievementIndex) => (
-                                            <li
-                                                key={achievementIndex}
-                                                className="flex items-start space-x-2 text-sm text-[var(--text-secondary)]"
-                                            >
-                                                <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mt-2 flex-shrink-0"></span>
-                                                <span>{achievement}</span>
-                                            </li>
-                                        ))}
+                                        {edu.achievements.map(
+                                            (achievement, achievementIndex) => (
+                                                <li
+                                                    key={achievementIndex}
+                                                    className="flex items-start space-x-2 text-sm text-[var(--text-secondary)]">
+                                                    <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mt-2 flex-shrink-0"></span>
+                                                    <span>{achievement}</span>
+                                                </li>
+                                            )
+                                        )}
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
                         {/* Spacer for alternating layout */}
-                        <div className="hidden md:block w-5/12"></div>
+                        <div className="hidden md:block w-[45%]"></div>
                     </div>
                 ))}
             </div>

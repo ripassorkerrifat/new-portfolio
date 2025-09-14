@@ -17,7 +17,6 @@ import {
     SiTypescript,
     SiTailwindcss,
     SiJavascript,
-    SiHtml5,
     SiExpress,
     SiMongodb,
     SiPostgresql,
@@ -26,7 +25,6 @@ import {
     SiPrisma,
     SiFirebase,
 } from "react-icons/si";
-import {VscCode} from "react-icons/vsc";
 
 const Skills = () => {
     const allSkills = [
@@ -191,7 +189,7 @@ const Skills = () => {
                                     <div className="relative">
                                         {/* Floating Orb */}
                                         <div
-                                            className={`w-20 h-20 bg-gradient-to-br ${skill.color} rounded-full flex items-center justify-center shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-125 cursor-pointer group-hover:animate-pulse border-4 border-white/20 backdrop-blur-sm`}>
+                                            className={`lg:size-20 md:size-16 size-14 bg-gradient-to-br ${skill.color} rounded-full flex items-center justify-center shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-125 cursor-pointer group-hover:animate-pulse border-4 border-white/20 backdrop-blur-sm`}>
                                             <div className="text-2xl text-white group-hover:scale-110 transition-transform duration-300">
                                                 {skill.icon}
                                             </div>
