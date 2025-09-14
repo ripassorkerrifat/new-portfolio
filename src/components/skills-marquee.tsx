@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 const SkillsMarquee = () => {
@@ -96,19 +97,19 @@ const SkillsMarquee = () => {
     ];
 
     return (
-        <div className="w-full py-6 overflow-hidden group">
+        <div className="w-full md:py-6 pb-10 overflow-hidden group">
             <div className="flex animate-marquee group-hover:pause-animation whitespace-nowrap">
                 {/* First set of skills */}
                 {skills.map((skill, index) => (
                     <div
                         key={`first-${index}`}
-                        className="inline-flex items-center md:mx-4 mx-2 md:px-6 px-4 py-3 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
+                        className="inline-flex items-center md:mx-4 mx-1.5 md:px-6 px-3 md:py-3 py-2 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
                         <img
                             src={skill.logo}
                             alt={skill.name}
-                            className="md:size-7 size-6 mr-4 filter drop-shadow-lg"
+                            className="md:size-7 size-5 md:mr-4 mr-2 filter drop-shadow-lg"
                         />
-                        <span className="pr-6 font-bold text-[var(--text-primary)] tracking-wide">
+                        <span className="md:pr-6 pr-5  md:text-base text-sm md:font-bold font-semibold text-[var(--text-primary)] tracking-wide">
                             {skill.name}
                         </span>
                     </div>
@@ -118,13 +119,13 @@ const SkillsMarquee = () => {
                 {skills.map((skill, index) => (
                     <div
                         key={`second-${index}`}
-                        className="inline-flex items-center md:mx-4 mx-2 md:px-6 px-4 py-3 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
+                        className="inline-flex items-center md:mx-4 mx-1.5 md:px-6 px-3 md:py-3 py-2 glass rounded-full border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[var(--glow-secondary)]/20 backdrop-blur-md bg-gradient-to-r from-[var(--primary-bg)]/80 to-[var(--secondary-bg)]/80">
                         <img
                             src={skill.logo}
                             alt={skill.name}
-                            className="md:size-7 size-6 mr-4 filter drop-shadow-lg"
+                            className="md:size-7 size-5 md:mr-4 mr-2 filter drop-shadow-lg"
                         />
-                        <span className="pr-6 font-bold text-[var(--text-primary)] tracking-wide">
+                        <span className="md:pr-6 pr-5 md:text-base text-sm md:font-bold font-semibold text-[var(--text-primary)] tracking-wide">
                             {skill.name}
                         </span>
                     </div>

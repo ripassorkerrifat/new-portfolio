@@ -30,13 +30,9 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 interface ContactFormProps {
     className?: string;
-    onSuccess?: () => void;
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({
-    className = "",
-    onSuccess,
-}) => {
+const ContactForm: React.FC<ContactFormProps> = ({className = ""}) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<
         "idle" | "success" | "error"
@@ -61,7 +57,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
             await emailAPI.submitContactForm(data);
             setSubmitStatus("success");
             reset();
-            onSuccess?.();
 
             // Reset success message after 5 seconds
             setTimeout(() => {
@@ -82,7 +77,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     return (
         <div
             className={`bg-gradient-to-br from-[var(--card-bg)]/95 to-[var(--primary-bg)]/95 backdrop-blur-xl rounded-2xl border border-[var(--border-color)]/30 shadow-2xl ${className}`}>
-            <div className="p-8">
+            <div className="md:p-8 p-3">
                 {/* Header */}
                 <div className="text-center mb-8">
                     <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-3">
@@ -242,7 +237,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     </div>
 
                     {/* Submit Button */}
-                    <div className="pt-4">
+                    <div className="pt-2">
                         <button
                             type="submit"
                             disabled={isSubmitting}
@@ -264,7 +259,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     </div>
 
                     {/* Privacy Note */}
-                    <div className="text-center pt-4">
+                    <div className="text-center pt-2">
                         <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                             Your information is secure and will only be used to
                             respond to your inquiry. I respect your privacy and

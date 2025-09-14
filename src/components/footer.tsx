@@ -73,9 +73,9 @@ const Footer = () => {
             </div>
 
             {/* Main Footer Content */}
-            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
                 {/* Enhanced Header Section */}
-                <div className="text-center mb-12 sm:mb-16">
+                <div className="text-center mb-12 ">
                     <div className="inline-flex items-center justify-center mb-8">
                         <div className="relative">
                             <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm animate-pulse">
@@ -96,7 +96,7 @@ const Footer = () => {
                     </p>
 
                     {/* Call to Action */}
-                    <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
+                    <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8">
                         <a
                             href="#contact"
                             className="group bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-sm sm:text-base">
@@ -115,9 +115,9 @@ const Footer = () => {
                 </div>
 
                 {/* Enhanced Grid Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12  ">
                     {/* Quick Links */}
-                    <div className="text-center lg:text-left">
+                    <div className="text-center hidden md:block lg:text-left">
                         <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-8 flex items-center justify-center lg:justify-start gap-3">
                             <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center">
                                 🧭

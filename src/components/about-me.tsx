@@ -113,8 +113,8 @@ const AboutMe = () => {
                             className="animate-slide-up"
                             style={{animationDelay: "0.4s"}}>
                             <div className="space-y-6">
-                                <div className="space-y-4">
-                                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+                                <div className="space-y-4 md:text-lg text-base">
+                                    <p className="text-[var(--text-secondary)] leading-relaxed">
                                         Hi, I'm{" "}
                                         <span className="text-[var(--primary-color)] font-semibold">
                                             Ripas Sorker Rifat
@@ -124,7 +124,7 @@ const AboutMe = () => {
                                         in Computer Science & Engineering at
                                         Dhaka International University.
                                     </p>
-                                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+                                    <p className="text-[var(--text-secondary)] leading-relaxed">
                                         I specialize in React, Next.js, Node.js,
                                         and various databases. My journey
                                         started with curiosity about how web
@@ -132,7 +132,7 @@ const AboutMe = () => {
                                         into a career dedicated to building
                                         exceptional user experiences.
                                     </p>
-                                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+                                    <p className="text-[var(--text-secondary)] leading-relaxed">
                                         With over 2 years of professional
                                         experience, I've worked on diverse
                                         projects including{" "}
@@ -153,7 +153,7 @@ const AboutMe = () => {
                                         user interfaces that solve real-world
                                         problems.
                                     </p>
-                                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
+                                    <p className="text-[var(--text-secondary)] leading-relaxed">
                                         My expertise spans across frontend
                                         development with modern frameworks,
                                         full-stack application architecture, and
@@ -190,13 +190,13 @@ const AboutMe = () => {
 
                                 {/* Action Buttons */}
                                 <div className="flex flex-wrap gap-4 mt-8">
-                                    <button className="flex items-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 transform hover:-translate-y-1">
+                                    <button className="md:w-auto w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 transform hover:-translate-y-1">
                                         <FaDownload className="text-sm" />
                                         <span>Download CV</span>
                                     </button>
                                     <a
                                         href="#contact"
-                                        className="flex items-center space-x-2 border border-[var(--primary-color)] text-[var(--primary-color)] px-8 py-4 rounded-2xl font-semibold hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                                        className="md:w-auto w-full flex items-center justify-center space-x-2 border border-[var(--primary-color)] text-[var(--primary-color)] px-8 py-4 rounded-2xl font-semibold hover:bg-[var(--primary-color)] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                                         <FaEnvelope className="text-sm" />
                                         <span>Get In Touch</span>
                                     </a>
