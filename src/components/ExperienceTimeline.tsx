@@ -25,7 +25,7 @@ const ExperienceTimeline: React.FC = () => {
             period: "March 2024 - Present",
             current: true,
             description:
-                "Developing and maintaining full-stack web applications including OTA platforms, HRMS systems, and e-commerce solutions. Leading frontend development with React/Next.js and building robust backend APIs with Node.js and modern databases.",
+                "Developing and maintaining full-stack web applications including OTA platforms, HRMS systems, and e-commerce solutions. Leading frontend development with React/Next.js and building robust backend APIs with Node.js and modern DB.",
             technologies: [
                 "React",
                 "Next.js",
@@ -50,7 +50,7 @@ const ExperienceTimeline: React.FC = () => {
             period: "2022 - Present",
             current: true,
             description:
-                "Working on various freelance projects including jewelry e-commerce platforms, portfolio websites, HRMS solutions, and custom web applications for clients worldwide. Specializing in modern React/Next.js frontends with full-stack capabilities.",
+                "Working on various freelance projects including OTA platforms, portfolio websites, HRMS solutions, and custom web applications for clients worldwide. Specializing in modern React/Next.js frontends with full-stack capabilities.",
             technologies: [
                 "React",
                 "Next.js",
@@ -68,21 +68,38 @@ const ExperienceTimeline: React.FC = () => {
         },
         {
             id: 3,
-            title: "Junior Full Stack Developer (Internship)",
-            company: "Eduphy Academy",
+            title: "Junior Web Developer",
+            company: "Company Name",
             location: "Remote",
             type: "Internship",
-            period: "November 2023 - February 2024",
+            period: "April 2023 - September 2023",
             description:
-                "Gained hands-on experience in full-stack development through practical projects. Worked with educational technology platforms and learned industry best practices.",
+                "Gained practical experience in web development through a comprehensive internship project. Worked on various web development tasks such as building responsive websites, implementing APIs, and optimizing performance. Developed a deep understanding of web technologies and industry best practices.",
             technologies: [
-                "React",
-                "Node.js",
-                "MongoDB",
-                "Express.js",
-                "JavaScript",
                 "HTML",
                 "CSS",
+                "JavaScript",
+                "React",
+                "Tailwind CSS",
+                "Framer",
+            ],
+        },
+        {
+            id: 4,
+            title: "Web Developer",
+            company: "Company Name",
+            location: "Remote",
+            type: "Internship",
+            period: "April 2022 - September 2022",
+            description:
+                "Gained practical experience in web development through a comprehensive internship project. Worked on various web development tasks such as building responsive websites, implementing APIs, and optimizing performance. Developed a deep understanding of web technologies and industry best practices.",
+            technologies: [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React",
+                "Tailwind CSS",
+                "Framer",
             ],
         },
     ];

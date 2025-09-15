@@ -15,12 +15,12 @@ const ProjectCTA: React.FC = () => {
         <div className="relative mb-20">
             {/* Enhanced Background Effects */}
             <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-0 md:left-1/4 w-full h-full bg-gradient-to-r from-[var(--primary-color)]/30 to-[var(--secondary-color)]/30 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute top-0 md:left-1/4 md:w-80 md:h-80 w-60 h-60 bg-gradient-to-r from-[var(--primary-color)]/30 to-[var(--secondary-color)]/30 rounded-full blur-3xl animate-pulse"></div>
                 <div
-                    className="absolute bottom-0 right-1/4 w-full h-full bg-gradient-to-r from-[var(--secondary-color)]/25 to-[var(--accent-color)]/25 rounded-full blur-3xl animate-pulse"
+                    className="absolute bottom-0 right-1/4 md:w-80 md:h-80 w-60 h-60 bg-gradient-to-r from-[var(--secondary-color)]/25 to-[var(--accent-color)]/25 rounded-full blur-3xl animate-pulse"
                     style={{animationDelay: "2s"}}></div>
                 <div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-[var(--accent-color)]/20 to-[var(--primary-color)]/20 rounded-full blur-3xl animate-pulse"
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:w-80 md:h-80 w-60 h-60 bg-gradient-to-r from-[var(--accent-color)]/20 to-[var(--primary-color)]/20 rounded-full blur-3xl animate-pulse"
                     style={{animationDelay: "4s"}}></div>
             </div>
 
