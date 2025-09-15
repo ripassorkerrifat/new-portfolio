@@ -9,8 +9,8 @@ import BasicDetailsForm from "@/components/dashboard/forms/BasicDetailsForm";
 import TimelineDatesForm from "@/components/dashboard/forms/TimelineDatesForm";
 import SkillsTechForm from "@/components/dashboard/forms/SkillsTechForm";
 import LinksGalleryForm from "@/components/dashboard/forms/LinksGalleryForm";
+import PublishingForm from "@/components/dashboard/forms/PublishingForm";
 import ReviewSubmitForm from "@/components/dashboard/forms/ReviewSubmitForm";
-import SEOMetaForm from "@/components/dashboard/forms/SEOMetaForm";
 import {
     FaArrowLeft,
     FaSave,
@@ -21,6 +21,7 @@ import {
     FaCode,
     FaLink,
     FaEye,
+    FaGlobe,
 } from "react-icons/fa";
 
 const AddProjectPage: React.FC = () => {
@@ -28,26 +29,28 @@ const AddProjectPage: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
 
+    const defaultValues = {
+        title: "",
+        description: "",
+        shortDescription: "",
+        thumbnail: "",
+        category: "front-end" as const,
+        skills: [],
+        startDate: "",
+        endDate: "",
+        is_featured: false,
+        is_published: true,
+        order: undefined,
+        liveUrl: "",
+        githubLink1: "",
+        githubLink2: "",
+        galleryImages: [],
+    };
+
     const form = useForm({
         resolver: zodResolver(projectSchema),
         mode: "onChange" as const,
-        defaultValues: {
-            title: "",
-            thumbnail: "",
-            description: "",
-            startDate: "",
-            endDate: "",
-            skills: [],
-            category: "front-end" as const,
-            is_featured: false,
-            liveUrl: "",
-            githubLink1: "",
-            githubLink2: "",
-            galleryImages: [],
-            meta_title: "",
-            meta_desc: "",
-            meta_keywords: [],
-        },
+        defaultValues,
     });
 
     const steps = [
@@ -60,6 +63,7 @@ const AddProjectPage: React.FC = () => {
                 "title",
                 "thumbnail",
                 "description",
+                "shortDescription",
                 "category",
                 "is_featured",
             ],
@@ -79,18 +83,18 @@ const AddProjectPage: React.FC = () => {
             fields: ["skills"],
         },
         {
+            title: "Publishing",
+            description: "Set visibility and display order",
+            icon: FaGlobe,
+            component: PublishingForm,
+            fields: ["is_published", "is_featured", "order"],
+        },
+        {
             title: "Links & Gallery",
             description: "Project links and images",
             icon: FaLink,
             component: LinksGalleryForm,
             fields: ["liveUrl", "githubLink1", "githubLink2", "galleryImages"],
-        },
-        {
-            title: "SEO Meta Info",
-            description: "Meta title, description, and keywords",
-            icon: FaInfoCircle,
-            component: SEOMetaForm,
-            fields: ["meta_title", "meta_desc", "meta_keywords"],
         },
         {
             title: "Review & Submit",
@@ -103,15 +107,15 @@ const AddProjectPage: React.FC = () => {
 
     const uploadFile = async (file: File): Promise<string> => {
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append("file", file);
 
-        const response = await fetch('/api/upload', {
-            method: 'POST',
+        const response = await fetch("/api/upload", {
+            method: "POST",
             body: formData,
         });
 
         if (!response.ok) {
-            throw new Error('Failed to upload file');
+            throw new Error("Failed to upload file");
         }
 
         const result = await response.json();
@@ -147,10 +151,10 @@ const AddProjectPage: React.FC = () => {
                 galleryImages: galleryUrls,
             };
 
-            const response = await fetch('/api/projects', {
-                method: 'POST',
+            const response = await fetch("/api/projects", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify(finalData),
             });
@@ -158,7 +162,7 @@ const AddProjectPage: React.FC = () => {
             const result = await response.json();
 
             if (!response.ok) {
-                throw new Error(result.error || 'Failed to create project');
+                throw new Error(result.error || "Failed to create project");
             }
 
             console.log("Project created successfully:", result.project);
@@ -167,7 +171,11 @@ const AddProjectPage: React.FC = () => {
             router.push("/dashboard/projects?created=true");
         } catch (error) {
             console.error("Error creating project:", error);
-            alert(error instanceof Error ? error.message : 'Failed to create project');
+            alert(
+                error instanceof Error
+                    ? error.message
+                    : "Failed to create project"
+            );
         } finally {
             setIsSubmitting(false);
         }
@@ -312,8 +320,8 @@ const AddProjectPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Form */}
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            {/* Form Content */}
+            <div className="space-y-6">
                 <CurrentStepComponent form={form as any} />
 
                 {/* Navigation Buttons */}
@@ -338,7 +346,8 @@ const AddProjectPage: React.FC = () => {
                             </button>
                         ) : (
                             <button
-                                type="submit"
+                                type="button"
+                                onClick={form.handleSubmit(onSubmit)}
                                 disabled={isSubmitting}
                                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                 {isSubmitting ? (
@@ -359,7 +368,7 @@ const AddProjectPage: React.FC = () => {
                         )}
                     </div>
                 </div>
-            </form>
+            </div>
 
             {/* Form Debug (Development only) */}
             {process.env.NODE_ENV === "development" && (

@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
 
     // Handle validation errors
     if (error.name === 'ZodError') {
+      console.error('Zod validation errors:', error.errors);
       return NextResponse.json({
         success: false,
         error: 'Validation failed',
@@ -75,11 +76,18 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
     const featured = searchParams.get('featured');
+    const published = searchParams.get('published');
     const limit = parseInt(searchParams.get('limit') || '10');
     const page = parseInt(searchParams.get('page') || '1');
 
     // Build query
     const query: any = {};
+    
+    // Only show published projects for public API calls (when published param is not explicitly set to 'false')
+    if (published !== 'false') {
+      query.is_published = true;
+    }
+    
     if (category && category !== 'all') {
       query.category = category;
     }
@@ -87,10 +95,18 @@ export async function GET(request: NextRequest) {
       query.is_featured = true;
     }
 
+    // Determine sort order
+    let sortQuery: any = { createdAt: -1 }; // Default sort by creation date
+    
+    // If we have published projects, sort by order first, then by creation date
+    if (query.is_published) {
+      sortQuery = { order: 1, createdAt: -1 };
+    }
+
     // Execute query with pagination
     const skip = (page - 1) * limit;
     const projects = await Project.find(query)
-      .sort({ createdAt: -1 })
+      .sort(sortQuery)
       .skip(skip)
       .limit(limit)
       .lean();

@@ -14,7 +14,7 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
   onMoreInfo,
   onGalleryOpen
 }) => {
-  const featuredProjects = projects.filter(project => project.featured);
+  const featuredProjects = projects.filter(project => project.is_featured);
 
   return (
     <div className="mb-12 sm:mb-16 lg:mb-20">
@@ -24,7 +24,7 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         {featuredProjects.map((project, index) => (
           <ProjectCard
-            key={project.id}
+            key={project._id || project.id}
             project={project}
             index={index}
             onMoreInfo={onMoreInfo}

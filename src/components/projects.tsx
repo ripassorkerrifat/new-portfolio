@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {Project, Filter} from "../types/project";
 import ProjectCard from "./project-card";
 import FeaturedProjects from "./featured-projects";
@@ -16,199 +16,89 @@ const Projects: React.FC = () => {
     const [showProjectModal, setShowProjectModal] = useState<boolean>(false);
     const [showGalleryModal, setShowGalleryModal] = useState<boolean>(false);
     const [selectedGallery, setSelectedGallery] = useState<string[]>([]);
+    const [featuredProjects, setFeaturedProjects] = useState<Project[]>([]);
+    const [regularProjects, setRegularProjects] = useState<Project[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
-    const projects: Project[] = [
-        {
-            id: 1,
-            title: "E-commerce Platform",
-            category: "fullstack" as const,
-            description:
-                "A complete e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-            image: "🛒",
-            thumbnail:
-                "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-            technologies: ["React", "Node.js", "MongoDB", "Stripe", "JWT"],
-            liveUrl: "https://ecommerce-demo.com",
-            githubUrl: "https://github.com/ripassorkerrifat/ecommerce",
-            featured: true,
-            detailedDescription:
-                "A comprehensive e-commerce platform built with modern web technologies. Features include user authentication, secure payment processing with Stripe, inventory management, order tracking, and a complete admin dashboard for managing products, orders, and users.",
-            challenges:
-                "Implementing secure payment processing, optimizing database queries for large product catalogs, and creating a responsive design that works across all devices.",
-            results:
-                "Successfully deployed platform handling 1000+ daily transactions with 99.9% uptime and positive user feedback.",
-            gallery: [
-                "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-            ],
-        },
-        {
-            id: 2,
-            title: "Task Management App",
-            category: "frontend" as const,
-            description:
-                "A modern task management application built with Next.js and TypeScript. Features drag-and-drop functionality and real-time updates.",
-            image: "📋",
-            thumbnail:
-                "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
-            technologies: [
-                "Next.js",
-                "TypeScript",
-                "Tailwind CSS",
-                "Framer Motion",
-            ],
-            liveUrl: "https://taskapp-demo.com",
-            githubUrl: "https://github.com/ripassorkerrifat/taskapp",
-            featured: true,
-            detailedDescription:
-                "A sophisticated task management application with intuitive drag-and-drop functionality, real-time collaboration features, and beautiful animations. Built with Next.js and TypeScript for optimal performance and type safety.",
-            challenges:
-                "Creating smooth drag-and-drop interactions, implementing real-time updates across multiple users, and maintaining state consistency.",
-            results:
-                "Achieved 40% increase in team productivity with seamless collaboration features and intuitive user interface.",
-            gallery: [
-                "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
-            ],
-        },
-        {
-            id: 3,
-            title: "Weather Dashboard",
-            category: "frontend" as const,
-            description:
-                "A responsive weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.",
-            image: "🌤️",
-            thumbnail:
-                "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-            technologies: ["React", "Chart.js", "OpenWeather API", "CSS3"],
-            liveUrl: "https://weather-dashboard.com",
-            githubUrl: "https://github.com/ripassorkerrifat/weather-app",
-            featured: false,
-            detailedDescription:
-                "An interactive weather dashboard providing comprehensive weather information with beautiful data visualizations, location-based forecasts, and detailed analytics powered by OpenWeather API.",
-            challenges:
-                "Integrating multiple weather APIs, creating responsive charts and graphs, and optimizing performance for real-time data updates.",
-            results:
-                "Delivered accurate weather predictions with engaging visual interface, used by 500+ users daily.",
-            gallery: [
-                "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
-            ],
-        },
-        {
-            id: 4,
-            title: "REST API Server",
-            category: "backend" as const,
-            description:
-                "A scalable REST API server with authentication, rate limiting, and comprehensive documentation using Swagger.",
-            image: "🔌",
-            thumbnail:
-                "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop",
-            technologies: [
-                "Node.js",
-                "Express",
-                "PostgreSQL",
-                "JWT",
-                "Swagger",
-            ],
-            liveUrl: "https://api-server-demo.com",
-            githubUrl: "https://github.com/ripassorkerrifat/api-server",
-            featured: false,
-            detailedDescription:
-                "A robust and scalable REST API server built with Node.js and Express. Features comprehensive authentication system, rate limiting, input validation, and auto-generated API documentation with Swagger.",
-            challenges:
-                "Implementing secure authentication flows, designing efficient database schemas, and creating comprehensive API documentation.",
-            results:
-                "Successfully handles 10,000+ API requests per minute with 99.8% uptime and comprehensive security measures.",
-            gallery: [
-                "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=600&fit=crop",
-            ],
-        },
-        {
-            id: 5,
-            title: "Social Media Dashboard",
-            category: "fullstack" as const,
-            description:
-                "A comprehensive social media management dashboard with analytics, post scheduling, and multi-platform integration.",
-            image: "📱",
-            thumbnail:
-                "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop",
-            technologies: [
-                "React",
-                "Node.js",
-                "Redis",
-                "Socket.io",
-                "Chart.js",
-            ],
-            liveUrl: "https://social-dashboard.com",
-            githubUrl: "https://github.com/ripassorkerrifat/social-dashboard",
-            featured: true,
-            detailedDescription:
-                "A powerful social media management platform that allows users to manage multiple social media accounts from a single dashboard. Features include post scheduling, analytics tracking, engagement monitoring, and real-time notifications.",
-            challenges:
-                "Integrating multiple social media APIs, implementing real-time data synchronization, and creating intuitive analytics visualizations.",
-            results:
-                "Increased social media engagement by 60% for users, with streamlined workflow reducing management time by 50%.",
-            gallery: [
-                "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1553484771-371a605b060b?w=800&h=600&fit=crop",
-            ],
-        },
-        {
-            id: 6,
-            title: "Portfolio Website",
-            category: "frontend" as const,
-            description:
-                "A modern, responsive portfolio website with smooth animations, dark mode, and optimized performance.",
-            image: "💼",
-            thumbnail:
-                "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
-            technologies: [
-                "Next.js",
-                "Tailwind CSS",
-                "Framer Motion",
-                "TypeScript",
-            ],
-            liveUrl: "https://portfolio-demo.com",
-            githubUrl: "https://github.com/ripassorkerrifat/portfolio",
-            featured: false,
-            detailedDescription:
-                "A sleek and modern portfolio website showcasing projects and skills with beautiful animations, responsive design, and optimized performance. Built with Next.js and enhanced with Framer Motion for smooth interactions.",
-            challenges:
-                "Creating smooth animations without compromising performance, implementing dark mode with seamless transitions, and optimizing for SEO.",
-            results:
-                "Achieved 95+ Lighthouse score across all metrics, with engaging user experience and professional presentation.",
-            gallery: [
-                "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&h=600&fit=crop",
-                "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop",
-            ],
-        },
-    ];
+    // Debug state changes
+    useEffect(() => {
+        console.log("Featured projects state updated:", featuredProjects);
+    }, [featuredProjects]);
+
+    useEffect(() => {
+        console.log("Regular projects state updated:", regularProjects);
+    }, [regularProjects]);
+
+    // Fetch featured projects
+    const fetchFeaturedProjects = async () => {
+        try {
+            const response = await fetch("/api/projects/featured");
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Featured projects API response:", data);
+                console.log("Featured projects array:", data.projects);
+                setFeaturedProjects(data.projects || []);
+            } else {
+                console.error(
+                    "Featured projects API error:",
+                    response.status,
+                    response.statusText
+                );
+            }
+        } catch (error) {
+            console.error("Error fetching featured projects:", error);
+        }
+    };
+
+    // Fetch regular projects
+    const fetchRegularProjects = async (category: string = "all") => {
+        try {
+            const url = `/api/projects/public?category=${category}&limit=6`;
+            const response = await fetch(url);
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Regular projects API response:", data);
+                console.log("Regular projects array:", data.projects);
+                setRegularProjects(data.projects || []);
+            } else {
+                console.error(
+                    "Regular projects API error:",
+                    response.status,
+                    response.statusText
+                );
+            }
+        } catch (error) {
+            console.error("Error fetching regular projects:", error);
+            setError("Failed to load projects");
+        }
+    };
+
+    // Load projects on component mount
+    useEffect(() => {
+        const loadProjects = async () => {
+            setLoading(true);
+            await Promise.all([
+                fetchFeaturedProjects(),
+                fetchRegularProjects(activeFilter),
+            ]);
+            setLoading(false);
+        };
+        loadProjects();
+    }, [activeFilter]);
+
+    // Reload regular projects when filter changes
+    useEffect(() => {
+        fetchRegularProjects(activeFilter);
+    }, [activeFilter]);
 
     const filters: Filter[] = [
         {id: "all", label: "All Projects"},
-        {id: "fullstack", label: "Full Stack"},
         {id: "frontend", label: "Frontend"},
         {id: "backend", label: "Backend"},
+        {id: "fullstack", label: "Full Stack"},
+        {id: "other", label: "Other"},
     ];
-
-    const filteredProjects =
-        activeFilter === "all"
-            ? projects
-            : projects.filter((project) => project.category === activeFilter);
 
     const openProjectModal = (project: Project) => {
         setSelectedProject(project);
@@ -250,14 +140,18 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* Featured Projects */}
-                {/* <FeaturedProjects
-                    projects={projects}
-                    onMoreInfo={openProjectModal}
-                    onGalleryOpen={openGalleryModal}
-                /> */}
+                {featuredProjects.length > 0 && (
+                    <div className="mb-16">
+                        <FeaturedProjects
+                            projects={featuredProjects}
+                            onMoreInfo={openProjectModal}
+                            onGalleryOpen={openGalleryModal}
+                        />
+                    </div>
+                )}
 
                 {/* Enhanced Filter Tabs */}
-                {/* <div className="flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 px-4">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 px-4">
                     {filters.map((filter) => (
                         <button
                             key={filter.id}
@@ -275,20 +169,51 @@ const Projects: React.FC = () => {
                             )}
                         </button>
                     ))}
-                </div> */}
+                </div>
 
-                {/* All Projects Grid */}
-                {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                    {filteredProjects.map((project, index) => (
-                        <ProjectCard
-                            key={project.id}
-                            project={project}
-                            index={index}
-                            onMoreInfo={openProjectModal}
-                            onGalleryOpen={openGalleryModal}
-                        />
-                    ))}
-                </div> */}
+                {/* Loading State */}
+                {loading && (
+                    <div className="flex justify-center items-center py-12">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--primary-color)]"></div>
+                    </div>
+                )}
+
+                {/* Error State */}
+                {error && (
+                    <div className="text-center py-12">
+                        <p className="text-red-500 mb-4">{error}</p>
+                        <button
+                            onClick={() => window.location.reload()}
+                            className="px-6 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-[var(--primary-color)]/80 transition-colors">
+                            Retry
+                        </button>
+                    </div>
+                )}
+
+                {/* Regular Projects Grid */}
+                {!loading && !error && (
+                    <div>
+                        {regularProjects.length > 0 ? (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                                {regularProjects.map((project, index) => (
+                                    <ProjectCard
+                                        key={project.id || project._id}
+                                        project={project}
+                                        index={index}
+                                        onMoreInfo={openProjectModal}
+                                        onGalleryOpen={openGalleryModal}
+                                    />
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="text-center py-12">
+                                <p className="text-[var(--text-secondary)] text-lg">
+                                    No projects found for the selected category.
+                                </p>
+                            </div>
+                        )}
+                    </div>
+                )}
 
                 {/* Modals */}
                 <ProjectDetailsModal

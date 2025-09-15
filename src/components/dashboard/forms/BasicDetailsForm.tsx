@@ -4,14 +4,13 @@ import React from "react";
 import {UseFormReturn} from "react-hook-form";
 import {FaInfoCircle} from "react-icons/fa";
 import {PreviewImageUpload} from "@/components/ui/PreviewImageUpload";
-import dynamic from 'next/dynamic';
-
-const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
+import TextEditor from "@/components/TextEditor";
 
 interface ProjectFormData {
     title: string;
     name: string;
     description: string;
+    shortDescription: string;
     category: string;
     status: string;
     priority: string;
@@ -96,28 +95,34 @@ const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({form}) => {
                     )}
                 </div>
 
+                {/* Short Description */}
+                <div>
+                    <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
+                        Short Description *
+                    </label>
+                    <textarea
+                        {...register("shortDescription")}
+                        rows={3}
+                        placeholder="Brief summary of your project (max 200 characters)"
+                        className="w-full px-4 py-3 bg-[var(--primary-bg)]/50 border border-[var(--border-color)]/30 rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--primary-color)]/50 transition-colors duration-300 resize-none"
+                        maxLength={200}
+                    />
+                    {errors.shortDescription && (
+                        <p className="text-red-400 text-sm mt-1">
+                            {String(errors.shortDescription.message || "This field is required")}
+                        </p>
+                    )}
+                </div>
+
                 {/* Description with Rich Text Editor */}
                 <div>
                     <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
-                        Description *
+                        Detailed Description *
                     </label>
                     <div className="relative">
-                        <MDEditor
+                        <TextEditor
                             value={watch("description") || ""}
-                            onChange={(value) => setValue("description", value || "")}
-                            preview="edit"
-                            hideToolbar={false}
-                            visibleDragbar={false}
-                            textareaProps={{
-                                placeholder: "Describe your project in detail. You can use markdown formatting...",
-                                style: {
-                                    fontSize: 14,
-                                    lineHeight: 1.5,
-                                    fontFamily: 'inherit',
-                                }
-                            }}
-                            height={200}
-                            data-color-mode="dark"
+                            onChange={(value: string) => setValue("description", value || "")}
                         />
                     </div>
                     {errors.description && (

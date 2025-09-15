@@ -1,0 +1,53 @@
+/* TextEditor styles for Jodit */
+.jodit-container {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.jodit-toolbar {
+    background: var(--card-bg, #ffffff);
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.jodit-wysiwyg {
+    background: var(--background-color, #ffffff);
+    color: var(--text-primary, #1a202c);
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.jodit-wysiwyg:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color, #3b82f6);
+}
+
+/* Ensure lists display properly */
+.jodit-wysiwyg ul {
+    list-style: disc inside;
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.jodit-wysiwyg ol {
+    list-style: decimal inside;
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.jodit-wysiwyg li {
+    margin: 0.5em 0;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .jodit-toolbar {
+        background: var(--card-bg, #2d3748);
+        border-color: var(--border-color, #4a5568);
+    }
+    
+    .jodit-wysiwyg {
+        background: var(--background-color, #1a202c);
+        color: var(--text-primary, #f7fafc);
+    }
+}

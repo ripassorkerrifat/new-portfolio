@@ -1,18 +1,29 @@
 export interface Project {
-    id: number;
+    _id?: string;
+    id?: number;
     title: string;
-    category: "fullstack" | "frontend" | "backend";
+    category: "fullstack" | "frontend" | "backend" | "other";
     description: string;
-    image: string;
+    shortDescription?: string;
+    image?: string;
     thumbnail: string;
-    technologies: string[];
-    liveUrl: string;
-    githubUrl: string;
-    featured: boolean;
-    detailedDescription: string;
-    challenges: string;
-    results: string;
-    gallery: string[];
+    technologies?: string[];
+    skills?: string[];
+    liveUrl?: string;
+    githubUrl?: string;
+    githubLink1?: string;
+    githubLink2?: string;
+    featured?: boolean;
+    is_featured?: boolean;
+    is_published?: boolean;
+    detailedDescription?: string;
+    challenges?: string;
+    results?: string;
+    gallery?: string[];
+    galleryImages?: string[];
+    startDate?: string;
+    endDate?: string;
+    order?: number;
 }
 
 export interface Filter {

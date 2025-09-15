@@ -47,7 +47,7 @@
 body {
     background: var(--primary-bg);
     color: var(--foreground);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
 }
 
@@ -109,7 +109,8 @@ html {
 }
 
 @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0px);
     }
     50% {
@@ -118,7 +119,8 @@ html {
 }
 
 @keyframes float-delayed {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0px);
     }
     50% {
@@ -127,7 +129,8 @@ html {
 }
 
 @keyframes glow {
-    0%, 100% {
+    0%,
+    100% {
         box-shadow: 0 0 20px var(--glow-primary);
     }
     50% {
@@ -181,4 +184,14 @@ html {
 
 .animate-shimmer {
     animation: shimmer 2s infinite;
+}
+
+/* // allows default ul and dot to show up */
+.jodit-wysiwyg ul {
+    list-style: inside;
+}
+/* // allows default ol to show up */
+.jodit-wysiwyg ol {
+    list-style: inside;
+    list-style-type: number;
 }

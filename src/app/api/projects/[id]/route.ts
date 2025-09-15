@@ -58,8 +58,23 @@ export async function PUT(
             message: 'Project updated successfully',
             project 
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('Error updating project:', error);
+        
+        // Handle MongoDB validation errors
+        if (error.name === 'ValidationError') {
+            const validationErrors = Object.values(error.errors).map((err: any) => ({
+                field: err.path,
+                message: err.message,
+            }));
+            
+            return NextResponse.json({
+                success: false,
+                error: 'Database validation failed',
+                details: validationErrors,
+            }, { status: 400 });
+        }
+        
         return NextResponse.json(
             { error: 'Failed to update project' },
             { status: 500 }

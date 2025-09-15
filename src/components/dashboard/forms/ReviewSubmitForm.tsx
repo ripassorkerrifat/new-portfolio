@@ -49,11 +49,13 @@ const ReviewSubmitForm: React.FC<ReviewSubmitFormProps> = ({ form }) => {
                 <div className="bg-[var(--primary-bg)]/30 rounded-xl p-6 border border-[var(--border-color)]/20">
                     <div className="flex items-start space-x-4">
                         {formData.thumbnail && (
-                            <img
-                                src={formData.thumbnail}
-                                alt="Project thumbnail"
-                                className="w-24 h-24 object-cover rounded-xl border border-[var(--border-color)]/30 flex-shrink-0"
-                            />
+                            <div className="w-24 h-24 flex-shrink-0">
+                                <img
+                                    src={typeof formData.thumbnail === 'string' ? formData.thumbnail : URL.createObjectURL(formData.thumbnail)}
+                                    alt="Project thumbnail"
+                                    className="w-full h-full object-cover rounded-xl border border-[var(--border-color)]/30"
+                                />
+                            </div>
                         )}
                         <div className="flex-1">
                             <div className="flex items-center space-x-3 mb-2">
@@ -179,12 +181,16 @@ const ReviewSubmitForm: React.FC<ReviewSubmitFormProps> = ({ form }) => {
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
                             {formData.galleryImages.map((image, index) => (
-                                <img
+                                <div
                                     key={index}
-                                    src={image}
-                                    alt={`Gallery ${index + 1}`}
-                                    className="w-full h-20 object-cover rounded-lg border border-[var(--border-color)]/30"
-                                />
+                                    className="w-full h-20 rounded-lg border border-[var(--border-color)]/30 overflow-hidden"
+                                >
+                                    <img
+                                        src={typeof image === 'string' ? image : URL.createObjectURL(image)}
+                                        alt={`Gallery ${index + 1}`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
                             ))}
                         </div>
                     </div>

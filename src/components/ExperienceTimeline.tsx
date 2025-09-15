@@ -50,7 +50,7 @@ const ExperienceTimeline: React.FC = () => {
             period: "2022 - Present",
             current: true,
             description:
-                "Working on various freelance projects including OTA platforms, portfolio websites, HRMS solutions, and custom web applications for clients worldwide. Specializing in modern React/Next.js frontends with full-stack capabilities.",
+                "Working on various freelance projects including OTA platforms, portfolio websites, HRMS solutions, and custom web applications for clients worldwide. Specializing in modern React/Next.js frontend with full-stack capabilities.",
             technologies: [
                 "React",
                 "Next.js",
@@ -157,7 +157,10 @@ const ExperienceTimeline: React.FC = () => {
                                         </div>
                                     </div>
                                     <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] mb-1">
-                                        {experience.title}
+                                        {experience.title}{" "}
+                                        <span className="text-xs md:text-sm text-[var(--text-secondary)] font-medium">
+                                            ( {experience.type})
+                                        </span>
                                     </h3>
                                     <div className="text-[var(--primary-color)] font-semibold text-sm md:text-base">
                                         <span>{experience.company}</span>
@@ -166,9 +169,6 @@ const ExperienceTimeline: React.FC = () => {
                                             {experience.location}
                                         </span>
                                     </div>
-                                    <span className="text-xs md:text-sm text-[var(--text-secondary)] font-medium">
-                                        {experience.type}
-                                    </span>
                                 </div>
 
                                 {/* Description */}

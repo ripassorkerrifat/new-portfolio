@@ -4,18 +4,18 @@ export interface IProject extends Document {
   title: string;
   thumbnail: string;
   description: string;
+  shortDescription: string;
   startDate: string;
   endDate?: string;
   skills: string[];
-  category: 'front-end' | 'backend' | 'others';
+  category: 'front-end' | 'backend' | 'full-stack' | 'others';
   is_featured: boolean;
+  is_published: boolean;
+  order?: number;
   liveUrl: string;
   githubLink1?: string;
   githubLink2?: string;
   galleryImages?: string[];
-  meta_title: string;
-  meta_desc: string;
-  meta_keywords: string[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -36,6 +36,12 @@ const ProjectSchema: Schema = new Schema(
       type: String,
       required: [true, 'Project description is required'],
       minlength: [10, 'Description must be at least 10 characters'],
+    },
+    shortDescription: {
+      type: String,
+      required: [true, 'Short description is required'],
+      minlength: [5, 'Short description must be at least 5 characters'],
+      maxlength: [200, 'Short description cannot exceed 200 characters'],
     },
     startDate: {
       type: String,
@@ -59,13 +65,21 @@ const ProjectSchema: Schema = new Schema(
       type: String,
       required: [true, 'Project category is required'],
       enum: {
-        values: ['front-end', 'backend', 'others'],
-        message: 'Category must be one of: front-end, backend, others',
+        values: ['front-end', 'backend', 'full-stack', 'others'],
+        message: 'Category must be one of: front-end, backend, full-stack, others',
       },
     },
     is_featured: {
       type: Boolean,
       default: false,
+    },
+    is_published: {
+      type: Boolean,
+      default: false,
+    },
+    order: {
+      type: Number,
+      required: false,
     },
     liveUrl: {
       type: String,
@@ -101,26 +115,6 @@ const ProjectSchema: Schema = new Schema(
       type: [String],
       default: [],
     },
-    meta_title: {
-      type: String,
-      required: [true, 'Meta title is required'],
-      maxlength: [60, 'Meta title cannot exceed 60 characters'],
-    },
-    meta_desc: {
-      type: String,
-      required: [true, 'Meta description is required'],
-      maxlength: [160, 'Meta description cannot exceed 160 characters'],
-    },
-    meta_keywords: {
-      type: [String],
-      required: [true, 'Meta keywords are required'],
-      validate: {
-        validator: function(v: string[]) {
-          return v && v.length > 0;
-        },
-        message: 'At least one meta keyword must be provided',
-      },
-    },
   },
   {
     timestamps: true,
@@ -130,7 +124,16 @@ const ProjectSchema: Schema = new Schema(
 // Create indexes for better query performance
 ProjectSchema.index({ category: 1 });
 ProjectSchema.index({ is_featured: 1 });
+ProjectSchema.index({ is_published: 1 });
+ProjectSchema.index({ order: 1 });
 ProjectSchema.index({ createdAt: -1 });
 ProjectSchema.index({ title: 'text', description: 'text' });
 
-export default mongoose.models.Project || mongoose.model<IProject>('Project', ProjectSchema);
+// Clear any existing model to ensure schema updates are applied
+if (mongoose.models.Project) {
+  delete mongoose.models.Project;
+}
+
+const Project = mongoose.model<IProject>('Project', ProjectSchema);
+
+export default Project;
