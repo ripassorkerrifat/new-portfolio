@@ -5,8 +5,10 @@ import SkillsMarquee from "./skills-marquee";
 import Lottie from "lottie-react";
 
 import coding from "../assets/skills.json";
+import {useRouter} from "next/navigation";
 
 const Banner = () => {
+    const router = useRouter();
     return (
         <>
             <section className="relative min-h-screen bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] overflow-hidden pt-20">
@@ -99,10 +101,12 @@ const Banner = () => {
                         <div
                             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-slide-up"
                             style={{animationDelay: "0.6s"}}>
-                            <button className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)] glass text-sm sm:text-base">
+                            <button className="cursor-pointer bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)] glass text-sm sm:text-base">
                                 Resume ↓
                             </button>
-                            <button className="border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-[var(--primary-bg)] font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 glass text-sm sm:text-base">
+                            <button
+                                onClick={() => router.push("/projects")}
+                                className="cursor-pointer border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)]  font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 glass text-sm sm:text-base">
                                 View Projects
                             </button>
                         </div>
@@ -146,7 +150,7 @@ const Banner = () => {
                 </div>
 
                 {/* Skills Marquee Section */}
-                <div className="md:absolute  md:bottom-20 lg:bottom-10 left-0 right-0 z-10">
+                <div className="md:absolute  md:bottom-20 lg:bottom-2 left-0 right-0 z-10">
                     <SkillsMarquee />
                 </div>
             </section>

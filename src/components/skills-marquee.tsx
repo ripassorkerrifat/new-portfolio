@@ -25,10 +25,10 @@ const SkillsMarquee = () => {
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
         },
         // Web Technologies
-        {
-            name: "HTML",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
-        },
+        // {
+        //     name: "HTML",
+        //     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+        // },
         {
             name: "CSS",
             logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",

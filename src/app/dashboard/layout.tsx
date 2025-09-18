@@ -1,8 +1,9 @@
 "use client";
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Sidebar from "../../components/dashboard/layout/Sidebar";
 import {NotificationProvider} from "@/contexts/NotificationContext";
+import { useRouter } from "next/navigation";
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -10,6 +11,29 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({children}) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [authorized, setAuthorized] = useState<boolean>(false);
+    const router = useRouter();
+
+    // Client-side guard: require localStorage.is_admin === "true"
+    useEffect(() => {
+        try {
+            const isAdmin = typeof window !== "undefined" &&
+                localStorage.getItem("is_admin") === "true";
+            if (!isAdmin) {
+                router.replace("/");
+                return;
+            }
+            setAuthorized(true);
+        } catch (e) {
+            router.replace("/");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // Prevent flash of protected content while checking
+    if (!authorized) {
+        return null;
+    }
 
     return (
         <NotificationProvider>

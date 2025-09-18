@@ -1,6 +1,7 @@
 "use client";
 
 import {Project} from "../types/project";
+import { Images } from "lucide-react";
 
 interface ProjectDetailsModalProps {
     project: Project | null;
@@ -199,10 +200,15 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                     )
                                 }
                                 className="flex-1 bg-gradient-to-r from-[var(--secondary-color)]/20 to-[var(--primary-color)]/20 text-[var(--text-primary)] text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50">
-                                🖼️ View Gallery (
-                                {(project?.galleryImages?.length ?? 0) +
-                                    (project?.gallery?.length ?? 0)}
-                                )
+                                <span className="inline-flex items-center gap-2 justify-center">
+                                    <Images className="w-5 h-5" />
+                                    <span>
+                                        View Gallery (
+                                        {(project?.galleryImages?.length ?? 0) +
+                                            (project?.gallery?.length ?? 0)}
+                                        )
+                                    </span>
+                                </span>
                             </button>
                         )}
                     </div>

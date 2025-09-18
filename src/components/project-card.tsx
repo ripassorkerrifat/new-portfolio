@@ -1,6 +1,7 @@
 "use client";
 
 import {Project} from "../types/project";
+import {Images} from "lucide-react";
 
 interface ProjectCardProps {
     project: Project;
@@ -23,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 via-transparent to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             {/* Project Thumbnail */}
-            <div className="relative h-40 sm:h-48 overflow-hidden">
+            <div className="relative h-40 sm:h-56 overflow-hidden">
                 <img
                     src={project.thumbnail}
                     alt={project.title}
@@ -42,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         }
                         className="absolute top-3 left-3 w-8 h-8 sm:w-10 sm:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 transform hover:scale-110 text-xs sm:text-base"
                         title="View Gallery">
-                        🖼️
+                        <Images className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                 )}
 

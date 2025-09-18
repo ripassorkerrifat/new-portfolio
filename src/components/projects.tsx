@@ -194,17 +194,35 @@ const Projects: React.FC = () => {
                 {!loading && !error && (
                     <div>
                         {regularProjects.length > 0 ? (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                                {regularProjects.map((project, index) => (
-                                    <ProjectCard
-                                        key={project.id || project._id}
-                                        project={project}
-                                        index={index}
-                                        onMoreInfo={openProjectModal}
-                                        onGalleryOpen={openGalleryModal}
-                                    />
-                                ))}
-                            </div>
+                            <>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                                    {regularProjects.map((project, index) => (
+                                        <ProjectCard
+                                            key={project.id || project._id}
+                                            project={project}
+                                            index={index}
+                                            onMoreInfo={openProjectModal}
+                                            onGalleryOpen={openGalleryModal}
+                                        />
+                                    ))}
+                                </div>
+                                
+                                {/* Browse All Projects Button */}
+                                <div className="text-center mt-12">
+                                    <a
+                                        href="/projects"
+                                        className="inline-flex items-center gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 group">
+                                        <span>Browse All Projects</span>
+                                        <svg 
+                                            className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+                                            fill="none" 
+                                            stroke="currentColor" 
+                                            viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </>
                         ) : (
                             <div className="text-center py-12">
                                 <p className="text-[var(--text-secondary)] text-lg">
