@@ -1,17 +1,18 @@
 "use client";
 
-import React, {useState, useEffect} from "react";
-import {FaBars, FaTimes} from "react-icons/fa";
-import Link from "next/link";
-import Image from "next/image";
+import {useState, useEffect} from "react";
 import {useRouter} from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import {FaBars, FaTimes} from "react-icons/fa";
+import profile from "../assets/images/profile.webp";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
     const navLinks = [
-        {name: "Home", href: "/#home"},
+        {name: "Home", href: "#home"},
         {name: "Projects", href: "#projects"},
         {name: "Experience", href: "#experience"},
         {name: "Skills", href: "#skills"},
@@ -50,8 +51,8 @@ const Header = () => {
                         className="flex items-center space-x-3 cursor-pointer"
                         onClick={() => router.push("/")}>
                         <Image
-                            src="https://scontent.fspd3-1.fna.fbcdn.net/v/t39.30808-1/539413084_1422805289466310_3951675277851392110_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=109&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGdGbI2KR8SER_SBAbJwo8JhwfUH9jS4ayHB9Qf2NLhrDE4fHphdsMPmjswEMRRCws2zxlP3sZYzQ3oVHZ2u1qY&_nc_ohc=QM1f8eMkXX8Q7kNvwGriCuR&_nc_oc=AdkUGmBxiSqa02hYedUEcplx6qX5s32lZpjszYXysSfuz84q6MXJuGM-qsIeURTrpr4&_nc_zt=24&_nc_ht=scontent.fspd3-1.fna&_nc_gid=kcBLOHBNUFfZC9jQ5TgAaw&oh=00_AfZwYIdl8elePo-LudUEEMRjnvBMpF6-xIMWAM0fvU7H6g&oe=68C5BD84"
-                            alt="Logo"
+                            src={profile}
+                            alt="Ripas Sorker Rifat - Profile"
                             width={40}
                             height={40}
                             className="rounded-full"
@@ -132,8 +133,8 @@ const Header = () => {
                             <div className="p-6 border-b border-slate-700/50">
                                 <div className="flex items-center space-x-3">
                                     <Image
-                                        src="https://scontent.fspd3-1.fna.fbcdn.net/v/t39.30808-1/539413084_1422805289466310_3951675277851392110_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=109&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGdGbI2KR8SER_SBAbJwo8JhwfUH9jS4ayHB9Qf2NLhrDE4fHphdsMPmjswEMRRCws2zxlP3sZYzQ3oVHZ2u1qY&_nc_ohc=QM1f8eMkXX8Q7kNvwGriCuR&_nc_oc=AdkUGmBxiSqa02hYedUEcplx6qX5s32lZpjszYXysSfuz84q6MXJuGM-qsIeURTrpr4&_nc_zt=24&_nc_ht=scontent.fspd3-1.fna&_nc_gid=kcBLOHBNUFfZC9jQ5TgAaw&oh=00_AfZwYIdl8elePo-LudUEEMRjnvBMpF6-xIMWAM0fvU7H6g&oe=68C5BD84"
-                                        alt="Logo"
+                                        src={profile}
+                                        alt="Ripas Sorker Rifat - Profile"
                                         width={48}
                                         height={48}
                                         className="rounded-full border-2 border-cyan-400/30"

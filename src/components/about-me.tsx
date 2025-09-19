@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import {FaUser, FaDownload, FaEnvelope} from "react-icons/fa";
 import Image from "next/image";
+import profile from "../assets/images/profile.webp";
 
 import {
     FaGithub,
@@ -93,16 +94,16 @@ const AboutMe = () => {
                             style={{animationDelay: "0.3s"}}>
                             <div className="relative">
                                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-3xl blur-2xl opacity-20 transform rotate-6"></div>
-                                <div className="relative bg-gradient-to-br from-[var(--card-bg)] to-[var(--card-bg)]/80 backdrop-blur-xl rounded-3xl p-4 sm:p-6 lg:p-8 border border-[var(--border-color)] shadow-2xl">
+                                <div className="relative bg-gradient-to-br from-[var(--card-bg)] to-[var(--card-bg)]/20 backdrop-blur-xl rounded-3xl p-4 sm:p-6 lg:p-8 border border-[var(--border-color)]">
                                     <div className="relative">
                                         <Image
-                                            src="https://scontent.fspd3-1.fna.fbcdn.net/v/t39.30808-1/539413084_1422805289466310_3951675277851392110_n.jpg?stp=dst-jpg_s480x480_tt6&_nc_cat=109&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeGdGbI2KR8SER_SBAbJwo8JhwfUH9jS4ayHB9Qf2NLhrDE4fHphdsMPmjswEMRRCws2zxlP3sZYzQ3oVHZ2u1qY&_nc_ohc=QM1f8eMkXX8Q7kNvwGriCuR&_nc_oc=AdkUGmBxiSqa02hYedUEcplx6qX5s32lZpjszYXysSfuz84q6MXJuGM-qsIeURTrpr4&_nc_zt=24&_nc_ht=scontent.fspd3-1.fna&_nc_gid=kcBLOHBNUFfZC9jQ5TgAaw&oh=00_AfZwYIdl8elePo-LudUEEMRjnvBMpF6-xIMWAM0fvU7H6g&oe=68C5BD84"
+                                            src={profile}
                                             alt="Ripas Sorker Rifat"
                                             width={400}
                                             height={400}
-                                            className="rounded-2xl w-full h-auto object-cover shadow-xl"
+                                            className="rounded-2xl w-full h-auto object-cover"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-color)]/20 to-transparent rounded-2xl"></div>
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary-color)]/30 to-transparent rounded-full"></div>
                                     </div>
                                 </div>
                             </div>
