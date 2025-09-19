@@ -7,12 +7,9 @@ import Link from "next/link";
 import {
     FaEdit,
     FaTrash,
-    FaExternalLinkAlt,
-    FaGithub,
     FaCalendarAlt,
-    FaStar,
-    FaEye,
     FaClock,
+    FaStar,
     FaCode,
 } from "react-icons/fa";
 

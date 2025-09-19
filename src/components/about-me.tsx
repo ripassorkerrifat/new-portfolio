@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
+import React from "react";
 import {FaUser, FaDownload, FaEnvelope} from "react-icons/fa";
 import Image from "next/image";
 import profile from "../assets/images/profile.webp";
@@ -15,7 +16,7 @@ import {
 } from "react-icons/fa";
 
 const AboutMe = () => {
-    const {settings, loading} = useSettings();
+    const {settings} = useSettings();
 
     const getSocialLinks = () => [
         {

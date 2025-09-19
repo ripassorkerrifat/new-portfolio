@@ -3,7 +3,7 @@
 import React, {useEffect, useState} from "react";
 import Sidebar from "../../components/dashboard/layout/Sidebar";
 import {NotificationProvider} from "@/contexts/NotificationContext";
-import { useRouter } from "next/navigation";
+import {useRouter} from "next/navigation";
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -17,14 +17,15 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({children}) => {
     // Client-side guard: require localStorage.is_admin === "true"
     useEffect(() => {
         try {
-            const isAdmin = typeof window !== "undefined" &&
+            const isAdmin =
+                typeof window !== "undefined" &&
                 localStorage.getItem("is_admin") === "true";
             if (!isAdmin) {
                 router.replace("/");
                 return;
             }
             setAuthorized(true);
-        } catch (e) {
+        } catch {
             router.replace("/");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

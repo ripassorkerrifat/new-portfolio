@@ -1,14 +1,7 @@
 "use client";
 
 import React, {useState, useEffect} from "react";
-import {
-    FaPlus,
-    FaCheckCircle,
-    FaStar,
-    FaEye,
-    FaCode,
-    FaClock,
-} from "react-icons/fa";
+import {FaPlus, FaStar, FaEye, FaCode, FaClock} from "react-icons/fa";
 
 interface Project {
     _id: string;
@@ -52,7 +45,6 @@ const ActivityFeed: React.FC = () => {
                     const projectActivities: ActivityItem[] =
                         data.projects?.map((project: Project) => {
                             const createdDate = new Date(project.createdAt);
-                            const updatedDate = new Date(project.updatedAt);
                             const timeDiff = Date.now() - createdDate.getTime();
                             const daysDiff = Math.floor(
                                 timeDiff / (1000 * 60 * 60 * 24)

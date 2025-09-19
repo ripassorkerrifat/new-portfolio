@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react';
-import StatsGrid from '@/components/dashboard/stats/StatsGrid';
-import RecentProjects from '@/components/dashboard/stats/RecentProjects';
-import ActivityFeed from '@/components/dashboard/stats/ActivityFeed';
-import QuickActions from '@/components/dashboard/stats/QuickActions';
+import React from "react";
+import StatsGrid from "@/components/dashboard/stats/StatsGrid";
+import RecentProjects from "@/components/dashboard/stats/RecentProjects";
+import ActivityFeed from "@/components/dashboard/stats/ActivityFeed";
+import QuickActions from "@/components/dashboard/stats/QuickActions";
 
 const DashboardPage: React.FC = () => {
     return (
@@ -13,7 +13,7 @@ const DashboardPage: React.FC = () => {
             <div className="relative mb-12">
                 {/* Background gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-color)]/5 via-transparent to-[var(--secondary-color)]/5 rounded-3xl -z-10"></div>
-                
+
                 <div className="relative px-2 py-8">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div className="space-y-3">
@@ -24,24 +24,26 @@ const DashboardPage: React.FC = () => {
                                 </h1>
                             </div>
                             <p className="text-lg text-[var(--text-secondary)] ml-5 font-medium">
-                                Here's what's happening with your projects today.
+                                Here&apos;s what&apos;s happening with your
+                                projects today.
                             </p>
                         </div>
-                        
+
                         {/* Time and date info */}
                         <div className="flex flex-col items-end space-y-1 text-right">
                             <div className="text-sm text-[var(--text-secondary)] font-medium">
-                                {new Date().toLocaleDateString('en-US', { 
-                                    weekday: 'long', 
-                                    year: 'numeric', 
-                                    month: 'long', 
-                                    day: 'numeric' 
+                                {new Date().toLocaleDateString("en-US", {
+                                    weekday: "long",
+                                    year: "numeric",
+                                    month: "short",
+                                    day: "numeric",
                                 })}
                             </div>
                             <div className="text-xs text-[var(--text-secondary)]/70">
-                                {new Date().toLocaleTimeString('en-US', { 
-                                    hour: '2-digit', 
-                                    minute: '2-digit' 
+                                {new Date().toLocaleTimeString("en-US", {
+                                    hour: "2-digit",
+                                    minute: "2-digit",
+                                    second: "2-digit",
                                 })}
                             </div>
                         </div>

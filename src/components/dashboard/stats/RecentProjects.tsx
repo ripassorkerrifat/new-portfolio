@@ -50,32 +50,6 @@ const RecentProjects: React.FC = () => {
         fetchRecentProjects();
     }, []);
 
-    const getStatusColor = (status: string) => {
-        switch (status) {
-            case "active":
-                return "from-blue-500 to-cyan-500";
-            case "completed":
-                return "from-green-500 to-emerald-500";
-            case "pending":
-                return "from-orange-500 to-red-500";
-            default:
-                return "from-gray-500 to-gray-600";
-        }
-    };
-
-    const getPriorityColor = (priority: string) => {
-        switch (priority) {
-            case "high":
-                return "bg-red-500/20 text-red-400 border-red-500/30";
-            case "medium":
-                return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30";
-            case "low":
-                return "bg-green-500/20 text-green-400 border-green-500/30";
-            default:
-                return "bg-gray-500/20 text-gray-400 border-gray-500/30";
-        }
-    };
-
     return (
         <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-6 border border-[var(--border-color)]/30">
             <div className="flex items-center justify-between mb-6">

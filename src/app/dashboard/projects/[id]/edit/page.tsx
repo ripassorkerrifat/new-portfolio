@@ -51,11 +51,7 @@ const EditProjectPage = () => {
         },
     });
 
-    const {
-        setValue,
-        handleSubmit,
-        formState: {errors},
-    } = form;
+    const {handleSubmit, setValue} = form;
 
     useEffect(() => {
         fetchProject();

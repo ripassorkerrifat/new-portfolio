@@ -155,7 +155,7 @@ const Banner = () => {
                             style={{animationDelay: "0.6s"}}>
                             <button
                                 onClick={handleResumeDownload}
-                                className="group relative overflow-hidden bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary-color)]/50">
+                                className="group cursor-pointer relative overflow-hidden bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary-color)]/50">
                                 <div className="flex items-center justify-center space-x-2">
                                     <FaDownload className="text-lg group-hover:animate-bounce" />
                                     <span>Download Resume</span>
@@ -164,7 +164,7 @@ const Banner = () => {
                             </button>
                             <button
                                 onClick={() => router.push("/projects")}
-                                className="group relative overflow-hidden border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-[var(--secondary-color)]/30">
+                                className="group cursor-pointer relative overflow-hidden border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-[var(--secondary-color)]/30">
                                 <div className="flex items-center justify-center space-x-2">
                                     <FaEye className="text-lg group-hover:scale-110 transition-transform duration-300" />
                                     <span>View Projects</span>
