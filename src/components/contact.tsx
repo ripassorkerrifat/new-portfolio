@@ -197,7 +197,7 @@ const Contact: React.FC = () => {
                                 </div>
                                 <div className="text-center">
                                     <div className="text-sm sm:text-xl lg:text-2xl font-bold text-[var(--accent-color)] mb-1 sm:mb-2">
-                                        50+
+                                        30+
                                     </div>
                                     <div className="text-[var(--text-secondary)] text-xs">
                                         Projects Done

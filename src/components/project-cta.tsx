@@ -98,7 +98,7 @@ const ProjectCTA: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className="md:text-4xl text-3xl font-bold text-[var(--primary-color)] mb-2 group-hover:scale-110 transition-transform duration-300">
-                                    50+
+                                    30+
                                 </div>
                                 <div className="text-[var(--text-secondary)] text-sm font-medium">
                                     Projects Completed

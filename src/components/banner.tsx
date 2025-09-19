@@ -37,7 +37,7 @@ const Banner = () => {
                             {/* Hero Graphic with Lottie Animation */}
                             <div className="relative glass rounded-full p-2 sm:p-4 shadow-2xl w-full aspect-square flex items-center justify-center animate-float animate-glow">
                                 <div className="text-center w-full h-full">
-                                    <div className="w-full h-full flex items-center justify-center p-4 sm:p-6 md:p-8">
+                                    <div className="w-full h-full flex items-center justify-center p-4 ">
                                         <Lottie
                                             loop
                                             animationData={coding}
@@ -71,7 +71,7 @@ const Banner = () => {
                         </div>
 
                         <div
-                            className="text-base sm:text-lg lg:text-xl text-[var(--primary-color)] font-semibold mb-6 sm:mb-8 h-10 sm:h-12 animate-slide-up"
+                            className="text-base sm:text-lg lg:text-xl text-green-500 font-semibold mb-6 sm:mb-8 h-10 sm:h-12 animate-slide-up"
                             style={{animationDelay: "0.2s"}}>
                             <Typewriter
                                 options={{

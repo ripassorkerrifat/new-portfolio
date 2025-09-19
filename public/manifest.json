@@ -1,0 +1,21 @@
+{
+  "name": "Ripas Sorker Rifat - Full Stack Developer Portfolio",
+  "short_name": "Ripas Portfolio",
+  "description": "Portfolio website of Ripas Sorker Rifat - Full Stack Developer specializing in React, Node.js, and modern web technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00d4ff",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

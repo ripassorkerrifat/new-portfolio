@@ -57,11 +57,11 @@ const Header = () => {
                             className="rounded-full"
                         />
                         <div className="hidden sm:block">
-                            <h1 className="text-lg sm:text-xl font-bold">
+                            <div className="text-lg sm:text-xl font-bold">
                                 <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent">
                                     Ripas Sorker Rifat
                                 </span>
-                            </h1>
+                            </div>
                             <p className="text-xs text-[var(--text-secondary)]">
                                 Full Stack Developer
                             </p>
@@ -139,11 +139,11 @@ const Header = () => {
                                         className="rounded-full border-2 border-cyan-400/30"
                                     />
                                     <div>
-                                        <h1 className="text-lg font-bold">
+                                        <div className="text-lg font-bold">
                                             <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent">
                                                 Ripas Sorker Rifat
                                             </span>
-                                        </h1>
+                                        </div>
                                         <p className="text-xs text-slate-300">
                                             Full Stack Developer
                                         </p>

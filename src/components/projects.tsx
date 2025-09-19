@@ -21,30 +21,13 @@ const Projects: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Debug state changes
-    useEffect(() => {
-        console.log("Featured projects state updated:", featuredProjects);
-    }, [featuredProjects]);
-
-    useEffect(() => {
-        console.log("Regular projects state updated:", regularProjects);
-    }, [regularProjects]);
-
     // Fetch featured projects
     const fetchFeaturedProjects = async () => {
         try {
             const response = await fetch("/api/projects/featured");
             if (response.ok) {
                 const data = await response.json();
-                console.log("Featured projects API response:", data);
-                console.log("Featured projects array:", data.projects);
                 setFeaturedProjects(data.projects || []);
-            } else {
-                console.error(
-                    "Featured projects API error:",
-                    response.status,
-                    response.statusText
-                );
             }
         } catch (error) {
             console.error("Error fetching featured projects:", error);
@@ -58,8 +41,6 @@ const Projects: React.FC = () => {
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
-                console.log("Regular projects API response:", data);
-                console.log("Regular projects array:", data.projects);
                 setRegularProjects(data.projects || []);
             } else {
                 console.error(
@@ -94,9 +75,9 @@ const Projects: React.FC = () => {
 
     const filters: Filter[] = [
         {id: "all", label: "All Projects"},
+        {id: "fullstack", label: "Full Stack"},
         {id: "frontend", label: "Frontend"},
         {id: "backend", label: "Backend"},
-        {id: "fullstack", label: "Full Stack"},
         {id: "other", label: "Other"},
     ];
 
@@ -206,19 +187,24 @@ const Projects: React.FC = () => {
                                         />
                                     ))}
                                 </div>
-                                
+
                                 {/* Browse All Projects Button */}
                                 <div className="text-center mt-12">
                                     <a
                                         href="/projects"
                                         className="inline-flex items-center gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 group">
                                         <span>Browse All Projects</span>
-                                        <svg 
-                                            className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                                            fill="none" 
-                                            stroke="currentColor" 
+                                        <svg
+                                            className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                                            fill="none"
+                                            stroke="currentColor"
                                             viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                            />
                                         </svg>
                                     </a>
                                 </div>

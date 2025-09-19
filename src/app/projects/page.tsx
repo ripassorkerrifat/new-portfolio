@@ -6,6 +6,7 @@ import {Project, Filter} from "../../types/project";
 import ProjectCard from "../../components/project-card";
 import ProjectDetailsModal from "../../components/project-details-modal";
 import GalleryModal from "../../components/gallery-modal";
+import Breadcrumb from "../../components/Breadcrumb";
 
 const ProjectsPage: React.FC = () => {
     const router = useRouter();
@@ -109,6 +110,9 @@ const ProjectsPage: React.FC = () => {
 
             {/* Main Content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+                {/* Breadcrumb Navigation */}
+                <Breadcrumb />
+                
                 {/* Page Header */}
                 <div className="text-center mb-8 sm:mb-12">
                     <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4 animate-slide-up">
