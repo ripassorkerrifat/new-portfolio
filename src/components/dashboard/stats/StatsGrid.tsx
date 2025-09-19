@@ -1,49 +1,51 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { 
-    FaCheckCircle, 
+import React, {useState, useEffect} from "react";
+import {
+    FaProjectDiagram,
     FaArrowUp,
     FaArrowDown,
-    FaEnvelope,
-    FaEye
-} from 'react-icons/fa';
-import { emailAPI } from '@/api/email-api';
-import { useNotifications } from '@/contexts/NotificationContext';
+    FaEye,
+    FaStar,
+    FaCode,
+} from "react-icons/fa";
 
 interface StatCardProps {
     title: string;
     value: string | number;
     change: string;
-    changeType: 'increase' | 'decrease' | 'neutral';
-    icon: React.ComponentType<{ size?: number; className?: string }>;
+    changeType: "increase" | "decrease" | "neutral";
+    icon: React.ComponentType<{size?: number; className?: string}>;
     color: string;
 }
 
-const StatCard: React.FC<StatCardProps> = ({ 
-    title, 
-    value, 
-    change, 
-    changeType, 
-    icon: IconComponent, 
-    color 
+const StatCard: React.FC<StatCardProps> = ({
+    title,
+    value,
+    change,
+    changeType,
+    icon: IconComponent,
+    color,
 }) => {
     const getTrendIcon = () => {
-        if (changeType === 'increase') return <FaArrowUp className="text-green-500" />;
-        if (changeType === 'decrease') return <FaArrowDown className="text-red-500" />;
+        if (changeType === "increase")
+            return <FaArrowUp className="text-green-500" />;
+        if (changeType === "decrease")
+            return <FaArrowDown className="text-red-500" />;
         return null;
     };
 
     const getChangeColor = () => {
-        if (changeType === 'increase') return 'text-green-500';
-        if (changeType === 'decrease') return 'text-red-500';
-        return 'text-[var(--text-secondary)]';
+        if (changeType === "increase") return "text-green-500";
+        if (changeType === "decrease") return "text-red-500";
+        return "text-[var(--text-secondary)]";
     };
 
     return (
         <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/30 transition-all duration-300 group">
             <div className="flex items-center justify-between mb-4">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <IconComponent className="text-white" size={20} />
                 </div>
                 <div className="flex items-center space-x-1 text-sm">
@@ -51,66 +53,124 @@ const StatCard: React.FC<StatCardProps> = ({
                     <span className={getChangeColor()}>{change}</span>
                 </div>
             </div>
-            
+
             <div>
                 <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-1">
                     {value}
                 </h3>
-                <p className="text-[var(--text-secondary)] text-sm">
-                    {title}
-                </p>
+                <p className="text-[var(--text-secondary)] text-sm">{title}</p>
             </div>
         </div>
     );
 };
 
 const StatsGrid: React.FC = () => {
-    const { unreadCount } = useNotifications();
-    const [emailStats, setEmailStats] = useState({ total: 0, todayCount: 0 });
-    const [visitorStats, setVisitorStats] = useState({ todayVisitors: 0, totalVisitors: 0 });
+    const [projectStats, setProjectStats] = useState({
+        total: 0,
+        published: 0,
+        featured: 0,
+        categories: {
+            frontend: 0,
+            backend: 0,
+            fullstack: 0,
+            other: 0,
+        },
+    });
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchEmailStats = async () => {
+        const fetchProjectStats = async () => {
             try {
-                const response = await emailAPI.getMessages();
-                const stats = emailAPI.getEmailStats(response.data);
-                setEmailStats({ total: stats.total, todayCount: stats.todayCount });
+                setLoading(true);
+
+                // Fetch all projects to calculate stats (including unpublished)
+                const response = await fetch("/api/projects?published=false");
+                const data = await response.json();
+
+                if (data?.success && data?.projects) {
+                    const projects = data.projects;
+                    const published =
+                        projects?.filter((p: any) => p?.is_published) || [];
+                    const featured =
+                        projects?.filter((p: any) => p?.is_featured) || [];
+
+                    // Count by categories
+                    const categories = {
+                        frontend:
+                            projects?.filter(
+                                (p: any) => p?.category === "frontend"
+                            )?.length || 0,
+                        backend:
+                            projects?.filter(
+                                (p: any) => p?.category === "backend"
+                            )?.length || 0,
+                        fullstack:
+                            projects?.filter(
+                                (p: any) => p?.category === "fullstack"
+                            )?.length || 0,
+                        other:
+                            projects?.filter(
+                                (p: any) => p?.category === "other"
+                            )?.length || 0,
+                    };
+
+                    setProjectStats({
+                        total: projects.length,
+                        published: published.length,
+                        featured: featured.length,
+                        categories,
+                    });
+                }
             } catch (error) {
-                console.error('Error fetching email stats:', error);
+                console.error("Failed to fetch project stats:", error);
+            } finally {
+                setLoading(false);
             }
         };
 
-        // Simulate visitor stats (in production, this would come from analytics)
-        setVisitorStats({ todayVisitors: 127, totalVisitors: 2847 });
-        
-        fetchEmailStats();
+        fetchProjectStats();
     }, []);
 
     const stats = [
         {
-            title: 'New Messages',
-            value: unreadCount,
-            change: `${emailStats.todayCount} today`,
-            changeType: unreadCount > 0 ? 'increase' as const : 'neutral' as const,
-            icon: FaEnvelope,
-            color: 'from-orange-500 to-red-500'
+            title: "Total Projects",
+            value: loading ? "..." : projectStats.total.toString(),
+            change: `${projectStats.published} published`,
+            changeType: "neutral" as const,
+            icon: FaProjectDiagram,
+            color: "from-blue-500 to-blue-600",
         },
         {
-            title: 'Total Emails',
-            value: emailStats.total,
-            change: emailStats.todayCount > 0 ? `+${emailStats.todayCount}` : 'No new',
-            changeType: emailStats.todayCount > 0 ? 'increase' as const : 'neutral' as const,
-            icon: FaCheckCircle,
-            color: 'from-green-500 to-emerald-500'
+            title: "Featured Projects",
+            value: loading ? "..." : projectStats.featured.toString(),
+            change: "Highlighted work",
+            changeType: "neutral" as const,
+            icon: FaStar,
+            color: "from-yellow-500 to-yellow-600",
         },
         {
-            title: 'Today Visitors',
-            value: visitorStats.todayVisitors,
-            change: `${visitorStats.totalVisitors} total`,
-            changeType: 'increase' as const,
+            title: "Full Stack Projects",
+            value: loading
+                ? "..."
+                : projectStats.categories.fullstack.toString(),
+            change: "Complete solutions",
+            changeType: "increase" as const,
+            icon: FaCode,
+            color: "from-green-500 to-green-600",
+        },
+        {
+            title: "Published Projects",
+            value: loading ? "..." : projectStats.published.toString(),
+            change: `${(
+                (projectStats.published / projectStats.total) * 100 || 0
+            ).toFixed(0)}% of total`,
+            changeType:
+                projectStats.published > projectStats.total * 0.7
+                    ? ("increase" as const)
+                    : ("neutral" as const),
             icon: FaEye,
-            color: 'from-purple-500 to-pink-500'
-        }
+            color: "from-purple-500 to-purple-600",
+        },
     ];
 
     return (

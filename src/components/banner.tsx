@@ -3,18 +3,69 @@
 import Typewriter from "typewriter-effect";
 import SkillsMarquee from "./skills-marquee";
 import Lottie from "lottie-react";
+import {useRouter} from "next/navigation";
+import {useSettings} from "../hooks/useSettings";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaTwitter,
+    FaInstagram,
+    FaFacebook,
+    FaDownload,
+    FaEye,
+} from "react-icons/fa";
 
 import coding from "../assets/skills.json";
-import {useRouter} from "next/navigation";
 
 const Banner = () => {
     const router = useRouter();
+    const {settings} = useSettings();
+
+    const handleResumeDownload = () => {
+        if (settings.resumeUrl) {
+            window.open(settings.resumeUrl, "_blank");
+        } else {
+            alert(
+                "Resume URL not configured. Please contact the administrator."
+            );
+        }
+    };
+
+    const getSocialLinks = () => [
+        {
+            name: "GitHub",
+            icon: <FaGithub />,
+            href: settings.socialLinks.github,
+        },
+        {
+            name: "LinkedIn",
+            icon: <FaLinkedin />,
+            href: settings.socialLinks.linkedin,
+        },
+        {
+            name: "Facebook",
+            icon: <FaFacebook />,
+            href: settings.socialLinks.facebook,
+        },
+        {
+            name: "Twitter",
+            icon: <FaTwitter />,
+            href: settings.socialLinks.twitter,
+        },
+        {
+            name: "Instagram",
+            icon: <FaInstagram />,
+            href: settings.socialLinks.instagram,
+        },
+    ];
+
     return (
         <>
-            <section className="relative min-h-screen bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] overflow-hidden pt-20">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22none%22%20fill-rule=%22evenodd%22%3E%3Cg%20fill=%22%239C92AC%22%20fill-opacity=%220.1%22%3E%3Ccircle%20cx=%2230%22%20cy=%2230%22%20r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-
+            <section
+                id="home"
+                className="relative min-h-screen bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] overflow-hidden">
+                {/* Background Effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 via-transparent to-[var(--secondary-color)]/5"></div>
                 {/* Floating Elements */}
                 <div className="absolute top-20 left-10 w-20 h-20 bg-[var(--primary-color)]/20 rounded-full blur-xl animate-float"></div>
                 <div
@@ -98,59 +149,58 @@ const Banner = () => {
                             experiences.
                         </p>
 
+                        {/* Action Buttons */}
                         <div
-                            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-slide-up"
+                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up"
                             style={{animationDelay: "0.6s"}}>
-                            <button className="cursor-pointer bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/80 hover:to-[var(--secondary-color)]/80 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)] glass text-sm sm:text-base">
-                                Resume ↓
+                            <button
+                                onClick={handleResumeDownload}
+                                className="group relative overflow-hidden bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary-color)]/50">
+                                <div className="flex items-center justify-center space-x-2">
+                                    <FaDownload className="text-lg group-hover:animate-bounce" />
+                                    <span>Download Resume</span>
+                                </div>
+                                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </button>
                             <button
                                 onClick={() => router.push("/projects")}
-                                className="cursor-pointer border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)]  font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 glass text-sm sm:text-base">
-                                View Projects
+                                className="group relative overflow-hidden border-2 border-[var(--secondary-color)] text-[var(--secondary-color)] hover:bg-[var(--secondary-color)] hover:text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-[var(--secondary-color)]/30">
+                                <div className="flex items-center justify-center space-x-2">
+                                    <FaEye className="text-lg group-hover:scale-110 transition-transform duration-300" />
+                                    <span>View Projects</span>
+                                </div>
                             </button>
                         </div>
 
                         {/* Social Links */}
                         <div
-                            className="flex gap-4 sm:gap-6 justify-center lg:justify-start mt-6 sm:mt-8 animate-slide-up"
+                            className="flex gap-4 justify-center lg:justify-start mt-8 animate-slide-up"
                             style={{animationDelay: "0.8s"}}>
-                            <a
-                                href="#"
-                                className="text-[var(--text-muted)] hover:text-[var(--secondary-color)] transition-colors duration-300 transform hover:scale-110 p-3 rounded-full glass  hover:shadow-[var(--glow-secondary)]">
-                                <svg
-                                    className="w-6 h-6"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                                </svg>
-                            </a>
-                            <a
-                                href="#"
-                                className="text-[var(--text-muted)] hover:text-[var(--secondary-color)] transition-colors duration-300 transform hover:scale-110 p-3 rounded-full glass  hover:shadow-[var(--glow-secondary)]">
-                                <svg
-                                    className="w-6 h-6"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                                </svg>
-                            </a>
-                            <a
-                                href="#"
-                                className="text-[var(--text-muted)] hover:text-[var(--secondary-color)] transition-colors duration-300 transform hover:scale-110 p-3 rounded-full glass  hover:shadow-[var(--glow-secondary)]">
-                                <svg
-                                    className="w-6 h-6"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                </svg>
-                            </a>
+                            {getSocialLinks().map(
+                                (social: any, index: number) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group relative p-3 rounded-full glass border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-[var(--primary-color)]/25"
+                                        style={{
+                                            animationDelay: `${index * 0.1}s`,
+                                        }}
+                                        title={social.name}>
+                                        <div className="text-xl group-hover:scale-125 transition-transform duration-300">
+                                            {social.icon}
+                                        </div>
+                                        <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/10 to-[var(--secondary-color)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                                    </a>
+                                )
+                            )}
                         </div>
                     </div>
                 </div>
 
                 {/* Skills Marquee Section */}
-                <div className="md:absolute  md:bottom-20 lg:bottom-2 left-0 right-0 z-10">
+                <div className="md:absolute md:bottom-20 lg:bottom-2 left-0 right-0 z-10">
                     <SkillsMarquee />
                 </div>
             </section>

@@ -1,7 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client";
+
 import {FaUser, FaDownload, FaEnvelope} from "react-icons/fa";
 import Image from "next/image";
 import profile from "../assets/images/profile.webp";
+import {useSettings} from "../hooks/useSettings";
 
 import {
     FaGithub,
@@ -11,45 +14,57 @@ import {
     FaFacebook,
 } from "react-icons/fa";
 
-const socialLinks = [
-    {
-        name: "GitHub",
-        icon: <FaGithub />,
-        href: "https://github.com/ripassorkerrifat",
-        color: "hover:text-purple-400",
-        bgGradient: "from-purple-500/20 to-indigo-500/20",
-    },
-    {
-        name: "LinkedIn",
-        icon: <FaLinkedin />,
-        href: "https://www.linkedin.com/in/ripas-sorker-rifat-b42a01257/",
-        color: "hover:text-blue-400",
-        bgGradient: "from-blue-500/20 to-cyan-500/20",
-    },
-    {
-        name: "Facebook",
-        icon: <FaFacebook />,
-        href: "https://www.facebook.com/ripassorkerrifat",
-        color: "hover:text-blue-500",
-        bgGradient: "from-blue-600/20 to-blue-400/20",
-    },
-    {
-        name: "Twitter",
-        icon: <FaTwitter />,
-        href: "https://x.com/ripassorker",
-        color: "hover:text-sky-400",
-        bgGradient: "from-sky-500/20 to-cyan-400/20",
-    },
-    {
-        name: "Instagram",
-        icon: <FaInstagram />,
-        href: "https://www.instagram.com/ripassorkerrifat",
-        color: "hover:text-pink-400",
-        bgGradient: "from-pink-500/20 to-rose-400/20",
-    },
-];
-
 const AboutMe = () => {
+    const {settings, loading} = useSettings();
+
+    const getSocialLinks = () => [
+        {
+            name: "GitHub",
+            icon: <FaGithub />,
+            href: settings.socialLinks.github,
+            color: "hover:text-purple-400",
+            bgGradient: "from-purple-500/20 to-indigo-500/20",
+        },
+        {
+            name: "LinkedIn",
+            icon: <FaLinkedin />,
+            href: settings.socialLinks.linkedin,
+            color: "hover:text-blue-400",
+            bgGradient: "from-blue-500/20 to-cyan-500/20",
+        },
+        {
+            name: "Facebook",
+            icon: <FaFacebook />,
+            href: settings.socialLinks.facebook,
+            color: "hover:text-blue-500",
+            bgGradient: "from-blue-600/20 to-blue-400/20",
+        },
+        {
+            name: "Twitter",
+            icon: <FaTwitter />,
+            href: settings.socialLinks.twitter,
+            color: "hover:text-sky-400",
+            bgGradient: "from-sky-500/20 to-cyan-400/20",
+        },
+        {
+            name: "Instagram",
+            icon: <FaInstagram />,
+            href: settings.socialLinks.instagram,
+            color: "hover:text-pink-400",
+            bgGradient: "from-pink-500/20 to-rose-400/20",
+        },
+    ];
+
+    const handleResumeDownload = () => {
+        if (settings.resumeUrl) {
+            window.open(settings.resumeUrl, "_blank");
+        } else {
+            // Fallback or show message
+            alert(
+                "Resume URL not configured. Please contact the administrator."
+            );
+        }
+    };
     return (
         <section
             id="about"
@@ -167,33 +182,37 @@ const AboutMe = () => {
                                 </div>
 
                                 <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                                    {socialLinks.map((social, index) => (
-                                        <a
-                                            key={social.name}
-                                            href={social.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`group relative size-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] ${social.color} border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-110 backdrop-blur-sm animate-slide-up overflow-hidden`}
-                                            style={{
-                                                animationDelay: `${
-                                                    index * 0.1
-                                                }s`,
-                                            }}
-                                            title={social.name}>
-                                            <div
-                                                className={`absolute inset-0 bg-gradient-to-br ${social.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                                            <span className="relative text-xl group-hover:scale-125 transition-transform duration-300">
-                                                {social.icon}
-                                            </span>
-                                        </a>
-                                    ))}
+                                    {getSocialLinks().map(
+                                        (social: any, index: number) => (
+                                            <a
+                                                key={social.name}
+                                                href={social.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={`group relative size-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] ${social.color} border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-110 backdrop-blur-sm animate-slide-up overflow-hidden`}
+                                                style={{
+                                                    animationDelay: `${
+                                                        index * 0.1
+                                                    }s`,
+                                                }}
+                                                title={social.name}>
+                                                <div
+                                                    className={`absolute inset-0 bg-gradient-to-br ${social.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                                <span className="relative text-xl group-hover:scale-125 transition-transform duration-300">
+                                                    {social.icon}
+                                                </span>
+                                            </a>
+                                        )
+                                    )}
                                 </div>
 
                                 {/* Action Buttons */}
                                 <div className="flex flex-wrap gap-4 mt-8">
-                                    <button className="md:w-auto w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 transform hover:-translate-y-1">
+                                    <button
+                                        onClick={handleResumeDownload}
+                                        className="cursor-pointer md:w-auto w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 transform hover:-translate-y-1">
                                         <FaDownload className="text-sm" />
-                                        <span>Download CV</span>
+                                        <span>Download Resume</span>
                                     </button>
                                     <a
                                         href="#contact"

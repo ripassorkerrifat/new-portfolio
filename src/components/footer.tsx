@@ -9,41 +9,44 @@ import {
     FaInstagram,
     FaFacebook,
 } from "react-icons/fa";
+import { useSettings } from "../hooks/useSettings";
 
 const Footer = () => {
-    const socialLinks = [
+    const { settings } = useSettings();
+
+    const getSocialLinks = () => [
         {
             name: "GitHub",
             icon: <FaGithub />,
-            href: "https://github.com/ripassorkerrifat",
+            href: settings.socialLinks.github,
             color: "hover:text-purple-400",
             bgGradient: "from-purple-500/20 to-indigo-500/20",
         },
         {
             name: "LinkedIn",
             icon: <FaLinkedin />,
-            href: "https://www.linkedin.com/in/ripas-sorker-rifat-b42a01257/",
+            href: settings.socialLinks.linkedin,
             color: "hover:text-blue-400",
             bgGradient: "from-blue-500/20 to-cyan-500/20",
         },
         {
             name: "Facebook",
             icon: <FaFacebook />,
-            href: "https://www.facebook.com/ripassorkerrifat",
+            href: settings.socialLinks.facebook,
             color: "hover:text-blue-500",
             bgGradient: "from-blue-600/20 to-blue-400/20",
         },
         {
             name: "Twitter",
             icon: <FaTwitter />,
-            href: "https://x.com/ripassorker",
+            href: settings.socialLinks.twitter,
             color: "hover:text-sky-400",
             bgGradient: "from-sky-500/20 to-cyan-400/20",
         },
         {
             name: "Instagram",
             icon: <FaInstagram />,
-            href: "https://www.instagram.com/ripassorkerrifat",
+            href: settings.socialLinks.instagram,
             color: "hover:text-pink-400",
             bgGradient: "from-pink-500/20 to-rose-400/20",
         },
@@ -147,7 +150,7 @@ const Footer = () => {
                             Connect
                         </h4>
                         <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
-                            {socialLinks.map((social, index) => (
+                            {getSocialLinks().map((social: any, index: number) => (
                                 <a
                                     key={social.name}
                                     href={social.href}
@@ -239,13 +242,6 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Simple Scroll to Top Button */}
-            <button
-                onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
-                className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--primary-color)] border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-300 hover:scale-110 z-50 backdrop-blur-sm"
-                aria-label="Scroll to top">
-                <span className="text-lg sm:text-xl">↑</span>
-            </button>
         </footer>
     );
 };

@@ -80,10 +80,11 @@ const ProjectsPage: React.FC = () => {
 
     const fetchProjects = async () => {
         try {
-            const response = await fetch('/api/projects');
+            // Fetch ALL projects (including unpublished) for dashboard management
+            const response = await fetch('/api/projects?published=false');
             if (response.ok) {
                 const data = await response.json();
-                setProjects(data.projects || []);
+                setProjects(data?.projects || []);
             } else {
                 console.error('Failed to fetch projects');
             }

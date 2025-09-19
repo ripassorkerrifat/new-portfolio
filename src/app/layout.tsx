@@ -3,6 +3,7 @@ import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import HeaderWrapper from "../components/HeaderWrapper";
 import StructuredData from "../components/StructuredData";
+import WhatsAppFloat from "../components/WhatsAppFloat";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -112,6 +113,7 @@ export default function RootLayout({
                 <StructuredData />
                 <HeaderWrapper />
                 <main className="min-h-[80vh]">{children}</main>
+                <WhatsAppFloat />
             </body>
         </html>
     );

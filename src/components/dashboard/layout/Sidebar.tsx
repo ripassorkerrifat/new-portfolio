@@ -11,7 +11,8 @@ import {
     FaTimes,
     FaChevronRight,
     FaEnvelope,
-    FaChartBar,
+    // FaChartBar,
+    FaCog,
 } from "react-icons/fa";
 
 interface SidebarProps {
@@ -29,12 +30,12 @@ const Sidebar: React.FC<SidebarProps> = ({isOpen, onClose}) => {
             icon: FaTachometerAlt,
             color: "from-blue-500 to-cyan-500",
         },
-        {
-            name: "Analytics",
-            href: "/dashboard/analytics",
-            icon: FaChartBar,
-            color: "from-purple-500 to-pink-500",
-        },
+        // {
+        //     name: "Analytics",
+        //     href: "/dashboard/analytics",
+        //     icon: FaChartBar,
+        //     color: "from-purple-500 to-pink-500",
+        // },
         {
             name: "Projects",
             href: "/dashboard/projects",
@@ -53,6 +54,12 @@ const Sidebar: React.FC<SidebarProps> = ({isOpen, onClose}) => {
             icon: FaEnvelope,
             color: "from-orange-500 to-red-500",
         },
+        {
+            name: "Settings",
+            href: "/dashboard/settings",
+            icon: FaCog,
+            color: "from-gray-500 to-slate-500",
+        },
     ];
 
     const isActive = (href: string) => {
@@ -60,6 +67,14 @@ const Sidebar: React.FC<SidebarProps> = ({isOpen, onClose}) => {
         if (href === "/dashboard") {
             return pathname === "/dashboard";
         }
+        // Exact match for specific routes to avoid conflicts
+        if (href === "/dashboard/projects/add") {
+            return pathname === "/dashboard/projects/add";
+        }
+        if (href === "/dashboard/projects") {
+            return pathname === "/dashboard/projects";
+        }
+        // For other routes, use startsWith
         return pathname.startsWith(href);
     };
 
@@ -173,63 +188,7 @@ const Sidebar: React.FC<SidebarProps> = ({isOpen, onClose}) => {
                             );
                         })}
                     </div>
-
-                    {/* Quick Stats Section */}
-                    <div className="mt-8 pt-6 border-t border-[var(--border-color)]/10">
-                        <div className="bg-gradient-to-br from-[var(--primary-color)]/10 via-[var(--secondary-color)]/5 to-[var(--primary-color)]/10 rounded-2xl p-4 border border-[var(--border-color)]/20 backdrop-blur-sm">
-                            <div className="flex items-center space-x-3 mb-3">
-                                <div className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-xl flex items-center justify-center">
-                                    <span className="text-white text-sm">
-                                        📊
-                                    </span>
-                                </div>
-                                <span className="text-sm font-semibold text-[var(--text-primary)]">
-                                    Quick Stats
-                                </span>
-                            </div>
-                            <div className="space-y-2 text-xs">
-                                <div className="flex justify-between items-center">
-                                    <span className="text-[var(--text-secondary)]">
-                                        Today's Visitors
-                                    </span>
-                                    <span className="text-[var(--text-primary)] font-semibold">
-                                        127
-                                    </span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span className="text-[var(--text-secondary)]">
-                                        New Messages
-                                    </span>
-                                    <span className="text-[var(--text-primary)] font-semibold">
-                                        3
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </nav>
-
-                {/* Bottom Section */}
-                {/* <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-[var(--border-color)]/20">
-                    <div className="bg-gradient-to-br from-[var(--primary-color)]/15 via-[var(--secondary-color)]/10 to-[var(--primary-color)]/15 rounded-2xl p-5 border border-[var(--border-color)]/20 shadow-lg backdrop-blur-sm">
-                        <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-2xl flex items-center justify-center shadow-xl">
-                                <span className="text-white font-bold text-lg">
-                                    💡
-                                </span>
-                            </div>
-                            <div className="flex-1">
-                                <p className="text-sm font-bold text-[var(--text-primary)] mb-1">
-                                    Need Help?
-                                </p>
-                                <p className="text-xs text-[var(--text-secondary)]/80 leading-relaxed">
-                                    Documentation & Support
-                                </p>
-                            </div>
-                            <FaChevronRight className="text-[var(--text-secondary)] text-xs opacity-60" />
-                        </div>
-                    </div>
-                </div> */}
             </aside>
         </>
     );

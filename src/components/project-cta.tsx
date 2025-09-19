@@ -1,16 +1,19 @@
 "use client";
 
+import React from "react";
 import {
     FaRocket,
     FaCode,
+    FaExternalLinkAlt,
     FaLightbulb,
+    FaHeart,
     FaStar,
     FaArrowRight,
-    FaExternalLinkAlt,
-    FaHeart,
 } from "react-icons/fa";
+import {useSettings} from "../hooks/useSettings";
 
 const ProjectCTA: React.FC = () => {
+    const {settings} = useSettings();
     return (
         <div className="relative mb-20">
             {/* Enhanced Background Effects */}
@@ -170,7 +173,7 @@ const ProjectCTA: React.FC = () => {
                             </a>
 
                             <a
-                                href="https://github.com/ripassorkerrifat"
+                                href={settings.socialLinks.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group flex items-center justify-center glass border-2 border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] hover:text-[var(--secondary-color)] font-bold md:py-6 py-4 md:px-16 px-8 rounded-3xl transition-all duration-500 transform hover:scale-110 hover:shadow-2xl hover:shadow-[var(--secondary-color)]/30 relative overflow-hidden animate-slide-up"
