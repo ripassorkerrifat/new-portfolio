@@ -94,7 +94,7 @@ const Banner = () => {
 
                     {/* TypeScript */}
                     <div
-                        className="absolute bottom-[35%] left-[5%] w-8 h-8 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        className="absolute bottom-[35%] left-[2%] w-8 h-8 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
                         style={{animationDelay: "3s"}}>
                         <img
                             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
