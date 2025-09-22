@@ -91,6 +91,15 @@ html {
     }
 }
 
+@keyframes spin-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
 @keyframes marquee {
     0% {
         transform: translateX(0%);
@@ -158,8 +167,23 @@ html {
     }
 }
 
+@keyframes blink {
+    0%, 50% {
+        opacity: 0.3;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
 .animate-spin-slow {
     animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+    animation: spin-reverse 15s linear infinite;
 }
 
 .animate-marquee {
@@ -184,6 +208,10 @@ html {
 
 .animate-shimmer {
     animation: shimmer 2s infinite;
+}
+
+.animate-blink {
+    animation: blink 3s ease-in-out infinite;
 }
 
 /* // allows default ul and dot to show up */

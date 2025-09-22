@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Typewriter from "typewriter-effect";
@@ -66,39 +67,205 @@ const Banner = () => {
                 className="relative min-h-screen bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] overflow-hidden">
                 {/* Background Effects */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 via-transparent to-[var(--secondary-color)]/5"></div>
-                {/* Floating Elements */}
-                <div className="absolute top-20 left-10 w-20 h-20 bg-[var(--primary-color)]/20 rounded-full blur-xl animate-float"></div>
-                <div
-                    className="absolute top-40 right-20 w-32 h-32 bg-[var(--accent-color)]/20 rounded-full blur-xl animate-float"
-                    style={{animationDelay: "2s"}}></div>
-                <div
-                    className="absolute bottom-40 left-20 w-24 h-24 bg-[var(--secondary-color)]/20 rounded-full blur-xl animate-float"
-                    style={{animationDelay: "4s"}}></div>
-                <div
-                    className="absolute top-1/2 right-10 w-16 h-16 bg-[var(--success-color)]/15 rounded-full blur-lg animate-float"
-                    style={{animationDelay: "1s"}}></div>
 
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between min-h-screen md:!-mt-20">
-                    {/* Mobile: Skills Animation First */}
+                {/* Core Skills Background - 10 Essential Skills */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {/* React */}
+                    <div
+                        className="absolute top-[12%] left-[8%] w-8 h-8 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "0s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                            alt="React"
+                            className="w-5 h-5 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* Next.js */}
+                    <div
+                        className="absolute top-[25%] right-[12%] w-7 h-7 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "1.5s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                            alt="Next.js"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* TypeScript */}
+                    <div
+                        className="absolute bottom-[35%] left-[5%] w-8 h-8 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "3s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                            alt="TypeScript"
+                            className="w-5 h-5 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* Node.js */}
+                    <div
+                        className="absolute top-[65%] right-[44%] w-7 h-7 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "4.5s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+                            alt="Node.js"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* MongoDB */}
+                    <div
+                        className="absolute bottom-[15%] right-[25%] w-6 h-6 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "6s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+                            alt="MongoDB"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* JavaScript */}
+                    <div
+                        className="absolute top-[85%] left-[15%] w-7 h-7 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "2s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                            alt="JavaScript"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* Tailwind CSS */}
+                    <div
+                        className="absolute top-[18%] right-[45%] w-6 h-6 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "5s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                            alt="Tailwind CSS"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* Docker */}
+                    <div
+                        className="absolute top-[13%] right-[5%] w-6 h-6 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "3.5s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+                            alt="Docker"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* Git */}
+                    <div
+                        className="absolute top-[82%] left-[35%] w-7 h-7 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "1s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                            alt="Git"
+                            className="w-4 h-4 filter drop-shadow-md"
+                        />
+                    </div>
+
+                    {/* AWS */}
+                    <div
+                        className="absolute top-[35%] left-[55%] w-8 h-8 glass rounded-full flex items-center justify-center animate-blink shadow-lg"
+                        style={{animationDelay: "4s"}}>
+                        <img
+                            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                            alt="AWS"
+                            className="w-5 h-5 filter drop-shadow-md"
+                        />
+                    </div>
+                </div>
+
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between min-h-screen md:!-mt-10 !mt-20">
+                    {/* Skills Animation Section with Spillover Effect */}
                     <div className="flex-1 flex justify-center lg:justify-end z-10 mt-8 lg:mt-0 order-1 lg:order-2 mb-8 lg:mb-0">
                         <div className="relative w-full max-w-[330px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[560px] aspect-square">
-                            {/* Glow Effect */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl transform scale-110"></div>
+                            {/* Subtle Glow Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-600/20 rounded-full blur-3xl transform scale-110 animate-pulse"></div>
 
-                            {/* Hero Graphic with Lottie Animation */}
-                            <div className="relative glass rounded-full p-2 sm:p-4 shadow-2xl w-full aspect-square flex items-center justify-center animate-float animate-glow">
-                                <div className="text-center w-full h-full">
-                                    <div className="w-full h-full flex items-center justify-center p-4 ">
+                            {/* Spillover Skills (Hidden by default, shown on hover) */}
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none">
+                                {/* Additional skills that spill out */}
+                                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-100">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                        alt="JavaScript"
+                                        className="w-6 h-6 filter drop-shadow-md"
+                                    />
+                                </div>
+                                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-10 h-10 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-200">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                                        alt="Python"
+                                        className="w-6 h-6 filter drop-shadow-md"
+                                    />
+                                </div>
+                                <div className="absolute -left-8 top-1/2 transform -translate-y-1/2 w-10 h-10 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-300">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                                        alt="Tailwind CSS"
+                                        className="w-6 h-6 filter drop-shadow-md"
+                                    />
+                                </div>
+                                <div className="absolute -right-8 top-1/2 transform -translate-y-1/2 w-10 h-10 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-400">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                                        alt="Git"
+                                        className="w-6 h-6 filter drop-shadow-md"
+                                    />
+                                </div>
+
+                                {/* Corner spillover skills */}
+                                <div className="absolute -top-6 -left-6 w-8 h-8 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-500">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg"
+                                        alt="Redux"
+                                        className="w-5 h-5 filter drop-shadow-md"
+                                    />
+                                </div>
+                                <div className="absolute -top-6 -right-6 w-8 h-8 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-600">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg"
+                                        alt="Express.js"
+                                        className="w-5 h-5 filter drop-shadow-md"
+                                    />
+                                </div>
+                                <div className="absolute -bottom-6 -left-6 w-8 h-8 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-700">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg"
+                                        alt="Firebase"
+                                        className="w-5 h-5 filter drop-shadow-md"
+                                    />
+                                </div>
+                                <div className="absolute -bottom-6 -right-6 w-8 h-8 glass rounded-full flex items-center justify-center shadow-lg transition-all duration-700 delay-800">
+                                    <img
+                                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg"
+                                        alt="Prisma"
+                                        className="w-5 h-5 filter drop-shadow-md"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Main Animation Container */}
+                            <div className="relative glass rounded-full p-4 sm:p-6 shadow-2xl w-full aspect-square flex items-center justify-center animate-float group hover:scale-105 transition-all duration-500 overflow-hidden">
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400/30 via-purple-500/30 to-pink-500/30 opacity-50 animate-spin-slow group-hover:opacity-70"></div>
+                                <div className="absolute inset-1 rounded-full bg-[var(--primary-bg)]/90 backdrop-blur-sm"></div>
+
+                                <div className="relative text-center w-full h-full z-10 rounded-full overflow-hidden">
+                                    <div className="w-full h-full flex items-center justify-center p-6 group-hover:scale-105 transition-transform duration-500">
                                         <Lottie
                                             loop
                                             animationData={coding}
                                             style={{
-                                                width: "100%",
-                                                height: "100%",
-                                                maxWidth: "350px",
-                                                maxHeight: "350px",
+                                                height: "85%",
+                                                width: "85%",
+                                                filter: "drop-shadow(0 0 15px rgba(59, 130, 246, 0.2))",
                                             }}
-                                            className="filter drop-shadow-lg"
                                         />
                                     </div>
                                 </div>
