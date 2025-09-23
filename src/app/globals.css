@@ -50,6 +50,9 @@ body {
     font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
 }
+button {
+    cursor: pointer;
+}
 
 /* Smooth scrolling */
 html {
@@ -168,7 +171,8 @@ html {
 }
 
 @keyframes blink {
-    0%, 50% {
+    0%,
+    50% {
         opacity: 0.3;
         transform: scale(0.9);
     }
@@ -214,12 +218,175 @@ html {
     animation: blink 3s ease-in-out infinite;
 }
 
-/* // allows default ul and dot to show up */
+/* Rich text editor styles */
 .jodit-wysiwyg ul {
     list-style: inside;
 }
-/* // allows default ol to show up */
 .jodit-wysiwyg ol {
     list-style: inside;
     list-style-type: number;
+}
+
+/* Project description styles - ensures HTML content displays properly */
+.project-description ul,
+.project-description ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.project-description ul {
+    list-style-type: disc;
+}
+
+.project-description ol {
+    list-style-type: decimal;
+}
+
+.project-description li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.project-description p {
+    margin-bottom: 1rem;
+}
+
+.project-description h1,
+.project-description h2,
+.project-description h3,
+.project-description h4,
+.project-description h5,
+.project-description h6 {
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.project-description h1 {
+    font-size: 1.5rem;
+}
+
+.project-description h2 {
+    font-size: 1.25rem;
+}
+
+.project-description h3 {
+    font-size: 1.125rem;
+}
+
+.project-description strong,
+.project-description b {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.project-description em,
+.project-description i {
+    font-style: italic;
+}
+
+.project-description ul ul,
+.project-description ol ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-description blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.project-description code {
+    background-color: var(--surface);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-family: "Courier New", monospace;
+    font-size: 0.875rem;
+}
+
+.project-description pre {
+    background-color: var(--surface);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.project-description a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.project-description a:hover {
+    color: var(--secondary-color);
+}
+
+/* Global cursor pointer fixes */
+button,
+[role="button"],
+[onClick],
+.cursor-pointer,
+a,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+select,
+.clickable {
+    cursor: pointer !important;
+}
+
+/* Ensure all interactive elements have proper cursor */
+button:not([disabled]),
+a:not([disabled]),
+[tabindex]:not([tabindex="-1"]),
+[role="button"]:not([disabled]),
+[role="link"]:not([disabled]),
+.hover\:scale-105,
+.hover\:scale-110,
+.transform:hover {
+    cursor: pointer !important;
+}
+
+/* Disabled state cursor */
+button[disabled],
+[disabled],
+.disabled {
+    cursor: not-allowed !important;
+}
+
+/* Default cursor for non-interactive elements */
+.cursor-default,
+span:not([onClick]):not([role="button"]),
+div:not([onClick]):not([role="button"]):not(.clickable) {
+    cursor: default;
+}
+
+/* custom-reset.css */
+.custom-reset * {
+    all: unset;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    display: revert;
+    margin: revert;
+    padding: revert;
+    font-size: revert;
+    color: revert;
+    line-height: revert;
+    text-decoration: revert;
+    font-weight: revert;
+    list-style: revert;
+    border: revert;
+}
+
+.custom-reset a {
+    color: inherit; /* Ensure links inherit the text color */
+    text-decoration: inherit; /* Ensure links inherit text decoration */
 }

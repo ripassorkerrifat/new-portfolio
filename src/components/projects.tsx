@@ -137,7 +137,7 @@ const Projects: React.FC = () => {
                         <button
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id)}
-                            className={`relative px-3 sm:px-6 py-2 sm:py-3 rounded-2xl font-semibold text-xs sm:text-base transition-all duration-500 transform hover:scale-105 ${
+                            className={`relative px-3 sm:px-6 py-2 sm:py-3 rounded-2xl font-semibold text-xs sm:text-base transition-all duration-500 transform hover:scale-105 cursor-pointer ${
                                 activeFilter === filter.id
                                     ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-2xl shadow-[var(--glow-primary)]/50 scale-105"
                                     : "glass border-2 border-[var(--border-color)]/50 text-[var(--text-secondary)] hover:border-[var(--secondary-color)]/80 hover:text-[var(--text-primary)] hover:shadow-xl hover:shadow-[var(--glow-secondary)]/30 backdrop-blur-lg"
@@ -165,7 +165,7 @@ const Projects: React.FC = () => {
                         <p className="text-red-500 mb-4">{error}</p>
                         <button
                             onClick={() => window.location.reload()}
-                            className="px-6 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-[var(--primary-color)]/80 transition-colors">
+                            className="px-6 py-2 bg-[var(--primary-color)] text-white rounded-lg hover:bg-[var(--primary-color)]/80 transition-colors cursor-pointer">
                             Retry
                         </button>
                     </div>

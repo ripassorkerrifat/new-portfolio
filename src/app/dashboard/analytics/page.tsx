@@ -110,7 +110,7 @@ const AnalyticsPage = () => {
                         <button
                             key={range}
                             onClick={() => setTimeRange(range)}
-                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
+                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 cursor-pointer ${
                                 timeRange === range
                                     ? "bg-[var(--primary-color)] text-white"
                                     : "bg-[var(--card-bg)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-color)]/30"

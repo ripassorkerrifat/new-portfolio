@@ -1,15 +1,9 @@
 import {z} from "zod";
 
 export const projectSchema = z.object({
-    title: z
-        .string()
-        .min(1, "Title is required")
-        .max(100, "Title must be less than 100 characters"),
+    title: z.string().min(1, "Title is required"),
     description: z.string().min(1, "Description is required"),
-    shortDescription: z
-        .string()
-        .min(1, "Short description is required")
-        .max(200, "Short description must be less than 200 characters"),
+    shortDescription: z.string().min(1, "Short description is required"),
     thumbnail: z.union([
         z.string().url("Please enter a valid URL for the thumbnail"),
         z.instanceof(File, {message: "Please select a valid image file"}),

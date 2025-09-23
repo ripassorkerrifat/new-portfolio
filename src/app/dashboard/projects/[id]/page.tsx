@@ -242,9 +242,12 @@ const ProjectDetailPage = () => {
                                         {project.shortDescription}
                                     </p>
                                 )}
-                                <p className="text-[var(--text-secondary)] leading-relaxed">
-                                    {project.description}
-                                </p>
+                                <div 
+                                    className="text-[var(--text-secondary)] leading-relaxed project-description"
+                                    dangerouslySetInnerHTML={{
+                                        __html: project.description,
+                                    }}
+                                />
                             </div>
 
                             {/* Project Meta Info */}

@@ -1,7 +1,7 @@
 "use client";
 
 import {Project} from "../types/project";
-import { Images } from "lucide-react";
+import {Images} from "lucide-react";
 
 interface ProjectDetailsModalProps {
     project: Project | null;
@@ -23,10 +23,10 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
             className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={onClose}>
             <div
-                className="glass rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-[var(--border-color)]/50 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/95 to-[var(--secondary-bg)]/95"
+                className="glass rounded-3xl max-w-6xl w-full max-h-[90vh] overflow-y-auto border border-[var(--border-color)]/50 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/95 to-[var(--secondary-bg)]/95"
                 onClick={(e) => e.stopPropagation()}>
                 {/* Modal Header */}
-                <div className="relative p-8 border-b border-[var(--border-color)]/30">
+                <div className="relative md:p-8 p-4 border-b border-[var(--border-color)]/30">
                     <button
                         onClick={onClose}
                         className="absolute top-6 right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--primary-color)]/20 transition-all duration-300">
@@ -37,7 +37,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                             {project?.image || "📁"}
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-2">
+                            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
                                 {project?.title}
                             </h2>
                             <div className="flex flex-wrap gap-2">
@@ -61,9 +61,9 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                 </div>
 
                 {/* Modal Content */}
-                <div className="p-8 space-y-8">
+                <div className="p-8 md:p-12 space-y-8">
                     {/* Project Image */}
-                    <div className="relative h-64 rounded-2xl overflow-hidden">
+                    <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden">
                         <img
                             src={project?.thumbnail}
                             alt={project?.title || "Project"}
@@ -75,7 +75,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                     {/* Project Details Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Project Info */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 md:space-y-6 lg:space-y-8">
                             <div>
                                 <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                                     📅 Timeline
@@ -104,7 +104,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                         </div>
 
                         {/* Links */}
-                        <div className="space-y-4">
+                        <div className="space-y-4 md:space-y-6 lg:space-y-8">
                             <div>
                                 <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                                     🔗 Links
@@ -142,23 +142,8 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                         </div>
                     </div>
 
-                    {/* Project Description */}
-                    {project?.description && (
-                        <div>
-                            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-4">
-                                📋 Project Overview
-                            </h3>
-                            <div
-                                className="text-[var(--text-secondary)] leading-relaxed prose prose-invert max-w-none"
-                                dangerouslySetInnerHTML={{
-                                    __html: project.description,
-                                }}
-                            />
-                        </div>
-                    )}
-
                     {/* Short Description fallback */}
-                    {!project?.description && project?.shortDescription && (
+                    {project?.shortDescription && project?.shortDescription && (
                         <div>
                             <h3 className="text-xl font-bold text-[var(--text-primary)] mb-4">
                                 📋 Project Overview
@@ -167,6 +152,16 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                 {project.shortDescription}
                             </p>
                         </div>
+                    )}
+
+                    {/* Project Description */}
+                    {project?.description && (
+                        <div
+                            className="text-[var(--text-secondary)] leading-relaxed max-w-none project-description"
+                            dangerouslySetInnerHTML={{
+                                __html: project.description,
+                            }}
+                        />
                     )}
 
                     {/* Action Buttons */}
