@@ -2,7 +2,7 @@ export interface Project {
     _id?: string;
     id?: number;
     title: string;
-    category: "fullstack" | "frontend" | "backend" | "other";
+    category: "full-stack" | "front-end" | "backend" | "others";
     description: string;
     shortDescription?: string;
     image?: string;

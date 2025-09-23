@@ -38,9 +38,12 @@ const Projects: React.FC = () => {
     const fetchRegularProjects = async (category: string = "all") => {
         try {
             const url = `/api/projects/public?category=${category}&limit=6`;
+            console.log("Fetching projects with URL:", url);
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
+                console.log("API Response:", data);
+                console.log("Projects found:", data.projects?.length || 0);
                 setRegularProjects(data.projects || []);
             } else {
                 console.error(
@@ -75,10 +78,10 @@ const Projects: React.FC = () => {
 
     const filters: Filter[] = [
         {id: "all", label: "All Projects"},
-        {id: "fullstack", label: "Full Stack"},
-        {id: "frontend", label: "Frontend"},
+        {id: "full-stack", label: "Full Stack"},
+        {id: "front-end", label: "Frontend"},
         {id: "backend", label: "Backend"},
-        {id: "other", label: "Other"},
+        {id: "others", label: "Others"},
     ];
 
     const openProjectModal = (project: Project) => {
