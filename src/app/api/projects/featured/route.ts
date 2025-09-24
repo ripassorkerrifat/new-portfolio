@@ -6,12 +6,12 @@ export async function GET() {
     try {
         await connectToDatabase();
 
-        // Fetch featured projects (is_featured=true, limit 3, sorted by order)
+        // Fetch featured projects (is_featured=true, limit 3, sorted by order first, then createdAt)
         const featuredProjects = await Project.find({
             is_featured: true,
             is_published: true,
         })
-            .sort({order: 1}) // Sort by order ascending (1, 2, 3)
+            .sort({order: 1}) // Sort by order ascending (1, 2, 3), then by createdAt descending (newest first)
             .limit(3)
             .lean();
 

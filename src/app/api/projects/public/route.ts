@@ -22,17 +22,11 @@ export async function GET(request: NextRequest) {
             query.category = {$regex: new RegExp(category, "i")};
         }
 
-        console.log("Query:", JSON.stringify(query));
-        console.log("Category filter:", category);
-
-        // Fetch regular projects sorted by id (newest first)
+        // Fetch regular projects sorted by order first, then by createdAt (newest first)
         const projects = await Project.find(query)
-            .sort({_id: -1}) // Sort by id descending (newest first)
+            .sort({order: 1}) // Sort by order ascending (1, 2, 3), then by createdAt descending (newest first)
             .limit(limit)
             .lean();
-
-        console.log("Found projects:", projects.length);
-        console.log("Project categories:", projects.map(p => p.category));
 
         return NextResponse.json({
             success: true,
