@@ -84,8 +84,8 @@ const EditProjectPage = () => {
             } else {
                 router.push("/dashboard/projects");
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
             router.push("/dashboard/projects");
         } finally {
             setLoading(false);

@@ -86,8 +86,8 @@ const ProjectsPage: React.FC = () => {
                 const data = await response.json();
                 setProjects(data?.projects || []);
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
         } finally {
             setLoading(false);
         }
@@ -119,8 +119,8 @@ const ProjectsPage: React.FC = () => {
                     message: "Failed to delete project",
                 });
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
             setNotification({
                 type: "error",
                 message: "Failed to delete project",

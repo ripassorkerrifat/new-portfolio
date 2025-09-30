@@ -62,8 +62,8 @@ const SettingsPage: React.FC = () => {
                     resumeUrl: data.settings.resumeUrl || "",
                 });
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
             setMessage({type: "error", text: "Failed to load settings"});
         } finally {
             setLoading(false);
@@ -116,8 +116,8 @@ const SettingsPage: React.FC = () => {
                     text: data.error || "Failed to save settings",
                 });
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
             setMessage({type: "error", text: "Failed to save settings"});
         } finally {
             setSaving(false);

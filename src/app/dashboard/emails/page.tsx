@@ -47,8 +47,8 @@ const EmailsPage = () => {
             const response = await emailAPI.getMessages();
             setMessages(response.data);
             setUnreadCount(response.unreadCount);
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
         } finally {
             setLoading(false);
         }
@@ -91,8 +91,8 @@ const EmailsPage = () => {
                 )
             );
             setUnreadCount((prev) => prev - 1);
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
         }
     };
 
@@ -105,8 +105,8 @@ const EmailsPage = () => {
                 )
             );
             setUnreadCount((prev) => prev + 1);
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
         }
     };
 
@@ -117,8 +117,8 @@ const EmailsPage = () => {
             if (selectedMessage?.id === id) {
                 setSelectedMessage(null);
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
         }
     };
 

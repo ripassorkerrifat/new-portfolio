@@ -60,8 +60,8 @@ const ProjectDetailPage = () => {
                 const data = await response.json();
                 setProject(data.project);
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
         } finally {
             setLoading(false);
         }
@@ -81,8 +81,8 @@ const ProjectDetailPage = () => {
             } else {
                 alert("Failed to delete project");
             }
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            console.log(_error);
             alert("Failed to delete project");
         } finally {
             setDeleting(false);

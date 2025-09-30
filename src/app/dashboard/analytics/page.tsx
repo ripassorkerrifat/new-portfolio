@@ -59,9 +59,9 @@ const AnalyticsPage = () => {
             if (result.success) {
                 setAnalyticsData(result.data);
             }
-        } catch (error) {
-            console.log(error);
-            // Silent failconsole.log(error);
+        } catch (_error) {
+            console.log(_error);
+            // Silent fail
         } finally {
             setLoading(false);
         }
