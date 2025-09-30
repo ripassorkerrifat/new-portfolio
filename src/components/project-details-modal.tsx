@@ -32,12 +32,14 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                         className="absolute top-6 right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--primary-color)]/20 transition-all duration-300">
                         ✕
                     </button>
-                    <div className="flex items-center gap-6">
-                        <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-2xl flex items-center justify-center text-3xl border border-[var(--border-color)]/30">
-                            {project?.image || "📁"}
+                    <div className="flex md:items-center mr-6 md:gap-6 gap-4">
+                        <div>
+                            <div className="md:size-16 size-14 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-2xl flex items-center justify-center text-3xl border border-[var(--border-color)]/30">
+                                {project?.image || "📁"}
+                            </div>
                         </div>
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
+                            <h2 className="text-xl md:text-3xl font-bold text-[var(--text-primary)] mb-2">
                                 {project?.title}
                             </h2>
                             <div className="flex flex-wrap gap-2">
@@ -61,7 +63,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                 </div>
 
                 {/* Modal Content */}
-                <div className="p-8 md:p-12 space-y-8">
+                <div className="p-4 md:p-12 space-y-8">
                     {/* Project Image */}
                     <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden">
                         <img
@@ -154,7 +156,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                 href={project.liveUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50">
+                                className="flex-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 md:text-base text-sm">
                                 🚀 View Live Demo
                             </a>
                         )}
@@ -163,7 +165,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                 href={project.githubLink1}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-1 glass border border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--glow-secondary)]/30">
+                                className="flex-1 glass border border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold   transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--glow-secondary)]/30 md:text-base text-sm">
                                 💻 View Source Code
                             </a>
                         )}
@@ -177,7 +179,7 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                             []
                                     )
                                 }
-                                className="flex-1 bg-gradient-to-r from-[var(--secondary-color)]/20 to-[var(--primary-color)]/20 text-[var(--text-primary)] text-center py-4 px-6 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50">
+                                className="flex-1 bg-gradient-to-r from-[var(--secondary-color)]/20 to-[var(--primary-color)]/20 text-[var(--text-primary)] text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/50 md:text-base text-sm">
                                 <span className="inline-flex items-center gap-2 justify-center">
                                     <Images className="w-5 h-5" />
                                     <span>
