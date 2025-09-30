@@ -60,7 +60,7 @@ const AnalyticsPage = () => {
                 setAnalyticsData(result.data);
             }
         } catch (error) {
-            console.error("Error fetching analytics:", error);
+            // Silent fail
         } finally {
             setLoading(false);
         }

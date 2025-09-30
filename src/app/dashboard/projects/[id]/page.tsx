@@ -59,11 +59,8 @@ const ProjectDetailPage = () => {
             if (response.ok) {
                 const data = await response.json();
                 setProject(data.project);
-            } else {
-                console.error("Failed to fetch project");
             }
         } catch (error) {
-            console.error("Error fetching project:", error);
         } finally {
             setLoading(false);
         }
@@ -84,7 +81,6 @@ const ProjectDetailPage = () => {
                 alert("Failed to delete project");
             }
         } catch (error) {
-            console.error("Error deleting project:", error);
             alert("Failed to delete project");
         } finally {
             setDeleting(false);

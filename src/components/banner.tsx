@@ -5,7 +5,7 @@ import Typewriter from "typewriter-effect";
 import SkillsMarquee from "./skills-marquee";
 import Lottie from "lottie-react";
 import {useRouter} from "next/navigation";
-import {useSettings} from "../hooks/useSettings";
+import {useSettings} from "../contexts/SettingsContext";
 import {
     FaGithub,
     FaLinkedin,

@@ -60,7 +60,6 @@ const SettingsPage: React.FC = () => {
                 });
             }
         } catch (error) {
-            console.error('Error fetching settings:', error);
             setMessage({ type: 'error', text: 'Failed to load settings' });
         } finally {
             setLoading(false);
@@ -105,7 +104,6 @@ const SettingsPage: React.FC = () => {
                 setMessage({ type: 'error', text: data.error || 'Failed to save settings' });
             }
         } catch (error) {
-            console.error('Error saving settings:', error);
             setMessage({ type: 'error', text: 'Failed to save settings' });
         } finally {
             setSaving(false);

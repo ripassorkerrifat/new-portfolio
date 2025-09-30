@@ -10,7 +10,7 @@ import {
     FaStar,
     FaArrowRight,
 } from "react-icons/fa";
-import {useSettings} from "../hooks/useSettings";
+import {useSettings} from "../contexts/SettingsContext";
 
 const ProjectCTA: React.FC = () => {
     const {settings} = useSettings();

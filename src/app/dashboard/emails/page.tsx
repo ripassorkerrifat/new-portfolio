@@ -48,7 +48,6 @@ const EmailsPage = () => {
             setMessages(response.data);
             setUnreadCount(response.unreadCount);
         } catch (error) {
-            console.error("Error fetching messages:", error);
         } finally {
             setLoading(false);
         }
@@ -92,7 +91,6 @@ const EmailsPage = () => {
             );
             setUnreadCount((prev) => prev - 1);
         } catch (error) {
-            console.error("Error marking as read:", error);
         }
     };
 
@@ -106,7 +104,6 @@ const EmailsPage = () => {
             );
             setUnreadCount((prev) => prev + 1);
         } catch (error) {
-            console.error("Error marking as unread:", error);
         }
     };
 
@@ -118,7 +115,6 @@ const EmailsPage = () => {
                 setSelectedMessage(null);
             }
         } catch (error) {
-            console.error("Error deleting message:", error);
         }
     };
 

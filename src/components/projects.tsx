@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
                 setFeaturedProjects(data.projects || []);
             }
         } catch (error) {
-            console.error("Error fetching featured projects:", error);
+            // Silent fail - use empty array
         }
     };
 
@@ -38,27 +38,17 @@ const Projects: React.FC = () => {
     const fetchRegularProjects = async (category: string = "all") => {
         try {
             const url = `/api/projects/public?category=${category}&limit=6`;
-            console.log("Fetching projects with URL:", url);
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
-                console.log("API Response:", data);
-                console.log("Projects found:", data.projects?.length || 0);
                 setRegularProjects(data.projects || []);
-            } else {
-                console.error(
-                    "Regular projects API error:",
-                    response.status,
-                    response.statusText
-                );
             }
         } catch (error) {
-            console.error("Error fetching regular projects:", error);
             setError("Failed to load projects");
         }
     };
 
-    // Load projects on component mount
+    // Load projects on component mount and when filter changes
     useEffect(() => {
         const loadProjects = async () => {
             setLoading(true);
@@ -69,11 +59,6 @@ const Projects: React.FC = () => {
             setLoading(false);
         };
         loadProjects();
-    }, [activeFilter]);
-
-    // Reload regular projects when filter changes
-    useEffect(() => {
-        fetchRegularProjects(activeFilter);
     }, [activeFilter]);
 
     const filters: Filter[] = [

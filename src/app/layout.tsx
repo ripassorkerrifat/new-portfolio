@@ -4,6 +4,7 @@ import "./globals.css";
 import HeaderWrapper from "../components/HeaderWrapper";
 import StructuredData from "../components/StructuredData";
 import WhatsAppFloat from "../components/WhatsAppFloat";
+import {SettingsProvider} from "../contexts/SettingsContext";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -110,10 +111,12 @@ export default function RootLayout({
         <html lang="en">
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--primary-bg)]`}>
-                <StructuredData />
-                <HeaderWrapper />
-                <main className="min-h-[80vh]">{children}</main>
-                <WhatsAppFloat />
+                <SettingsProvider>
+                    <StructuredData />
+                    <HeaderWrapper />
+                    <main className="min-h-[80vh]">{children}</main>
+                    <WhatsAppFloat />
+                </SettingsProvider>
             </body>
         </html>
     );

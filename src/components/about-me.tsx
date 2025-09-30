@@ -5,7 +5,7 @@ import React from "react";
 import {FaUser, FaDownload, FaEnvelope} from "react-icons/fa";
 import Image from "next/image";
 import profile from "../assets/images/profile.webp";
-import {useSettings} from "../hooks/useSettings";
+import {useSettings} from "../contexts/SettingsContext";
 
 import {
     FaGithub,

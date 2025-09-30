@@ -154,12 +154,9 @@ const AddProjectPage: React.FC = () => {
                 throw new Error(result.error || "Failed to create project");
             }
 
-            console.log("Project created successfully:", result.project);
-
             // Show success message and redirect
             router.push("/dashboard/projects?created=true");
         } catch (error) {
-            console.error("Error creating project:", error);
             alert(
                 error instanceof Error
                     ? error.message

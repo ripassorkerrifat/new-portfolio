@@ -82,11 +82,9 @@ const EditProjectPage = () => {
                 setValue("is_published", project.is_published ?? true);
                 setValue("order", project.order);
             } else {
-                console.error("Failed to fetch project");
                 router.push("/dashboard/projects");
             }
         } catch (error) {
-            console.error("Error fetching project:", error);
             router.push("/dashboard/projects");
         } finally {
             setLoading(false);
@@ -161,10 +159,8 @@ const EditProjectPage = () => {
                 throw new Error(result.error || "Failed to update project");
             }
 
-            console.log("Project updated successfully:", result.project);
             router.push(`/dashboard/projects/${params.id}?updated=true`);
         } catch (error) {
-            console.error("Error updating project:", error);
             const errorMessage = error instanceof Error ? error.message : "Failed to update project. Please try again.";
             alert(errorMessage);
         } finally {

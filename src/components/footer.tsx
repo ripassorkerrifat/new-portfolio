@@ -9,7 +9,7 @@ import {
     FaInstagram,
     FaFacebook,
 } from "react-icons/fa";
-import { useSettings } from "../hooks/useSettings";
+import { useSettings } from "../contexts/SettingsContext";
 
 const Footer = () => {
     const { settings } = useSettings();
