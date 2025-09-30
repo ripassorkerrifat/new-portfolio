@@ -78,23 +78,6 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                         <div className="space-y-4 md:space-y-6 lg:space-y-8">
                             <div>
                                 <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
-                                    📅 Timeline
-                                </h3>
-                                <p className="text-[var(--text-secondary)]">
-                                    {project?.startDate
-                                        ? new Date(
-                                              project.startDate
-                                          ).toLocaleDateString()
-                                        : "N/A"}
-                                    {project?.endDate &&
-                                        " - " +
-                                            new Date(
-                                                project.endDate
-                                            ).toLocaleDateString()}
-                                </p>
-                            </div>
-                            <div>
-                                <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                                     🏷️ Category
                                 </h3>
                                 <span className="inline-block bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 text-[var(--text-primary)] px-3 py-1 rounded-full text-sm font-medium border border-[var(--border-color)]/30 capitalize">

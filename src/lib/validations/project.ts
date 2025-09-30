@@ -13,8 +13,6 @@ export const projectSchema = z.object({
         message: "Please select a category",
     }),
     skills: z.array(z.string()).min(1, "At least one skill is required"),
-    startDate: z.string().min(1, "Start date is required"),
-    endDate: z.string().optional(),
     is_featured: z.boolean().default(false),
     is_published: z.boolean().default(true),
     order: z.number().optional(),

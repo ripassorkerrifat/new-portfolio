@@ -7,10 +7,7 @@ import Link from "next/link";
 import {
     FaEdit,
     FaTrash,
-    FaCalendarAlt,
-    FaClock,
     FaStar,
-    FaCode,
 } from "react-icons/fa";
 
 interface Project {
@@ -21,8 +18,6 @@ interface Project {
     thumbnail: string;
     category: "front-end" | "backend" | "full-stack" | "others";
     skills: string[];
-    startDate: string;
-    endDate?: string;
     is_featured: boolean;
     liveUrl: string;
     githubLink1?: string;
@@ -46,27 +41,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project, onDelete}) => {
     const handleCardClick = () => {
         router.push(`/dashboard/projects/${project._id}`);
     };
-    const formatDate = (dateString: string) => {
-        return new Date(dateString).toLocaleDateString("en-US", {
-            month: "short",
-            year: "numeric",
-        });
-    };
-
-    const getProjectStatus = () => {
-        if (!project.endDate) {
-            return {
-                status: "In Progress",
-                color: "from-orange-500 to-red-500",
-                icon: FaCode,
-            };
-        }
-        return {
-            status: "Completed",
-            color: "from-green-500 to-emerald-500",
-            icon: FaClock,
-        };
-    };
 
     const getCategoryColor = (category: string) => {
         switch (category) {
@@ -82,9 +56,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project, onDelete}) => {
                 return "from-gray-500 to-gray-600";
         }
     };
-
-    const projectStatus = getProjectStatus();
-    const StatusIcon = projectStatus.icon;
 
     return (
         <div
@@ -144,26 +115,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project, onDelete}) => {
                     </div>
                 </div>
 
-                {/* Bottom Info */}
-                <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex items-center justify-between">
-                        <div
-                            className={`flex items-center space-x-2 px-3 py-1.5 bg-gradient-to-r ${projectStatus.color} backdrop-blur-sm rounded-full text-white text-xs font-medium shadow-lg`}>
-                            <StatusIcon size={10} />
-                            <span>{projectStatus.status}</span>
-                        </div>
-
-                        <div className="flex items-center space-x-1 px-3 py-1.5 bg-black/40 backdrop-blur-sm rounded-full text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <FaCalendarAlt size={10} />
-                            <span>
-                                {formatDate(project.startDate)}
-                                {project.endDate
-                                    ? ` - ${formatDate(project.endDate)}`
-                                    : " - Present"}
-                            </span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             {/* Content Section */}

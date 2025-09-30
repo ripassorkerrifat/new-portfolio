@@ -8,7 +8,6 @@ import {
     FaArrowLeft,
     FaExternalLinkAlt,
     FaGithub,
-    FaCalendarAlt,
     FaTags,
     FaStar,
     FaImages,
@@ -26,8 +25,6 @@ interface Project {
     thumbnail: string;
     category: "front-end" | "backend" | "full-stack" | "others";
     skills: string[];
-    startDate: string;
-    endDate?: string;
     is_featured: boolean;
     liveUrl: string;
     githubLink1?: string;
@@ -251,40 +248,7 @@ const ProjectDetailPage = () => {
                             </div>
 
                             {/* Project Meta Info */}
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="bg-[var(--primary-bg)]/30 rounded-xl p-4">
-                                    <div className="flex items-center space-x-2 mb-2">
-                                        <FaCalendarAlt
-                                            className="text-[var(--primary-color)]"
-                                            size={14}
-                                        />
-                                        <h4 className="font-semibold text-[var(--text-primary)] text-sm">
-                                            Timeline
-                                        </h4>
-                                    </div>
-                                    <p className="text-[var(--text-secondary)] text-sm">
-                                        {new Date(
-                                            project.startDate
-                                        ).toLocaleDateString("en-US", {
-                                            month: "short",
-                                            year: "numeric",
-                                        })}
-                                        {project.endDate
-                                            ? ` - ${new Date(
-                                                  project.endDate
-                                              ).toLocaleDateString("en-US", {
-                                                  month: "short",
-                                                  year: "numeric",
-                                              })}`
-                                            : " - Present"}
-                                    </p>
-                                    <p className="text-xs text-[var(--text-secondary)] mt-1">
-                                        {project.endDate
-                                            ? "Completed"
-                                            : "In Progress"}
-                                    </p>
-                                </div>
-
+                            <div className="grid grid-cols-1 gap-4">
                                 <div className="bg-[var(--primary-bg)]/30 rounded-xl p-4">
                                     <div className="flex items-center space-x-2 mb-2">
                                         <FaTags

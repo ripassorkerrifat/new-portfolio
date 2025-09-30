@@ -6,7 +6,6 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useRouter, useParams} from "next/navigation";
 import {projectSchema, ProjectFormData} from "@/lib/validations/project";
 import BasicDetailsForm from "@/components/dashboard/forms/BasicDetailsForm";
-import TimelineDatesForm from "@/components/dashboard/forms/TimelineDatesForm";
 import SkillsTechForm from "@/components/dashboard/forms/SkillsTechForm";
 import LinksGalleryForm from "@/components/dashboard/forms/LinksGalleryForm";
 import PublishingForm from "@/components/dashboard/forms/PublishingForm";
@@ -15,7 +14,6 @@ import {
     FaSave,
     FaSpinner,
     FaInfoCircle,
-    FaCalendarAlt,
     FaCode,
     FaLink,
     FaToggleOn,
@@ -39,8 +37,6 @@ const EditProjectPage = () => {
             thumbnail: "",
             category: "front-end" as const,
             skills: [],
-            startDate: "",
-            endDate: "",
             is_featured: false,
             is_published: true,
             order: undefined,
@@ -76,8 +72,6 @@ const EditProjectPage = () => {
                         project.description?.substring(0, 200) ||
                         ""
                 );
-                setValue("startDate", project.startDate);
-                setValue("endDate", project.endDate);
                 setValue("skills", project.skills || []);
                 setValue("category", project.category);
                 setValue("is_featured", project.is_featured);
@@ -211,13 +205,6 @@ const EditProjectPage = () => {
                 "category",
                 "is_featured",
             ],
-        },
-        {
-            title: "Timeline & Dates",
-            description: "Project timeline and duration",
-            icon: FaCalendarAlt,
-            component: TimelineDatesForm,
-            fields: ["startDate", "endDate"],
         },
         {
             title: "Skills & Tech",

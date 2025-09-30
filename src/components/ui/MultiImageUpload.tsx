@@ -14,7 +14,7 @@ interface MultiImageUploadProps {
 export const MultiImageUpload: React.FC<MultiImageUploadProps> = ({
     value = [],
     onChange,
-    maxFiles = 10,
+    maxFiles = 999,
     maxSize = 10,
     className = "",
 }) => {
@@ -130,7 +130,7 @@ export const MultiImageUpload: React.FC<MultiImageUploadProps> = ({
                         </p>
                         <p className="text-[var(--text-secondary)] text-xs mt-1">
                             PNG, JPG, GIF up to {maxSize}MB each •{" "}
-                            {value.length}/{maxFiles} images
+                            {value.length} {value.length === 1 ? 'image' : 'images'}
                         </p>
                     </div>
                 </div>

@@ -131,7 +131,6 @@ const LinksGalleryForm: React.FC<LinksGalleryFormProps> = ({form}) => {
                     <MultiImageUpload
                         value={galleryImages}
                         onChange={handleGalleryChange}
-                        maxFiles={10}
                         maxSize={10}
                     />
                 </div>

@@ -5,8 +5,6 @@ export interface IProject extends Document {
   thumbnail: string;
   description: string;
   shortDescription: string;
-  startDate: string;
-  endDate?: string;
   skills: string[];
   category: 'front-end' | 'backend' | 'full-stack' | 'others';
   is_featured: boolean;
@@ -42,14 +40,6 @@ const ProjectSchema: Schema = new Schema(
       required: [true, 'Short description is required'],
       minlength: [5, 'Short description must be at least 5 characters'],
       maxlength: [200, 'Short description cannot exceed 200 characters'],
-    },
-    startDate: {
-      type: String,
-      required: [true, 'Start date is required'],
-    },
-    endDate: {
-      type: String,
-      required: false,
     },
     skills: {
       type: [String],

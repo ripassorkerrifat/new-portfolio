@@ -21,8 +21,6 @@ export interface Project {
     results?: string;
     gallery?: string[];
     galleryImages?: string[];
-    startDate?: string;
-    endDate?: string;
     order?: number;
 }
 

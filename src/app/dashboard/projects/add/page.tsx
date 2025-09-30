@@ -6,7 +6,6 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {useRouter} from "next/navigation";
 import {projectSchema, ProjectFormData} from "@/lib/validations/project";
 import BasicDetailsForm from "@/components/dashboard/forms/BasicDetailsForm";
-import TimelineDatesForm from "@/components/dashboard/forms/TimelineDatesForm";
 import SkillsTechForm from "@/components/dashboard/forms/SkillsTechForm";
 import LinksGalleryForm from "@/components/dashboard/forms/LinksGalleryForm";
 import PublishingForm from "@/components/dashboard/forms/PublishingForm";
@@ -17,7 +16,6 @@ import {
     FaCheck,
     FaSpinner,
     FaInfoCircle,
-    FaCalendarAlt,
     FaCode,
     FaLink,
     FaEye,
@@ -36,8 +34,6 @@ const AddProjectPage: React.FC = () => {
         thumbnail: "",
         category: "front-end" as const,
         skills: [],
-        startDate: "",
-        endDate: "",
         is_featured: false,
         is_published: true,
         order: undefined,
@@ -67,13 +63,6 @@ const AddProjectPage: React.FC = () => {
                 "category",
                 "is_featured",
             ],
-        },
-        {
-            title: "Timeline",
-            description: "Project start and end dates",
-            icon: FaCalendarAlt,
-            component: TimelineDatesForm,
-            fields: ["startDate", "endDate"],
         },
         {
             title: "Skills & Tech",
