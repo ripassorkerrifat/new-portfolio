@@ -4,7 +4,7 @@ import React from "react";
 import {UseFormReturn} from "react-hook-form";
 import {FaInfoCircle} from "react-icons/fa";
 import {PreviewImageUpload} from "@/components/ui/PreviewImageUpload";
-import TextEditor from "@/components/TextEditor";
+import RichTextEditor from "@/components/RichTextEditor";
 
 interface ProjectFormData {
     title: string;
@@ -120,9 +120,11 @@ const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({form}) => {
                         Detailed Description *
                     </label>
                     <div className="relative">
-                        <TextEditor
+                        <RichTextEditor
                             value={watch("description") || ""}
                             onChange={(value: string) => setValue("description", value || "")}
+                            placeholder="Write a detailed description of your project. Include features, technologies used, challenges faced, and outcomes achieved..."
+                            height={450}
                         />
                     </div>
                     {errors.description && (
