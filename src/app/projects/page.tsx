@@ -54,10 +54,10 @@ const ProjectsPage: React.FC = () => {
 
     const filters: Filter[] = [
         {id: "all", label: "All Projects"},
-        {id: "frontend", label: "Frontend"},
+        {id: "front-end", label: "Frontend"},
         {id: "backend", label: "Backend"},
-        {id: "fullstack", label: "Full Stack"},
-        {id: "other", label: "Other"},
+        {id: "full-stack", label: "Full Stack"},
+        {id: "others", label: "Others"},
     ];
 
     const openProjectModal = (project: Project) => {
