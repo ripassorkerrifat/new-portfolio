@@ -30,6 +30,7 @@ const Projects: React.FC = () => {
                 setFeaturedProjects(data.projects || []);
             }
         } catch (error) {
+            console.error("Error fetching featured projects:", error);
             // Silent fail - use empty array
         }
     };
@@ -44,6 +45,7 @@ const Projects: React.FC = () => {
                 setRegularProjects(data.projects || []);
             }
         } catch (error) {
+            console.error("Error fetching projects:", error);
             setError("Failed to load projects");
         }
     };

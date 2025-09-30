@@ -85,6 +85,7 @@ const EditProjectPage = () => {
                 router.push("/dashboard/projects");
             }
         } catch (error) {
+            console.log(error);
             router.push("/dashboard/projects");
         } finally {
             setLoading(false);
@@ -105,11 +106,11 @@ const EditProjectPage = () => {
         }
 
         const data = await response.json();
-        
+
         if (!data.success) {
             throw new Error(data.error || "Failed to upload image");
         }
-        
+
         return data.url;
     };
 
@@ -161,7 +162,10 @@ const EditProjectPage = () => {
 
             router.push(`/dashboard/projects/${params.id}?updated=true`);
         } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : "Failed to update project. Please try again.";
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to update project. Please try again.";
             alert(errorMessage);
         } finally {
             setIsSubmitting(false);

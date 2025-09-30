@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { 
-    FaGithub, 
-    FaLinkedin, 
-    FaFacebook, 
-    FaTwitter, 
-    FaInstagram, 
+import React, {useState, useEffect} from "react";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaFacebook,
+    FaTwitter,
+    FaInstagram,
     FaWhatsapp,
     FaFileAlt,
     FaSave,
-    FaSpinner
+    FaSpinner,
 } from "react-icons/fa";
 
 interface SocialLinks {
@@ -35,13 +35,16 @@ const SettingsPage: React.FC = () => {
             facebook: "",
             twitter: "",
             instagram: "",
-            whatsapp: ""
+            whatsapp: "",
         },
-        resumeUrl: ""
+        resumeUrl: "",
     });
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
-    const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+    const [message, setMessage] = useState<{
+        type: "success" | "error";
+        text: string;
+    } | null>(null);
 
     // Fetch current settings
     useEffect(() => {
@@ -50,36 +53,40 @@ const SettingsPage: React.FC = () => {
 
     const fetchSettings = async () => {
         try {
-            const response = await fetch('/api/settings');
+            const response = await fetch("/api/settings");
             const data = await response.json();
-            
+
             if (data.success) {
                 setSettings({
                     socialLinks: data.settings.socialLinks,
-                    resumeUrl: data.settings.resumeUrl || ""
+                    resumeUrl: data.settings.resumeUrl || "",
                 });
             }
         } catch (error) {
-            setMessage({ type: 'error', text: 'Failed to load settings' });
+            console.log(error);
+            setMessage({type: "error", text: "Failed to load settings"});
         } finally {
             setLoading(false);
         }
     };
 
-    const handleSocialLinkChange = (platform: keyof SocialLinks, value: string) => {
-        setSettings(prev => ({
+    const handleSocialLinkChange = (
+        platform: keyof SocialLinks,
+        value: string
+    ) => {
+        setSettings((prev) => ({
             ...prev,
             socialLinks: {
                 ...prev.socialLinks,
-                [platform]: value
-            }
+                [platform]: value,
+            },
         }));
     };
 
     const handleResumeUrlChange = (value: string) => {
-        setSettings(prev => ({
+        setSettings((prev) => ({
             ...prev,
-            resumeUrl: value
+            resumeUrl: value,
         }));
     };
 
@@ -88,10 +95,10 @@ const SettingsPage: React.FC = () => {
         setMessage(null);
 
         try {
-            const response = await fetch('/api/settings', {
-                method: 'PUT',
+            const response = await fetch("/api/settings", {
+                method: "PUT",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify(settings),
             });
@@ -99,24 +106,61 @@ const SettingsPage: React.FC = () => {
             const data = await response.json();
 
             if (data.success) {
-                setMessage({ type: 'success', text: 'Settings saved successfully!' });
+                setMessage({
+                    type: "success",
+                    text: "Settings saved successfully!",
+                });
             } else {
-                setMessage({ type: 'error', text: data.error || 'Failed to save settings' });
+                setMessage({
+                    type: "error",
+                    text: data.error || "Failed to save settings",
+                });
             }
         } catch (error) {
-            setMessage({ type: 'error', text: 'Failed to save settings' });
+            console.log(error);
+            setMessage({type: "error", text: "Failed to save settings"});
         } finally {
             setSaving(false);
         }
     };
 
     const socialPlatforms = [
-        { key: 'github' as keyof SocialLinks, label: 'GitHub', icon: FaGithub, placeholder: 'https://github.com/username' },
-        { key: 'linkedin' as keyof SocialLinks, label: 'LinkedIn', icon: FaLinkedin, placeholder: 'https://linkedin.com/in/username' },
-        { key: 'facebook' as keyof SocialLinks, label: 'Facebook', icon: FaFacebook, placeholder: 'https://facebook.com/username' },
-        { key: 'twitter' as keyof SocialLinks, label: 'Twitter', icon: FaTwitter, placeholder: 'https://twitter.com/username' },
-        { key: 'instagram' as keyof SocialLinks, label: 'Instagram', icon: FaInstagram, placeholder: 'https://instagram.com/username' },
-        { key: 'whatsapp' as keyof SocialLinks, label: 'WhatsApp', icon: FaWhatsapp, placeholder: '01744876681' },
+        {
+            key: "github" as keyof SocialLinks,
+            label: "GitHub",
+            icon: FaGithub,
+            placeholder: "https://github.com/username",
+        },
+        {
+            key: "linkedin" as keyof SocialLinks,
+            label: "LinkedIn",
+            icon: FaLinkedin,
+            placeholder: "https://linkedin.com/in/username",
+        },
+        {
+            key: "facebook" as keyof SocialLinks,
+            label: "Facebook",
+            icon: FaFacebook,
+            placeholder: "https://facebook.com/username",
+        },
+        {
+            key: "twitter" as keyof SocialLinks,
+            label: "Twitter",
+            icon: FaTwitter,
+            placeholder: "https://twitter.com/username",
+        },
+        {
+            key: "instagram" as keyof SocialLinks,
+            label: "Instagram",
+            icon: FaInstagram,
+            placeholder: "https://instagram.com/username",
+        },
+        {
+            key: "whatsapp" as keyof SocialLinks,
+            label: "WhatsApp",
+            icon: FaWhatsapp,
+            placeholder: "01744876681",
+        },
     ];
 
     if (loading) {
@@ -145,8 +189,7 @@ const SettingsPage: React.FC = () => {
                 <button
                     onClick={handleSave}
                     disabled={saving}
-                    className="flex items-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
+                    className="flex items-center space-x-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-[var(--primary-color)]/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                     {saving ? (
                         <>
                             <FaSpinner className="animate-spin" />
@@ -163,11 +206,12 @@ const SettingsPage: React.FC = () => {
 
             {/* Message */}
             {message && (
-                <div className={`p-4 rounded-xl border ${
-                    message.type === 'success' 
-                        ? 'bg-green-500/10 border-green-500/30 text-green-400' 
-                        : 'bg-red-500/10 border-red-500/30 text-red-400'
-                }`}>
+                <div
+                    className={`p-4 rounded-xl border ${
+                        message.type === "success"
+                            ? "bg-green-500/10 border-green-500/30 text-green-400"
+                            : "bg-red-500/10 border-red-500/30 text-red-400"
+                    }`}>
                     {message.text}
                 </div>
             )}
@@ -189,7 +233,12 @@ const SettingsPage: React.FC = () => {
                                 <input
                                     type="text"
                                     value={settings.socialLinks[platform.key]}
-                                    onChange={(e) => handleSocialLinkChange(platform.key, e.target.value)}
+                                    onChange={(e) =>
+                                        handleSocialLinkChange(
+                                            platform.key,
+                                            e.target.value
+                                        )
+                                    }
                                     placeholder={platform.placeholder}
                                     className="w-full px-4 py-3 bg-[var(--card-bg)]/50 border border-[var(--border-color)]/30 rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--primary-color)]/50 focus:ring-2 focus:ring-[var(--primary-color)]/20 transition-all duration-300"
                                 />
@@ -217,7 +266,8 @@ const SettingsPage: React.FC = () => {
                         className="w-full px-4 py-3 bg-[var(--card-bg)]/50 border border-[var(--border-color)]/30 rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--primary-color)]/50 focus:ring-2 focus:ring-[var(--primary-color)]/20 transition-all duration-300"
                     />
                     <p className="text-sm text-[var(--text-secondary)]">
-                        Add your Google Drive resume link or any other direct download URL
+                        Add your Google Drive resume link or any other direct
+                        download URL
                     </p>
                 </div>
             </div>
@@ -228,10 +278,19 @@ const SettingsPage: React.FC = () => {
                     ℹ️ Default Values
                 </h3>
                 <div className="text-sm text-[var(--text-secondary)] space-y-1">
-                    <p>• If you leave any social link empty, the default portfolio links will be used</p>
+                    <p>
+                        • If you leave any social link empty, the default
+                        portfolio links will be used
+                    </p>
                     <p>• WhatsApp default number: 01744876681</p>
-                    <p>• WhatsApp will appear as a floating button on all portfolio pages</p>
-                    <p>• Resume button will redirect to the URL you provide above</p>
+                    <p>
+                        • WhatsApp will appear as a floating button on all
+                        portfolio pages
+                    </p>
+                    <p>
+                        • Resume button will redirect to the URL you provide
+                        above
+                    </p>
                 </div>
             </div>
         </div>

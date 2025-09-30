@@ -61,6 +61,7 @@ const ProjectDetailPage = () => {
                 setProject(data.project);
             }
         } catch (error) {
+            console.log(error);
         } finally {
             setLoading(false);
         }
@@ -81,6 +82,7 @@ const ProjectDetailPage = () => {
                 alert("Failed to delete project");
             }
         } catch (error) {
+            console.log(error);
             alert("Failed to delete project");
         } finally {
             setDeleting(false);
@@ -235,7 +237,7 @@ const ProjectDetailPage = () => {
                                         {project.shortDescription}
                                     </p>
                                 )}
-                                <div 
+                                <div
                                     className="text-[var(--text-secondary)] leading-relaxed project-description"
                                     dangerouslySetInnerHTML={{
                                         __html: project.description,
@@ -433,7 +435,6 @@ const ProjectDetailPage = () => {
                                 ))}
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

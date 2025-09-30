@@ -48,6 +48,7 @@ const EmailsPage = () => {
             setMessages(response.data);
             setUnreadCount(response.unreadCount);
         } catch (error) {
+            console.log(error);
         } finally {
             setLoading(false);
         }
@@ -91,6 +92,7 @@ const EmailsPage = () => {
             );
             setUnreadCount((prev) => prev - 1);
         } catch (error) {
+            console.log(error);
         }
     };
 
@@ -104,6 +106,7 @@ const EmailsPage = () => {
             );
             setUnreadCount((prev) => prev + 1);
         } catch (error) {
+            console.log(error);
         }
     };
 
@@ -115,6 +118,7 @@ const EmailsPage = () => {
                 setSelectedMessage(null);
             }
         } catch (error) {
+            console.log(error);
         }
     };
 

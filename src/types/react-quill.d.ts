@@ -1,5 +1,6 @@
-declare module 'react-quill' {
-    import * as React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+declare module "react-quill" {
+    import * as React from "react";
 
     export interface QuillOptions {
         debug?: string | boolean;
@@ -23,21 +24,9 @@ declare module 'react-quill' {
             source: string,
             editor: any
         ) => void;
-        onChangeSelection?: (
-            range: any,
-            source: string,
-            editor: any
-        ) => void;
-        onFocus?: (
-            range: any,
-            source: string,
-            editor: any
-        ) => void;
-        onBlur?: (
-            previousRange: any,
-            source: string,
-            editor: any
-        ) => void;
+        onChangeSelection?: (range: any, source: string, editor: any) => void;
+        onFocus?: (range: any, source: string, editor: any) => void;
+        onBlur?: (previousRange: any, source: string, editor: any) => void;
         onKeyPress?: React.EventHandler<any>;
         onKeyDown?: React.EventHandler<any>;
         onKeyUp?: React.EventHandler<any>;
@@ -62,4 +51,4 @@ declare module 'react-quill' {
     export default ReactQuill;
 }
 
-declare module 'react-quill/dist/quill.snow.css';
+declare module "react-quill/dist/quill.snow.css";

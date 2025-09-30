@@ -60,7 +60,8 @@ const AnalyticsPage = () => {
                 setAnalyticsData(result.data);
             }
         } catch (error) {
-            // Silent fail
+            console.log(error);
+            // Silent failconsole.log(error);
         } finally {
             setLoading(false);
         }
