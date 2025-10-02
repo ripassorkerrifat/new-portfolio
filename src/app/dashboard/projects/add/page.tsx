@@ -49,6 +49,8 @@ const AddProjectPage: React.FC = () => {
         defaultValues,
     });
 
+    const { formState: { errors } } = form;
+
     const steps = [
         {
             title: "Basic Details",
@@ -309,6 +311,20 @@ const AddProjectPage: React.FC = () => {
             {/* Form Content */}
             <div className="space-y-6">
                 <CurrentStepComponent form={form as any} />
+
+                {/* Form Errors Display */}
+                {Object.keys(errors).length > 0 && (
+                    <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
+                        <p className="text-red-400 font-medium mb-2">Please fix the following errors:</p>
+                        <ul className="text-sm text-red-300 space-y-1">
+                            {Object.entries(errors).map(([field, error]) => (
+                                <li key={field}>
+                                    <strong>{field}:</strong> {error?.message as string}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
 
                 {/* Navigation Buttons */}
                 <div className="flex items-center justify-between">

@@ -26,6 +26,13 @@ export const MultiImageUpload: React.FC<MultiImageUploadProps> = ({
             setError("");
             const newFiles: (string | File)[] = [];
 
+            // Check if adding files would exceed max limit
+            const remainingSlots = maxFiles - value.length;
+            if (remainingSlots <= 0) {
+                setError(`Maximum ${maxFiles} images allowed. Remove some images first.`);
+                return;
+            }
+
             Array.from(files).forEach((file) => {
                 // Validate file type
                 if (!file.type.startsWith("image/")) {
@@ -44,6 +51,9 @@ export const MultiImageUpload: React.FC<MultiImageUploadProps> = ({
 
             if (newFiles.length > 0) {
                 const updatedFiles = [...value, ...newFiles].slice(0, maxFiles);
+                if (updatedFiles.length === maxFiles && files.length > remainingSlots) {
+                    setError(`Only ${remainingSlots} more image(s) can be added (max: ${maxFiles})`);
+                }
                 onChange(updatedFiles);
             }
         },
@@ -129,8 +139,12 @@ export const MultiImageUpload: React.FC<MultiImageUploadProps> = ({
                             Click to browse or drag and drop multiple images
                         </p>
                         <p className="text-[var(--text-secondary)] text-xs mt-1">
-                            PNG, JPG, GIF up to {maxSize}MB each •{" "}
-                            {value.length} {value.length === 1 ? 'image' : 'images'}
+                            PNG, JPG, GIF up to {maxSize}MB each
+                        </p>
+                        <p className={`text-xs mt-1 font-medium ${
+                            value.length >= maxFiles ? 'text-orange-400' : 'text-[var(--primary-color)]'
+                        }`}>
+                            {value.length} / {maxFiles} {value.length === 1 ? 'image' : 'images'}
                         </p>
                     </div>
                 </div>

@@ -47,7 +47,11 @@ const EditProjectPage = () => {
         },
     });
 
-    const {handleSubmit, setValue} = form;
+    const {
+        handleSubmit,
+        setValue,
+        formState: {errors},
+    } = form;
 
     useEffect(() => {
         fetchProject();
@@ -336,6 +340,23 @@ const EditProjectPage = () => {
             <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-6 border border-[var(--border-color)]/30">
                 <CurrentStepComponent form={form as any} />
             </div>
+
+            {/* Form Errors Display */}
+            {Object.keys(errors).length > 0 && (
+                <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4">
+                    <p className="text-red-400 font-medium mb-2">
+                        Please fix the following errors:
+                    </p>
+                    <ul className="text-sm text-red-300 space-y-1">
+                        {Object.entries(errors).map(([field, error]) => (
+                            <li key={field}>
+                                <strong>{field}:</strong>{" "}
+                                {error?.message as string}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
 
             {/* Navigation Buttons */}
             <div className="flex items-center justify-between">

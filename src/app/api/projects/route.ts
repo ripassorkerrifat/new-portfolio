@@ -3,6 +3,10 @@ import connectToDatabase from '@/lib/mongodb';
 import Project from '@/models/Project';
 import { projectSchema } from '@/lib/validations/project';
 
+// Configure route to handle larger payloads for image URLs
+export const runtime = 'nodejs';
+export const maxDuration = 180; // 3 minutes timeout
+
 export async function POST(request: NextRequest) {
   try {
     // Connect to database

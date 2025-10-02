@@ -2,6 +2,10 @@ import {NextRequest, NextResponse} from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import Project from "@/models/Project";
 
+// Configure route to handle larger payloads for image URLs
+export const runtime = 'nodejs';
+export const maxDuration = 180; // 3 minutes timeout
+
 // GET /api/projects/[id] - Get single project
 export async function GET(
     request: NextRequest,

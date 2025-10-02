@@ -132,6 +132,7 @@ const LinksGalleryForm: React.FC<LinksGalleryFormProps> = ({form}) => {
                         value={galleryImages}
                         onChange={handleGalleryChange}
                         maxSize={10}
+                        maxFiles={100}
                     />
                 </div>
 

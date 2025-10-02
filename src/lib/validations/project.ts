@@ -5,9 +5,8 @@ export const projectSchema = z.object({
     description: z.string().min(1, "Description is required"),
     shortDescription: z.string().min(1, "Short description is required"),
     thumbnail: z.union([
-        z.string().url("Please enter a valid URL for the thumbnail"),
-        z.instanceof(File, {message: "Please select a valid image file"}),
         z.string().min(1, "Thumbnail is required"),
+        z.instanceof(File, {message: "Please select a valid image file"}),
     ]),
     category: z.enum(["front-end", "backend", "full-stack", "others"], {
         message: "Please select a category",
@@ -32,7 +31,13 @@ export const projectSchema = z.object({
         ])
         .optional(),
     galleryImages: z
-        .union([z.array(z.string().url()), z.array(z.instanceof(File))])
+        .array(
+            z.union([
+                z.string().url("Invalid image URL"),
+                z.instanceof(File)
+            ])
+        )
+        .max(100, "Maximum 100 gallery images allowed")
         .optional(),
 });
 
