@@ -110,8 +110,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         onClick={() => onMoreInfo(project)}
                         className="flex-1 pointer-cursor  bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 hover:from-[var(--primary-color)]/30 hover:to-[var(--secondary-color)]/30 text-[var(--text-primary)] text-center py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/50 transform hover:scale-105 cursor-pointer shadow-md hover:shadow-lg">
                         <span className="flex items-center justify-center gap-2">
-                            <span>📋</span>
-                            <span>More Details</span>
+                            More Details
                         </span>
                     </button>
                     <a
@@ -120,8 +119,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         rel="noopener noreferrer"
                         className="flex-1 pointer-cursor bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white text-center py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 cursor-pointer">
                         <span className="flex items-center justify-center gap-2">
-                            <span>🚀</span>
-                            <span>Live Demo</span>
+                            Live Demo
                         </span>
                     </a>
                 </div>
