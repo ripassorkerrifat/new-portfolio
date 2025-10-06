@@ -38,7 +38,9 @@ const ExperienceTimeline: React.FC = () => {
                 "Prisma",
                 "Tailwind CSS",
                 "Redux",
-                "React",
+                "Justan",
+                "JWT",
+                "AWS",
             ],
         },
         {
@@ -74,7 +76,7 @@ const ExperienceTimeline: React.FC = () => {
             type: "Internship",
             period: "April 2023 - September 2023",
             description:
-                "Developed a comprehensive EduTech learning and marketplace platform for Edupy Academy. Designed and implemented a responsive web application with a modern React/Next.js frontend and robust Node.js backend. Built a scalable and secure API for marketplace functionality and integrated with various third-party services. Gained practical experience in building a full-stack web application with a focus on scalability, security, and performance optimization.",
+                "Developed a comprehensive EduTech learning and marketplace platform for Edupy Academy. Designed and implemented a responsive web application with a modern React/Next.js frontend and robust Node.js backend. Built a scalable and secure API for marketplace functionality and integrated with various third-party services.",
             technologies: [
                 "HTML",
                 "CSS",
@@ -82,6 +84,12 @@ const ExperienceTimeline: React.FC = () => {
                 "React",
                 "Tailwind CSS",
                 "Framer",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "TypeScript",
+                "JavaScript",
+                "Socket.io",
             ],
         },
         {
