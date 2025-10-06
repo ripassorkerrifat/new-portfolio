@@ -69,12 +69,12 @@ const ExperienceTimeline: React.FC = () => {
         {
             id: 3,
             title: "Junior Web Developer",
-            company: "Company Name",
+            company: "Edupy Academy",
             location: "Remote",
             type: "Internship",
             period: "April 2023 - September 2023",
             description:
-                "Gained practical experience in web development through a comprehensive internship project. Worked on various web development tasks such as building responsive websites, implementing APIs, and optimizing performance. Developed a deep understanding of web technologies and industry best practices.",
+                "Developed a comprehensive EduTech learning and marketplace platform for Edupy Academy. Designed and implemented a responsive web application with a modern React/Next.js frontend and robust Node.js backend. Built a scalable and secure API for marketplace functionality and integrated with various third-party services. Gained practical experience in building a full-stack web application with a focus on scalability, security, and performance optimization.",
             technologies: [
                 "HTML",
                 "CSS",
@@ -87,19 +87,18 @@ const ExperienceTimeline: React.FC = () => {
         {
             id: 4,
             title: "Web Developer",
-            company: "Company Name",
+            company: "The Change",
             location: "Remote",
             type: "Internship",
             period: "April 2022 - September 2022",
             description:
-                "Gained practical experience in web development through a comprehensive internship project. Worked on various web development tasks such as building responsive websites, implementing APIs, and optimizing performance. Developed a deep understanding of web technologies and industry best practices.",
+                "Worked on a social activities project during the internship. Gained hands-on experience in web development by building a responsive website, implementing APIs, and optimizing performance. Developed a deep understanding of web technologies and industry best practices.",
             technologies: [
                 "HTML",
                 "CSS",
                 "JavaScript",
                 "React",
                 "Tailwind CSS",
-                "Framer",
             ],
         },
     ];
