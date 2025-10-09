@@ -96,60 +96,60 @@ const EducationTimeline: React.FC = () => {
                                     ? "md:text-right"
                                     : "md:text-left"
                             }`}>
-                            <div className="bg-[var(--card-bg)]/50 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-[var(--border-color)]/30 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                            <div className="group relative bg-gradient-to-br from-[var(--card-bg)]/80 via-[var(--card-bg)]/60 to-[var(--card-bg)]/40 backdrop-blur-xl rounded-3xl p-6 md:p-8 border border-[var(--border-color)]/20 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] transition-all duration-500 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-[var(--primary-color)]/5 before:via-transparent before:to-[var(--secondary-color)]/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
+                                {/* Decorative Corner */}
+                                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[var(--secondary-color)]/10 to-transparent rounded-bl-3xl"></div>
+                                
                                 {/* Header */}
-                                <div className="mb-3 md:mb-4">
+                                <div className="relative z-10 mb-4 md:mb-6">
                                     <div className={`flex items-center mb-2 ${
                                         index % 2 === 0 
                                             ? "justify-start md:justify-end" 
                                             : "justify-start md:justify-start"
                                     }`}>
-                                        <span className="text-xs md:text-sm font-medium text-[var(--text-secondary)] bg-[var(--primary-color)]/20 px-2 md:px-3 py-1 rounded-full">
+                                        <span className="text-xs md:text-sm font-semibold text-white bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] px-3 md:px-4 py-2 rounded-full shadow-lg">
                                             {edu.period}
                                         </span>
                                     </div>
-                                    <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] mb-1 leading-tight">
+                                    <h3 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--secondary-color)] transition-colors duration-300 leading-tight">
                                         {edu.degree}
                                     </h3>
-                                    <div className="text-[var(--primary-color)] font-semibold text-sm md:text-base">
-                                        <span>{edu.institution}</span>
-                                        <span className="mx-2">•</span>
-                                        <span className="text-xs sm:text-sm">
-                                            {edu.location}
+                                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                                        <span className="text-sm md:text-base font-semibold text-[var(--secondary-color)]">
+                                            {edu.institution}
+                                        </span>
+                                        <span className="w-1 h-1 bg-[var(--text-secondary)] rounded-full"></span>
+                                        <span className="text-xs md:text-sm text-[var(--text-secondary)]">
+                                            🎓 {edu.location}
                                         </span>
                                     </div>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-[var(--text-secondary)] mb-3 md:mb-4 leading-relaxed text-sm md:text-base">
-                                    {edu.description}
-                                </p>
+                                <div className="relative z-10 mb-5 md:mb-6">
+                                    <p className="text-[var(--text-secondary)] leading-relaxed text-sm md:text-base bg-[var(--primary-bg)]/30 p-4 rounded-2xl border-l-4 border-[var(--secondary-color)]/50">
+                                        {edu.description}
+                                    </p>
+                                </div>
 
                                 {/* Achievements */}
-                                <div>
-                                    <h4 className="text-xs md:text-sm font-semibold text-[var(--text-primary)] mb-2 md:mb-3">
-                                        Key Achievements:
+                                <div className="relative z-10">
+                                    <h4 className="text-sm md:text-base font-bold text-[var(--text-primary)] mb-3 md:mb-4 flex items-center gap-2">
+                                        <span className="w-2 h-2 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] rounded-full"></span>
+                                        Key Achievements
                                     </h4>
-                                    <ul className={`space-y-1.5 md:space-y-2 ${
-                                        index % 2 === 0 
-                                            ? "text-left md:text-right" 
-                                            : "text-left md:text-left"
-                                    }`}>
+                                    <div className="grid gap-2 md:gap-3">
                                         {edu.achievements.map(
                                             (achievement, achievementIndex) => (
-                                                <li
+                                                <div
                                                     key={achievementIndex}
-                                                    className={`flex items-start space-x-2 text-xs md:text-sm text-[var(--text-secondary)] ${
-                                                        index % 2 === 0 
-                                                            ? "md:flex-row-reverse md:space-x-reverse" 
-                                                            : ""
-                                                    }`}>
-                                                    <span className="w-1.5 h-1.5 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-full mt-2 flex-shrink-0"></span>
-                                                    <span>{achievement}</span>
-                                                </li>
+                                                    className="flex items-start gap-3 text-xs md:text-sm text-[var(--text-secondary)] bg-gradient-to-r from-[var(--secondary-color)]/10 to-[var(--accent-color)]/5 p-3 rounded-xl border border-[var(--secondary-color)]/20 hover:border-[var(--secondary-color)]/40 hover:shadow-md transition-all duration-300">
+                                                    <span className="w-2 h-2 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] rounded-full mt-1.5 flex-shrink-0"></span>
+                                                    <span className="leading-relaxed">{achievement}</span>
+                                                </div>
                                             )
                                         )}
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

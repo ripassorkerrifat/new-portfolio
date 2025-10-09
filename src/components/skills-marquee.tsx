@@ -97,7 +97,7 @@ const SkillsMarquee = () => {
     ];
 
     return (
-        <div className="w-full md:py-6 pb-10 overflow-hidden group">
+        <div className="w-full md:py-6 pb-16 overflow-hidden group">
             <div className="flex animate-marquee group-hover:pause-animation whitespace-nowrap">
                 {/* First set of skills */}
                 {skills.map((skill, index) => (

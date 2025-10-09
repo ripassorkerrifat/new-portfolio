@@ -39,7 +39,6 @@ const ProjectSchema: Schema = new Schema(
             type: String,
             required: [true, "Short description is required"],
             minlength: [3, "Short description must be at least 3 characters"],
-            maxlength: [300, "Short description cannot exceed 300 characters"],
         },
         skills: {
             type: [String],

@@ -103,9 +103,8 @@ const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({form}) => {
                     <textarea
                         {...register("shortDescription")}
                         rows={3}
-                        placeholder="Brief summary of your project (max 200 characters)"
+                        placeholder="Brief summary of your project"
                         className="w-full px-4 py-3 bg-[var(--primary-bg)]/50 border border-[var(--border-color)]/30 rounded-xl text-[var(--text-primary)] placeholder-[var(--text-secondary)] focus:outline-none focus:border-[var(--primary-color)]/50 transition-colors duration-300 resize-none"
-                        maxLength={200}
                     />
                     {errors.shortDescription && (
                         <p className="text-red-400 text-sm mt-1">
