@@ -11,8 +11,7 @@ export async function GET(request: NextRequest) {
         const limit = parseInt(searchParams.get("limit") || "6");
 
         // Build query for published projects
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any, prefer-const
-        let query: any = {
+        const query: any = {
             is_published: true,
             // Include all published projects (both featured and non-featured)
         };

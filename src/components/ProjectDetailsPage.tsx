@@ -158,7 +158,7 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                             {project.title}
                         </span>
                     </h1>
-                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed max-w-4xl">
+                    <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
                         {project.shortDescription}
                     </p>
                 </div>
@@ -260,8 +260,8 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
 
             {/* Content Sections */}
             <div className="md:py-20 py-10 bg-gradient-to-b from-[var(--primary-bg)] to-[var(--secondary-bg)]">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto space-y-16">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="space-y-16">
                         {/* Project Overview */}
                         {project.description && (
                             <div className="animate-slide-up">
@@ -342,8 +342,8 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
 
             {/* Call to Action Section */}
             <div className="py-16 bg-gradient-to-br from-[var(--primary-bg)] to-[var(--secondary-bg)]">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto text-center">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center">
                         <div className="bg-gradient-to-br from-[var(--secondary-bg)]/80 to-[var(--secondary-bg)]/60 backdrop-blur-xl rounded-3xl p-4 py-8 md:p-12 border border-[var(--border-color)]/20 shadow-2xl">
                             <div className="mb-8">
                                 <h2 className="text-2xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">
