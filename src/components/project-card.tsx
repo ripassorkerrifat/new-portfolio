@@ -1,20 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import Link from "next/link";
 import {Project} from "../types/project";
 import {Images, ExternalLink, Info, Star, Zap} from "lucide-react";
 
 interface ProjectCardProps {
     project: Project;
     index: number;
-    onMoreInfo: (project: Project) => void;
+    onMoreInfo?: (project: Project) => void;
     onGalleryOpen: (gallery: string[]) => void;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
     project,
     index,
-    onMoreInfo,
     onGalleryOpen,
 }) => {
     return (
@@ -117,12 +117,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
                 {/* Enhanced action buttons */}
                 <div className="flex gap-3">
-                    <button
-                        onClick={() => onMoreInfo(project)}
+                    <Link
+                        href={`/projects/${project._id || project.id}`}
                         className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[var(--secondary-bg)]/60 to-[var(--secondary-bg)]/40 hover:from-[var(--secondary-bg)]/80 hover:to-[var(--secondary-bg)]/60 text-[var(--text-primary)] py-3.5 px-5 rounded-2xl text-sm font-bold transition-all duration-300 border border-[var(--border-color)]/40 hover:border-[var(--primary-color)]/60 hover:scale-105 cursor-pointer group/btn shadow-lg hover:shadow-xl backdrop-blur-sm">
                         <Info className="w-4 h-4 group-hover/btn:rotate-12 transition-transform duration-300" />
                         <span>Details</span>
-                    </button>
+                    </Link>
 
                     {project.liveUrl && (
                         <a

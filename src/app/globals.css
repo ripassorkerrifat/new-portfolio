@@ -390,3 +390,75 @@ div:not([onClick]):not([role="button"]):not(.clickable) {
     color: inherit; /* Ensure links inherit the text color */
     text-decoration: inherit; /* Ensure links inherit text decoration */
 }
+
+/* Project Description Styles */
+.project-description {
+    line-height: 1.8;
+}
+
+.project-description h1,
+.project-description h2,
+.project-description h3,
+.project-description h4,
+.project-description h5,
+.project-description h6 {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.project-description h1 { font-size: 2rem; }
+.project-description h2 { font-size: 1.75rem; }
+.project-description h3 { font-size: 1.5rem; }
+.project-description h4 { font-size: 1.25rem; }
+
+.project-description p {
+    margin: 1rem 0;
+    color: var(--text-secondary);
+}
+
+.project-description ul,
+.project-description ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.project-description li {
+    margin: 0.5rem 0;
+}
+
+.project-description a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.project-description a:hover {
+    color: var(--secondary-color);
+}
+
+.project-description code {
+    background: var(--secondary-bg);
+    color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+}
+
+.project-description pre {
+    background: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.project-description blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
