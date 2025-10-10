@@ -85,7 +85,7 @@ export const metadata: Metadata = {
         canonical: "https://ripassorkerrifat.me",
     },
     verification: {
-        google: "your-google-verification-code",
+        google: "bNmtcgPYQ9AcZZ1klonDhTNZZE7GPGpkpQhFSW4mS_8",
         yandex: "your-yandex-verification-code",
     },
     category: "technology",

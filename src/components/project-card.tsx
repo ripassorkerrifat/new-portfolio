@@ -2,7 +2,7 @@
 "use client";
 
 import {Project} from "../types/project";
-import {Images} from "lucide-react";
+import {Images, ExternalLink, Info, Star, Zap} from "lucide-react";
 
 interface ProjectCardProps {
     project: Project;
@@ -19,111 +19,127 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
     return (
         <div
-            className="group relative glass rounded-3xl overflow-hidden border border-[var(--border-color)]/40 hover:border-[var(--secondary-color)]/80 transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[var(--glow-secondary)]/30 backdrop-blur-xl bg-gradient-to-br from-[var(--primary-bg)]/90 to-[var(--secondary-bg)]/90"
+            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-white/10 hover:border-[var(--primary-color)]/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 animate-slide-up"
             style={{animationDelay: `${index * 0.1}s`}}>
-            {/* Enhanced hover gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/8 via-transparent to-[var(--secondary-color)]/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            {/* Simple animated background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 via-transparent to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            {/* Project Thumbnail with enhanced styling */}
-            <div className="relative h-48 sm:h-64 overflow-hidden">
+            {/* Single glowing effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
+
+            {/* Project Thumbnail */}
+            <div className="relative h-52 overflow-hidden rounded-t-2xl">
                 <img
                     src={project.thumbnail}
                     alt={`${project.title}`}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                     loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-                {/* Gallery Icon with cursor pointer */}
-                {((project?.galleryImages?.length ?? 0) > 0 ||
-                    (project?.gallery?.length ?? 0) > 0) && (
-                    <button
-                        onClick={() =>
-                            onGalleryOpen(
-                                project?.galleryImages || project?.gallery || []
-                            )
-                        }
-                        className="absolute top-4 left-4 w-10 h-10 sm:w-12 sm:h-12 bg-black/60 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/80 transition-all duration-300 transform hover:scale-110 cursor-pointer shadow-lg"
-                        title="View Gallery">
-                        <Images className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </button>
-                )}
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-                {/* Enhanced Featured Badge */}
+                {/* Floating action buttons */}
+                <div className="absolute top-4 left-4 flex gap-2">
+                    {/* Gallery button */}
+                    {((project?.galleryImages?.length ?? 0) > 0 ||
+                        (project?.gallery?.length ?? 0) > 0) && (
+                        <button
+                            onClick={() =>
+                                onGalleryOpen(
+                                    project?.galleryImages ||
+                                        project?.gallery ||
+                                        []
+                                )
+                            }
+                            className="w-10 h-10 bg-black/60 backdrop-blur-md rounded-xl flex items-center justify-center text-white hover:bg-black/80 hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                            title="View Gallery">
+                            <Images className="w-4 h-4" />
+                        </button>
+                    )}
+                </div>
+
+                {/* Featured badge */}
                 {(project?.featured || project?.is_featured) && (
                     <div className="absolute top-4 right-4">
-                        <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse">
-                            ⭐ Featured
-                        </span>
+                        <div className="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-lg">
+                            <Star className="w-3 h-3 fill-current" />
+                            Featured
+                        </div>
                     </div>
                 )}
 
-                {/* Project category badge */}
+                {/* Category badge */}
                 <div className="absolute bottom-4 left-4">
-                    <span className="bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium border border-white/20">
+                    <div className="flex items-center gap-1 bg-white/10 backdrop-blur-md text-white px-3 py-1.5 rounded-xl text-xs font-medium border border-white/20">
+                        <Zap className="w-3 h-3" />
                         {project.category?.replace("-", " ").toUpperCase() ||
                             "PROJECT"}
-                    </span>
+                    </div>
                 </div>
             </div>
 
-            <div className="relative p-4  sm:p-5">
-                {/* Project title with better spacing */}
-                <h4 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--primary-color)] transition-colors duration-300 line-clamp-1">
+            {/* Content section */}
+            <div className="relative p-4 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/95 backdrop-blur-md border-t border-white/5">
+                {/* Project title */}
+                <h4 className="text-xl font-bold text-[var(--text-primary)] mb-3 group-hover:text-[var(--primary-color)] transition-colors duration-300 line-clamp-1 leading-tight">
                     {project.title}
                 </h4>
 
-                {/* Enhanced short description display */}
-                <div className="mb-4">
-                    <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed line-clamp-2 md:min-h-[3.5rem]">
-                        {project.shortDescription}
-                    </p>
-                </div>
+                {/* Description */}
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-2 mb-4 min-h-[2.5rem]">
+                    {project.shortDescription}
+                </p>
 
-                {/* Technologies with better styling */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Tech stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
                     {(project.technologies || project.skills)
-                        ?.slice(0, 4)
+                        ?.slice(0, 3)
                         .map((tech) => (
                             <span
                                 key={tech}
-                                className="bg-gradient-to-r from-[var(--primary-color)]/15 to-[var(--secondary-color)]/15 text-[var(--text-primary)] px-3 py-1.5 rounded-full text-xs font-medium border border-[var(--border-color)]/40 hover:border-[var(--primary-color)]/60 transition-all duration-300 hover:scale-105 cursor-default">
+                                className="bg-gradient-to-r from-[var(--primary-color)]/10 to-[var(--secondary-color)]/10 text-[var(--text-primary)] px-3 py-1 rounded-lg text-xs font-medium border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/40 hover:bg-[var(--primary-color)]/5 transition-all duration-300">
                                 {tech}
                             </span>
                         ))}
                     {(project?.technologies || project?.skills) &&
                         (project?.technologies?.length ||
                             project?.skills?.length ||
-                            0) > 4 && (
-                            <span className="text-[var(--text-secondary)] text-xs px-3 py-1.5 bg-[var(--secondary-bg)]/40 rounded-full border border-[var(--border-color)]/30 cursor-default">
+                            0) > 3 && (
+                            <span className="text-[var(--text-secondary)] text-xs px-3 py-1 bg-[var(--secondary-bg)]/30 rounded-lg border border-[var(--border-color)]/20">
                                 +
                                 {(project?.technologies?.length ||
                                     project?.skills?.length ||
-                                    0) - 4}
+                                    0) - 3}
                             </span>
                         )}
                 </div>
 
-                {/* Enhanced action buttons with proper cursor pointers */}
+                {/* Enhanced action buttons */}
                 <div className="flex gap-3">
                     <button
                         onClick={() => onMoreInfo(project)}
-                        className="flex-1 pointer-cursor  bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 hover:from-[var(--primary-color)]/30 hover:to-[var(--secondary-color)]/30 text-[var(--text-primary)] text-center py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/50 transform hover:scale-105 cursor-pointer shadow-md hover:shadow-lg">
-                        <span className="flex items-center justify-center gap-2">
-                            More Details
-                        </span>
+                        className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[var(--secondary-bg)]/60 to-[var(--secondary-bg)]/40 hover:from-[var(--secondary-bg)]/80 hover:to-[var(--secondary-bg)]/60 text-[var(--text-primary)] py-3.5 px-5 rounded-2xl text-sm font-bold transition-all duration-300 border border-[var(--border-color)]/40 hover:border-[var(--primary-color)]/60 hover:scale-105 cursor-pointer group/btn shadow-lg hover:shadow-xl backdrop-blur-sm">
+                        <Info className="w-4 h-4 group-hover/btn:rotate-12 transition-transform duration-300" />
+                        <span>Details</span>
                     </button>
-                    <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 pointer-cursor bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/90 hover:to-[var(--secondary-color)]/90 text-white text-center py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 cursor-pointer">
-                        <span className="flex items-center justify-center gap-2">
-                            Live Demo
-                        </span>
-                    </a>
+
+                    {project.liveUrl && (
+                        <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--primary-color)] hover:from-[var(--primary-color)]/90 hover:via-[var(--secondary-color)]/90 hover:to-[var(--primary-color)]/90 text-white py-3.5 px-5 rounded-2xl text-sm font-bold transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl hover:shadow-[var(--primary-color)]/40 cursor-pointer group/btn relative overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
+                            <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300 relative z-10" />
+                            <span className="relative z-10">Live Demo</span>
+                        </a>
+                    )}
                 </div>
             </div>
+
+            {/* Simple corner decoration */}
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-[var(--primary-color)]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
     );
 };
