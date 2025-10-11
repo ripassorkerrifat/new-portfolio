@@ -136,7 +136,7 @@ export default function ProjectsPageClient({
                 <div>
                     {initialProjects.length > 0 ? (
                         <>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-12">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-12">
                                 {initialProjects.map((project, index) => (
                                     <ProjectCard
                                         key={project.id || project._id}

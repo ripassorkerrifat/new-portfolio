@@ -64,7 +64,7 @@ const Projects: React.FC<ProjectsProps> = ({initialProjects = []}) => {
                 <div>
                     {initialProjects.length > 0 ? (
                         <>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-12">
                                 {initialProjects.map((project, index) => (
                                     <ProjectCard
                                         key={project.id || project._id}
@@ -77,7 +77,7 @@ const Projects: React.FC<ProjectsProps> = ({initialProjects = []}) => {
                             </div>
 
                             {/* Browse All Projects Button */}
-                            <div className="text-center mt-12">
+                            <div className="text-center flex justify-end mt-6">
                                 <Link
                                     href="/projects"
                                     className="inline-flex items-center gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 group">
