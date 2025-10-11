@@ -78,7 +78,7 @@ export const metadata: Metadata = {
         title: "Ripas Sorker Rifat - Full Stack Developer & Software Engineer",
         description:
             "Passionate Full Stack Developer specializing in React, Node.js, and modern web technologies. Explore my portfolio of 30+ projects.",
-        images: ["/og-image.jpg"],
+        images: ["/profile.webp"],
         creator: "@ripassorkerrifat",
     },
     alternates: {
@@ -97,8 +97,8 @@ export const metadata: Metadata = {
     manifest: "/manifest.json",
     icons: {
         icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.png",
-        apple: "/apple-touch-icon.png",
+        shortcut: "/profile.webp",
+        apple: "/profile.webp",
     },
 };
 
