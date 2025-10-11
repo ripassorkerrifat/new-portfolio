@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10"></div>
 
             {/* Project Thumbnail */}
-            <div className="relative h-52 overflow-hidden rounded-t-2xl">
+            <div className="relative h-96 overflow-hidden rounded-t-2xl">
                 <img
                     src={project.thumbnail}
                     alt={`${project.title}`}
@@ -87,14 +87,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 </h4>
 
                 {/* Description */}
-                <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-2 mb-4 min-h-[2.5rem]">
+                <p className="text-[var(--text-secondary)] leading-relaxed line-clamp-2 mb-4 min-h-[2.5rem]">
                     {project.shortDescription}
                 </p>
 
                 {/* Tech stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
                     {(project.technologies || project.skills)
-                        ?.slice(0, 3)
+                        ?.slice(0, 6)
                         .map((tech) => (
                             <span
                                 key={tech}
@@ -105,12 +105,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     {(project?.technologies || project?.skills) &&
                         (project?.technologies?.length ||
                             project?.skills?.length ||
-                            0) > 3 && (
+                            0) > 6 && (
                             <span className="text-[var(--text-secondary)] text-xs px-3 py-1 bg-[var(--secondary-bg)]/30 rounded-lg border border-[var(--border-color)]/20">
                                 +
                                 {(project?.technologies?.length ||
                                     project?.skills?.length ||
-                                    0) - 3}
+                                    0) - 6}
                             </span>
                         )}
                 </div>

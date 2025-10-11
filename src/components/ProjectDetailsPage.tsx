@@ -65,12 +65,11 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                 </div>
             </div>
 
-            {/* Main Content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-                {/* Breadcrumb Navigation - Responsive */}
+                {/* Breadcrumb - Hidden on mobile */}
                 <nav
                     aria-label="Breadcrumb"
-                    className="mb-4 sm:mb-6 overflow-x-auto">
+                    className="hidden md:block mb-4 sm:mb-6 overflow-x-auto">
                     <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm whitespace-nowrap">
                         <li className="flex items-center">
                             <Home className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-[var(--text-secondary)] flex-shrink-0" />
@@ -97,16 +96,21 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                     </ol>
                 </nav>
 
-                {/* Main Image and Action Buttons - Two Column Layout */}
+                {/* Title - Top on mobile only */}
+                <div className="mb-6 md:hidden">
+                    <h1 className="text-3xl sm:text-4xl font-bold">
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] bg-clip-text text-transparent">
+                            {project.title}
+                        </span>
+                    </h1>
+                </div>
+
                 <div className="mb-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    {/* Left: Main Image */}
                     <div className="lg:col-span-2">
                         <div className="relative group animate-slide-up">
-                            {/* Multiple Glow Layers */}
-                            <div className="absolute -inset-8 bg-gradient-to-r from-[var(--primary-color)]/30 via-[var(--secondary-color)]/20 to-[var(--accent-color)]/30 rounded-[2rem] blur-3xl group-hover:blur-[4rem] transition-all duration-700 opacity-60"></div>
+                            <div className="absolute -inset-8 bg-gradient-to-r from-[var(--primary-color)]/30 via-[var(--secondary-color)]/20 to-[var(--accent-color)]/30 rounded-[2rem] blur-3xl group-hover:blur-[4rem] transition-all duration-700 opacity-60 w-full"></div>
                             <div className="absolute -inset-4 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
 
-                            {/* Main Image Container */}
                             <div className="relative overflow-hidden rounded-3xl border border-[var(--border-color)]/20 shadow-2xl">
                                 <img
                                     src={project.thumbnail}
@@ -114,11 +118,9 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                                     className="w-full h-auto max-h-[75vh] object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
 
-                                {/* Gradient Overlays */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/10 via-transparent to-[var(--secondary-color)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div className="absolute  inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                                <div className="absolute  inset-0 bg-gradient-to-br from-[var(--primary-color)]/10 via-transparent to-[var(--secondary-color)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                                {/* Enhanced Floating Badges */}
                                 <div className="absolute md:bottom-8 md:left-8 bottom-4 left-4 flex flex-wrap gap-4">
                                     <div className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-xl text-white md:px-6 px-3 md:py-3 py-2 rounded-2xl md:text-sm text-xs font-bold border border-white/20 shadow-xl">
                                         <Tag className="w-5 h-5" />
@@ -132,7 +134,7 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                                     {(project.featured ||
                                         project.is_featured) && (
                                         <div className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white md:px-6 px-3 md:py-3 py-2 rounded-2xl md:text-sm text-xs font-bold shadow-xl animate-pulse">
-                                            <Award className="w-5 h-5" />
+                                            <Award className="size-4" />
                                             <span>Featured Project</span>
                                         </div>
                                     )}
@@ -148,11 +150,9 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                         </div>
                     </div>
 
-                    {/* Right: Action Buttons */}
                     <div
                         className="lg:col-span-1 flex flex-col gap-4 animate-slide-up"
                         style={{animationDelay: "0.2s"}}>
-                        {/* Live Demo Button */}
                         {project.liveUrl && (
                             <a
                                 href={project.liveUrl}
@@ -160,20 +160,19 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                                 rel="noopener noreferrer"
                                 className="group relative">
                                 <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                                <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
-                                    <ExternalLink className="w-6 h-6" />
+                                <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-5 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+                                    <ExternalLink className="size-5" />
                                     <div className="flex flex-col items-start">
                                         <span className="text-sm opacity-90">
                                             View
                                         </span>
                                         <span>Live Demo</span>
                                     </div>
-                                    <Play className="w-5 h-5 ml-auto" />
+                                    <Play className="size-6 ml-auto" />
                                 </div>
                             </a>
                         )}
 
-                        {/* Gallery View Button */}
                         {((project.galleryImages?.length ?? 0) > 0 ||
                             (project.gallery?.length ?? 0) > 0) && (
                             <button
@@ -186,20 +185,19 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                                 }
                                 className="group relative">
                                 <div className="absolute -inset-2 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                                <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] text-white px-6 py-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
-                                    <Images className="w-6 h-6" />
+                                <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--secondary-color)] to-[var(--accent-color)] text-white px-6 py-5 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+                                    <Images className="size-5" />
                                     <div className="flex flex-col items-start">
                                         <span className="text-sm opacity-90">
                                             View
                                         </span>
                                         <span>Gallery</span>
                                     </div>
-                                    <Eye className="w-5 h-5 ml-auto" />
+                                    <Eye className="size-6 ml-auto" />
                                 </div>
                             </button>
                         )}
 
-                        {/* GitHub Button */}
                         {(project.githubUrl || project.githubLink1) && (
                             <a
                                 href={project.githubUrl || project.githubLink1}
@@ -207,68 +205,63 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                                 rel="noopener noreferrer"
                                 className="group relative">
                                 <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
-                                <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-8 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
-                                    <Github className="w-6 h-6" />
+                                <div className="relative flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 py-5 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+                                    <Github className="size-6" />
                                     <div className="flex flex-col items-start">
                                         <span className="text-sm opacity-90">
                                             View
                                         </span>
                                         <span>Source Code</span>
                                     </div>
-                                    <Code className="w-5 h-5 ml-auto" />
+                                    <Code className="size-6 ml-auto" />
                                 </div>
                             </a>
                         )}
+
+                        <div className="mt-6">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="w-10 h-10 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-xl flex items-center justify-center">
+                                    <Code className="w-5 h-5 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="text-xl font-bold text-[var(--text-primary)]">
+                                        Technologies
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-wrap gap-2">
+                                {(project.technologies || project.skills)?.map(
+                                    (tech) => (
+                                        <span
+                                            key={tech}
+                                            className="px-3 py-1.5 bg-[var(--secondary-bg)] text-[var(--text-primary)] rounded-2xl text-sm font-medium border border-[var(--border-color)]/60 hover:border-[var(--primary-color)]/50 transition-colors duration-300">
+                                            {tech}
+                                        </span>
+                                    )
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Simple Page Header - Left Aligned */}
                 <div className="mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                    {/* Title - Hidden on mobile, shown on desktop */}
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 hidden md:block">
                         <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] bg-clip-text text-transparent">
                             {project.title}
                         </span>
                     </h1>
+                    {/* Description - Shown on both mobile and desktop */}
                     <p className="text-[var(--text-secondary)] text-lg leading-relaxed">
                         {project.shortDescription}
                     </p>
                 </div>
-
-                {/* Simple Technologies Section */}
-                <div className="mb-12">
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="w-10 h-10 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-xl flex items-center justify-center">
-                            <Code className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                            <h2 className="text-2xl font-bold text-[var(--text-primary)]">
-                                Technologies
-                            </h2>
-                            <p className="text-[var(--text-secondary)] text-sm">
-                                Built with modern tech stack
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 sm:gap-3">
-                        {(project.technologies || project.skills)?.map(
-                            (tech) => (
-                                <span
-                                    key={tech}
-                                    className="px-2.5 py-1.5 sm:px-4 sm:py-2 bg-[var(--secondary-bg)] text-[var(--text-primary)] rounded-lg text-sm font-medium border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/50 transition-colors duration-300">
-                                    {tech}
-                                </span>
-                            )
-                        )}
-                    </div>
-                </div>
             </div>
 
-            {/* Content Sections */}
             <div className="md:py-20 py-10 bg-gradient-to-b from-[var(--primary-bg)] to-[var(--secondary-bg)]">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="space-y-16">
-                        {/* Project Overview */}
                         {project.description && (
                             <div className="animate-slide-up">
                                 <div className="bg-gradient-to-br from-[var(--secondary-bg)]/60 to-[var(--secondary-bg)]/40 backdrop-blur-xl rounded-3xl p-4 md:p-8 border border-[var(--border-color)]/20">
@@ -285,7 +278,6 @@ const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({project}) => {
                 </div>
             </div>
 
-            {/* Gallery Modal */}
             <GalleryModal
                 images={selectedGallery}
                 isOpen={showGalleryModal}
