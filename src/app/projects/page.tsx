@@ -39,12 +39,17 @@ export default async function ProjectsPage({
     const params = await searchParams;
     const category = params.category || "all";
 
-    // Fetch projects based on category filter (server-side)
+    // Fetch only published projects based on category filter (server-side)
     const projects = await getAllProjects({
         category: category !== "all" ? category : undefined,
         limit: 50,
     });
 
     // Pass server-fetched data to client component
-    return <ProjectsPageClient initialProjects={projects} activeCategory={category} />;
+    return (
+        <ProjectsPageClient
+            initialProjects={projects}
+            activeCategory={category}
+        />
+    );
 }

@@ -14,17 +14,27 @@ export async function GET(
     try {
         await connectToDatabase();
         const {id} = await params;
+        const url = new URL(request.url);
+        const includeUnpublished = url.searchParams.get('includeUnpublished') === 'true';
 
-        const project = await Project.findById(id);
+        // Build the query
+        const query: any = { _id: id };
+        
+        // Only include published projects unless explicitly requested
+        if (!includeUnpublished) {
+            query.is_published = true;
+        }
+
+        const project = await Project.findOne(query);
 
         if (!project) {
             return NextResponse.json(
-                {error: "Project not found"},
-                {status: 404}
+                { error: "Project not found or not published" },
+                { status: 404 }
             );
         }
 
-        return NextResponse.json({project});
+        return NextResponse.json({ project });
     } catch (error) {
         console.error("Error fetching project:", error);
         return NextResponse.json(

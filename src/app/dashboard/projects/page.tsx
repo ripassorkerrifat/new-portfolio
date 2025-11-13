@@ -81,7 +81,7 @@ const ProjectsPage: React.FC = () => {
     const fetchProjects = async () => {
         try {
             // Fetch ALL projects (including unpublished) for dashboard management
-            const response = await fetch("/api/projects?published=false");
+            const response = await fetch("/api/admin/projects");
             if (response.ok) {
                 const data = await response.json();
                 setProjects(data?.projects || []);

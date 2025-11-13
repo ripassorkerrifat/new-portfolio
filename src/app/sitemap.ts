@@ -4,8 +4,8 @@ import {getAllProjects} from "../lib/projects";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = "https://ripassorkerrifat.me";
 
-    // Fetch all projects dynamically
-    const projects = await getAllProjects({limit: 100});
+    // Fetch only published projects for sitemap
+    const projects = await getAllProjects({ limit: 100 });
 
     // Static pages
     const staticPages: MetadataRoute.Sitemap = [

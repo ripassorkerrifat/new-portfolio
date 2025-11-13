@@ -55,7 +55,7 @@ const ProjectDetailPage = () => {
         if (!params?.id) return;
 
         try {
-            const response = await fetch(`/api/projects/${params.id}`);
+            const response = await fetch(`/api/admin/projects/${params.id}`);
             if (response.ok) {
                 const data = await response.json();
                 setProject(data.project);
@@ -72,7 +72,7 @@ const ProjectDetailPage = () => {
 
         setDeleting(true);
         try {
-            const response = await fetch(`/api/projects/${params.id}`, {
+            const response = await fetch(`/api/admin/projects/${params.id}`, {
                 method: "DELETE",
             });
 

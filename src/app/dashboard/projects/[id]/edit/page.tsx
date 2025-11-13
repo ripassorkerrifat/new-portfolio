@@ -55,13 +55,14 @@ const EditProjectPage = () => {
 
     useEffect(() => {
         fetchProject();
-    }, [params?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [params?.id]);
 
     const fetchProject = async () => {
         if (!params?.id) return;
 
         try {
-            const response = await fetch(`/api/projects/${params.id}`);
+            const response = await fetch(`/api/admin/projects/${params.id}`);
             if (response.ok) {
                 const data = await response.json();
                 const project = data.project;
