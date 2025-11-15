@@ -274,68 +274,79 @@ const Skills = () => {
                     </svg>
                 </div>
 
-                {/* Enhanced Soft Skills Section */}
-                <div className="mt-20">
-                    <div className="text-center mb-12">
-                        <h3 className="text-3xl font-bold text-[var(--text-primary)] mb-4">
+                {/* Soft Skills Section */}
+                <div className="mt-20 pt-16 border-t border-[var(--border-color)]/20">
+                    <div className="mb-12 animate-slide-up">
+                        <h3 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-2">
                             Beyond Technical Skills
                         </h3>
-                        <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto">
+                        <p className="text-sm sm:text-base text-[var(--text-secondary)] font-light">
                             The soft skills that make the difference in
                             delivering exceptional results
                         </p>
                     </div>
 
-                    <div className="grid lg:grid-cols-3 gap-8">
-                        <div className="group glass rounded-3xl md:p-8 p-4 border border-[var(--border-color)] hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-xl relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary-color)]/5 to-[var(--secondary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="grid lg:grid-cols-3 gap-6">
+                        <div className="group glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--primary-color)]/25 backdrop-blur-md relative overflow-hidden animate-slide-up">
+                            {/* Glow Background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-red-500/30 to-orange-500/15 rounded-full blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+
                             <div className="relative z-10">
-                                <div className="md:size-16 size-14 bg-gradient-to-br from-red-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg md:mb-6 mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-14 h-14 bg-gradient-to-br from-red-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                                     <FaBrain className="text-2xl text-white" />
                                 </div>
-                                <h3 className="md:text-2xl text-xl font-bold text-[var(--text-primary)] md:mb-4 mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
+                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--primary-color)] transition-colors duration-300">
                                     Problem Solving
-                                </h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed md:text-base text-sm">
-                                    Strong analytical mindset with ability to
-                                    break down complex challenges into elegant,
-                                    scalable solutions through systematic
-                                    thinking.
+                                </h4>
+                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-light">
+                                    Breaking down complex challenges into
+                                    elegant, scalable solutions through
+                                    systematic thinking and creative approaches.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="group glass rounded-3xl md:p-8 p-4 border border-[var(--border-color)] hover:border-[var(--secondary-color)]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--secondary-color)]/20 backdrop-blur-xl relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--secondary-color)]/5 to-[var(--accent-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div
+                            className="group glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/60 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--secondary-color)]/25 backdrop-blur-md relative overflow-hidden animate-slide-up"
+                            style={{animationDelay: "0.1s"}}>
+                            {/* Glow Background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-green-500/30 to-emerald-500/15 rounded-full blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+
                             <div className="relative z-10">
-                                <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg md:mb-6 mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                                     <FaRocket className="text-2xl text-white" />
                                 </div>
-                                <h3 className="md:text-2xl text-xl font-bold text-[var(--text-primary)] md:mb-4 mb-2 group-hover:text-[var(--secondary-color)] transition-colors duration-300">
+                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--secondary-color)] transition-colors duration-300">
                                     Performance Optimization
-                                </h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed md:text-base text-sm">
-                                    Expert in optimizing applications for
-                                    lightning-fast performance, scalability, and
-                                    exceptional user experiences across all
-                                    devices.
+                                </h4>
+                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-light">
+                                    Optimizing applications for lightning-fast
+                                    performance, scalability, and exceptional
+                                    user experiences across all devices.
                                 </p>
                             </div>
                         </div>
 
-                        <div className="group glass rounded-3xl md:p-8 p-4 border border-[var(--border-color)] hover:border-[var(--accent-color)]/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[var(--accent-color)]/20 backdrop-blur-xl relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent-color)]/5 to-[var(--primary-color)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div
+                            className="group glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--accent-color)]/60 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--accent-color)]/25 backdrop-blur-md relative overflow-hidden animate-slide-up"
+                            style={{animationDelay: "0.2s"}}>
+                            {/* Glow Background */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-br from-purple-500/30 to-pink-500/15 rounded-full blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+
                             <div className="relative z-10">
-                                <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg md:mb-6 mb-3 group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
                                     <FaUsers className="text-2xl text-white" />
                                 </div>
-                                <h3 className="md:text-2xl text-xl font-bold text-[var(--text-primary)] md:mb-4 mb-2 group-hover:text-[var(--accent-color)] transition-colors duration-300">
+                                <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-color)] transition-colors duration-300">
                                     Team Leadership
-                                </h3>
-                                <p className="text-[var(--text-secondary)] leading-relaxed md:text-base text-sm">
-                                    Excellent communication and leadership
-                                    skills with proven experience in agile
-                                    development, mentoring, and cross-functional
+                                </h4>
+                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed font-light">
+                                    Excellent communication and leadership with
+                                    proven experience in agile development,
+                                    mentoring, and cross-functional
                                     collaboration.
                                 </p>
                             </div>
