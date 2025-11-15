@@ -64,10 +64,17 @@ export default function ProjectsPageClient({
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)]">
+        <div className="min-h-screen bg-gradient-to-br from-[var(--primary-bg)] via-[var(--secondary-bg)] to-[var(--accent-bg)] relative overflow-hidden pb-10">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-full blur-3xl animate-float"></div>
+                <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-[var(--accent-color)]/15 to-[var(--primary-color)]/15 rounded-full blur-3xl animate-float-delayed"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-[var(--secondary-color)]/10 to-[var(--accent-color)]/10 rounded-full blur-3xl animate-pulse"></div>
+            </div>
+
             {/* Header with Back Button */}
             <div className="sticky top-0 z-40 glass border-b border-[var(--border-color)]/30 backdrop-blur-xl">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 md:py-6 py-4">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 md:py-6 py-4 relative z-10">
                     <div className="flex items-center justify-between">
                         <button
                             onClick={handleBackClick}
@@ -91,67 +98,91 @@ export default function ProjectsPageClient({
             </div>
 
             {/* Main Content */}
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-5 relative z-10">
                 {/* Breadcrumb Navigation */}
                 <Breadcrumb />
 
                 {/* Page Header */}
-                <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-4 animate-slide-up">
+                <div className="text-center mb-10 animate-slide-up">
+                    <div className="mb-8 inline-block">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 border border-[var(--primary-color)]/40 backdrop-blur-md">
+                            <div className="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-pulse"></div>
+                            <span className="text-xs sm:text-sm font-semibold text-[var(--primary-color)] uppercase tracking-wider">
+                                Portfolio
+                            </span>
+                        </div>
+                    </div>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[var(--text-primary)] mb-6 leading-tight">
                         My Complete{" "}
-                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
-                            Portfolio
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent">
+                            Projects
                         </span>
-                    </h2>
-                    <p
-                        className="text-[var(--text-secondary)] text-sm sm:text-base md:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
-                        style={{animationDelay: "0.2s"}}>
-                        Explore all my projects and creative solutions across
-                        different technologies and domains
+                    </h1>
+                    <p className="text-base sm:text-lg text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed font-light">
+                        Explore all my creative solutions and professional
+                        projects across different technologies, domains, and
+                        innovative ideas
                     </p>
                 </div>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 mb-8 sm:mb-12 px-4">
-                    {filters.map((filter) => (
+                <div
+                    className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 px-4 animate-slide-up"
+                    style={{animationDelay: "0.1s"}}>
+                    {filters.map((filter, idx) => (
                         <button
                             key={filter.id}
                             onClick={() => handleFilterChange(filter.id)}
-                            className={`relative px-3 sm:px-6 py-2 sm:py-3 rounded-2xl font-semibold text-xs sm:text-base transition-all duration-500 transform hover:scale-105 ${
+                            className={`relative px-4 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-500 transform hover:scale-105 ${
                                 activeCategory === filter.id
-                                    ? "bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white shadow-2xl shadow-[var(--glow-primary)]/50 scale-105"
-                                    : "glass border-2 border-[var(--border-color)]/50 text-[var(--text-secondary)] hover:border-[var(--secondary-color)]/80 hover:text-[var(--text-primary)] hover:shadow-xl hover:shadow-[var(--glow-secondary)]/30 backdrop-blur-lg"
-                            }`}>
+                                    ? "bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] text-white shadow-2xl shadow-[var(--primary-color)]/40 scale-105"
+                                    : "glass border border-[var(--border-color)]/50 text-[var(--text-secondary)] hover:border-[var(--primary-color)]/70 hover:text-[var(--text-primary)] hover:shadow-xl hover:shadow-[var(--primary-color)]/20 backdrop-blur-md"
+                            }`}
+                            style={{animationDelay: `${0.15 + idx * 0.05}s`}}>
                             <span className="relative z-10">
                                 {filter.label}
                             </span>
                             {activeCategory === filter.id && (
-                                <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-2xl blur-xl"></div>
+                                <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-color)]/30 to-[var(--secondary-color)]/30 rounded-2xl blur-xl -z-10"></div>
                             )}
                         </button>
                     ))}
                 </div>
 
                 {/* Projects Grid */}
-                <div>
+                <div
+                    className="animate-slide-up"
+                    style={{animationDelay: "0.2s"}}>
                     {initialProjects.length > 0 ? (
                         <>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-12">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
                                 {initialProjects.map((project, index) => (
-                                    <ProjectCard
+                                    <div
                                         key={project.id || project._id}
-                                        project={project}
-                                        index={index}
-                                        onMoreInfo={openProjectModal}
-                                        onGalleryOpen={openGalleryModal}
-                                    />
+                                        style={{
+                                            animationDelay: `${
+                                                0.25 + index * 0.08
+                                            }s`,
+                                        }}
+                                        className="animate-slide-up">
+                                        <ProjectCard
+                                            project={project}
+                                            index={index}
+                                            onMoreInfo={openProjectModal}
+                                            onGalleryOpen={openGalleryModal}
+                                        />
+                                    </div>
                                 ))}
                             </div>
 
                             {/* Projects Count */}
-                            <div className="text-center mt-12">
-                                <p className="text-[var(--text-secondary)] text-lg">
-                                    Showing {initialProjects.length} project
+                            <div className="text-center mt-16 sm:mt-20">
+                                <p className="text-[var(--text-secondary)] text-lg font-light">
+                                    Showing{" "}
+                                    <span className="font-bold text-[var(--primary-color)]">
+                                        {initialProjects.length}
+                                    </span>{" "}
+                                    project
                                     {initialProjects.length !== 1 ? "s" : ""}
                                     {activeCategory !== "all" &&
                                         ` in ${
@@ -163,13 +194,14 @@ export default function ProjectsPageClient({
                             </div>
                         </>
                     ) : (
-                        <div className="text-center py-20">
-                            <div className="text-6xl mb-4">📂</div>
-                            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">
+                        <div className="text-center py-24">
+                            <div className="text-7xl mb-6">📂</div>
+                            <h3 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mb-3">
                                 No Projects Found
                             </h3>
-                            <p className="text-[var(--text-secondary)] text-lg">
-                                No projects found for the selected category.
+                            <p className="text-[var(--text-secondary)] text-lg font-light">
+                                No projects found for the selected category. Try
+                                another filter!
                             </p>
                         </div>
                     )}
