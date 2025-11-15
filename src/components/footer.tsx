@@ -9,10 +9,10 @@ import {
     FaInstagram,
     FaFacebook,
 } from "react-icons/fa";
-import { useSettings } from "../contexts/SettingsContext";
+import {useSettings} from "../contexts/SettingsContext";
 
 const Footer = () => {
-    const { settings } = useSettings();
+    const {settings} = useSettings();
 
     const getSocialLinks = () => [
         {
@@ -76,56 +76,18 @@ const Footer = () => {
             </div>
 
             {/* Main Footer Content */}
-            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
-                {/* Enhanced Header Section */}
-                <div className="text-center mb-12 ">
-                    <div className="inline-flex items-center justify-center mb-8">
-                        <div className="relative">
-                            <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm animate-pulse">
-                                <span className="text-4xl">🚀</span>
-                            </div>
-                            <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
-                        </div>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6">
-                        Ripas{" "}
-                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
-                            Sorker Rifat
-                        </span>
-                    </h2>
-                    <p className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl lg:max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8 px-4">
-                        Full Stack Developer crafting beautiful digital
-                        experiences with modern technologies
-                    </p>
-
-                    {/* Call to Action */}
-                    <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-8">
-                        <a
-                            href="#contact"
-                            className="group bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-sm sm:text-base">
-                            <span>Let's Work Together</span>
-                            <span className="group-hover:translate-x-1 transition-transform duration-300">
-                                →
-                            </span>
-                        </a>
-                        <a
-                            href="mailto:ripassorkerrifat@gmail.com"
-                            className="group glass border border-[var(--border-color)]/50 hover:border-[var(--primary-color)]/60 text-[var(--text-primary)] hover:text-[var(--primary-color)] px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:scale-105 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-3 text-sm sm:text-base">
-                            <span>📧</span>
-                            <span>Send Email</span>
-                        </a>
-                    </div>
-                </div>
-
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
                 {/* Enhanced Grid Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12  ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
                     {/* Quick Links */}
                     <div className="text-center hidden md:block lg:text-left">
-                        <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-8 flex items-center justify-center lg:justify-start gap-3">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center">
+                        <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
                                 🧭
                             </span>
-                            Navigation
+                            <span className="text-sm font-semibold">
+                                Navigation
+                            </span>
                         </h4>
                         <ul className="space-y-3 sm:space-y-4">
                             {quickLinks.map((link) => (
@@ -143,39 +105,47 @@ const Footer = () => {
 
                     {/* Social Links */}
                     <div className="text-center lg:text-left">
-                        <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-8 flex items-center justify-center lg:justify-start gap-3">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center">
+                        <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
                                 🌐
                             </span>
-                            Connect
+                            <span className="text-sm font-semibold">
+                                Connect
+                            </span>
                         </h4>
                         <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
-                            {getSocialLinks().map((social: any, index: number) => (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`group relative w-10 h-10 sm:w-12 sm:h-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] ${social.color} border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-110 backdrop-blur-sm animate-slide-up overflow-hidden`}
-                                    style={{animationDelay: `${index * 0.1}s`}}
-                                    title={social.name}>
-                                    <div
-                                        className={`absolute inset-0 bg-gradient-to-br ${social.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                                    <span className="relative text-lg sm:text-xl group-hover:scale-125 transition-transform duration-300">
-                                        {social.icon}
-                                    </span>
-                                </a>
-                            ))}
+                            {getSocialLinks().map(
+                                (social: any, index: number) => (
+                                    <a
+                                        key={social.name}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`group relative w-10 h-10 sm:w-12 sm:h-12 glass rounded-2xl flex items-center justify-center text-[var(--text-secondary)] ${social.color} border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-500 hover:scale-110 backdrop-blur-sm animate-slide-up overflow-hidden`}
+                                        style={{
+                                            animationDelay: `${index * 0.1}s`,
+                                        }}
+                                        title={social.name}>
+                                        <div
+                                            className={`absolute inset-0 bg-gradient-to-br ${social.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                        <span className="relative text-lg sm:text-xl group-hover:scale-125 transition-transform duration-300">
+                                            {social.icon}
+                                        </span>
+                                    </a>
+                                )
+                            )}
                         </div>
                     </div>
 
                     {/* Contact Info */}
                     <div className="text-center lg:text-left">
-                        <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-8 flex items-center justify-center lg:justify-start gap-3">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center">
+                        <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
                                 📞
                             </span>
-                            Contact
+                            <span className="text-sm font-semibold">
+                                Contact
+                            </span>
                         </h4>
                         <div className="space-y-3 sm:space-y-4">
                             <a
@@ -211,21 +181,26 @@ const Footer = () => {
 
                     {/* Newsletter/CTA Section */}
                     <div className="text-center lg:text-left">
-                        <h4 className="text-2xl font-bold text-[var(--text-primary)] mb-8 flex items-center justify-center lg:justify-start gap-3">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center">
+                        <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
                                 💡
                             </span>
-                            Let's Connect
+                            <span className="text-sm font-semibold">
+                                Connect
+                            </span>
                         </h4>
-                        <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
+                        <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed font-light">
                             Ready to bring your ideas to life? Let's discuss
                             your next project!
                         </p>
                         <a
                             href="#contact"
-                            className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg text-sm sm:text-base">
-                            <span>Get In Touch</span>
-                            <span>🚀</span>
+                            className="group inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/95 hover:to-[var(--secondary-color)]/95 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl hover:shadow-[var(--primary-color)]/40 text-sm sm:text-base overflow-hidden">
+                            <span className="relative z-10">Get In Touch</span>
+                            <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">
+                                🚀
+                            </span>
+                            <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </a>
                     </div>
                 </div>
@@ -241,7 +216,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-
         </footer>
     );
 };

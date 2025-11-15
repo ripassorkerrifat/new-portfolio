@@ -45,15 +45,27 @@ const Projects: React.FC<ProjectsProps> = ({initialProjects = []}) => {
             {/* Call to Action */}
             <ProjectCTA />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-8 sm:mb-12">
-                    <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-3 sm:mb-6 animate-slide-up">
+                <div className="text-center mb-16 sm:mb-20">
+                    {/* Subtitle Badge */}
+                    <div className="mb-8 animate-slide-up inline-block">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-color)]/10 border border-[var(--primary-color)]/30 backdrop-blur-sm">
+                            <div className="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-pulse"></div>
+                            <span className="text-xs sm:text-sm font-semibold text-[var(--primary-color)] uppercase tracking-wider">
+                                Portfolio
+                            </span>
+                        </div>
+                    </div>
+
+                    <h2
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight animate-slide-up"
+                        style={{animationDelay: "0.1s"}}>
                         My{" "}
-                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent font-black">
                             Projects
                         </span>
                     </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-sm sm:text-base md:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
+                        className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed animate-slide-up font-light"
                         style={{animationDelay: "0.2s"}}>
                         A showcase of my recent work and creative solutions that
                         demonstrate my expertise in modern web development

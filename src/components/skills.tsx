@@ -7,7 +7,6 @@ import {
     FaDocker,
     FaAws,
     FaFigma,
-    FaCode,
     FaRocket,
     FaUsers,
     FaBrain,
@@ -125,20 +124,27 @@ const Skills = () => {
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <div className="flex items-center justify-center space-x-4 mb-6">
-                        <div className="w-16 h-16 bg-gradient-to-br from-[var(--primary-color)] to-[var(--secondary-color)] rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
-                            <FaCode className="text-2xl text-white" />
-                        </div>
-                        <h2 className="text-3xl lg:text-4xl font-bold text-[var(--text-primary)] animate-slide-up">
-                            My{" "}
-                            <span className="bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] bg-clip-text text-transparent animate-glow">
-                                Skills
+                <div className="text-center mb-20">
+                    {/* Subtitle Badge */}
+                    <div className="mb-8 animate-slide-up inline-block">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-color)]/10 border border-[var(--primary-color)]/30 backdrop-blur-sm">
+                            <div className="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-pulse"></div>
+                            <span className="text-xs sm:text-sm font-semibold text-[var(--primary-color)] uppercase tracking-wider">
+                                My Expertise
                             </span>
-                        </h2>
+                        </div>
                     </div>
+
+                    <h2
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight animate-slide-up"
+                        style={{animationDelay: "0.1s"}}>
+                        Technical{" "}
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent font-black">
+                            Skills
+                        </span>
+                    </h2>
                     <p
-                        className="text-[var(--text-secondary)] text-base lg:text-lg max-w-3xl mx-auto animate-slide-up leading-relaxed"
+                        className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed animate-slide-up font-light"
                         style={{animationDelay: "0.2s"}}>
                         Technologies and tools I use to build exceptional
                         digital experiences

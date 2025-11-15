@@ -66,29 +66,31 @@ const Contact: React.FC = () => {
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Modern Header */}
-                <div className="text-center mb-12 sm:mb-16">
-                    <div className="inline-flex items-center justify-center mb-8">
-                        <div className="relative">
-                            <div className="w-20 h-20 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl flex items-center justify-center border border-[var(--border-color)]/40 backdrop-blur-sm">
-                                <span className="text-4xl animate-bounce">
-                                    💫
-                                </span>
-                            </div>
-                            <div className="absolute -inset-2 bg-gradient-to-r from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-3xl blur-lg animate-pulse"></div>
+                <div className="text-center mb-16 sm:mb-20">
+                    {/* Subtitle Badge */}
+                    <div className="mb-8 animate-slide-up inline-block">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-color)]/10 border border-[var(--primary-color)]/30 backdrop-blur-sm">
+                            <div className="w-2 h-2 rounded-full bg-[var(--primary-color)] animate-pulse"></div>
+                            <span className="text-xs sm:text-sm font-semibold text-[var(--primary-color)] uppercase tracking-wider">
+                                Get In Touch
+                            </span>
                         </div>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6 animate-slide-up">
-                        Let's Create{" "}
-                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent animate-glow">
-                            Together
+
+                    <h2
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-6 leading-tight animate-slide-up"
+                        style={{animationDelay: "0.1s"}}>
+                        Let&apos;s Create Something{" "}
+                        <span className="bg-gradient-to-r from-[var(--primary-color)] via-[var(--secondary-color)] to-[var(--accent-color)] bg-clip-text text-transparent font-black">
+                            Amazing
                         </span>
                     </h2>
                     <p
-                        className="text-sm sm:text-base md:text-lg max-w-2xl lg:max-w-3xl mx-auto leading-relaxed animate-slide-up px-4"
+                        className="text-sm sm:text-base lg:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto leading-relaxed animate-slide-up font-light"
                         style={{animationDelay: "0.2s"}}>
-                        Have an amazing project in mind? I'd love to hear about
-                        it! Let's collaborate and bring your vision to life with
-                        cutting-edge technology and creative solutions.
+                        Have an amazing project in mind? I&apos;d love to hear
+                        about it. Let&apos;s collaborate and bring your vision
+                        to life.
                     </p>
                 </div>
 
