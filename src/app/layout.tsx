@@ -1,18 +1,13 @@
 import type {Metadata} from "next";
-import {Geist, Geist_Mono} from "next/font/google";
+import {Cascadia_Code} from "next/font/google";
 import "./globals.css";
 import HeaderWrapper from "../components/HeaderWrapper";
 import StructuredData from "../components/StructuredData";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 import {SettingsProvider} from "../contexts/SettingsContext";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
+const geistSans = Cascadia_Code({
+    variable: "--font-cascedia-code",
     subsets: ["latin"],
 });
 
@@ -110,7 +105,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--primary-bg)]`}>
+                className={`${geistSans.variable}  antialiased bg-[var(--primary-bg)]`}>
                 <SettingsProvider>
                     <StructuredData />
                     <HeaderWrapper />
