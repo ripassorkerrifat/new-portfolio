@@ -1,7 +1,8 @@
 "use client";
 
 import {Project} from "../types/project";
-import {Images} from "lucide-react";
+import {Images, Github, Folder} from "lucide-react";
+import {FaRocket, FaCode} from "react-icons/fa";
 
 interface ProjectDetailsModalProps {
     project: Project | null;
@@ -34,8 +35,12 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                     </button>
                     <div className="flex md:items-center mr-6 md:gap-6 gap-4">
                         <div>
-                            <div className="md:size-16 size-14 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-2xl flex items-center justify-center text-3xl border border-[var(--border-color)]/30">
-                                {project?.image || "📁"}
+                            <div className="md:size-16 size-14 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-2xl flex items-center justify-center text-3xl border border-[var(--border-color)]/30 text-[var(--primary-color)]">
+                                {project?.image ? (
+                                    project.image
+                                ) : (
+                                    <Folder className="w-8 h-8" />
+                                )}
                             </div>
                         </div>
                         <div>
@@ -100,8 +105,9 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                             href={project.liveUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="block text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors">
-                                            🚀 Live Demo
+                                            className="block text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors flex items-center gap-2">
+                                            <FaRocket className="w-4 h-4" />{" "}
+                                            Live Demo
                                         </a>
                                     )}
                                     {project?.githubLink1 && (
@@ -109,8 +115,9 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                             href={project.githubLink1}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="block text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors">
-                                            💻 GitHub Repository
+                                            className="block text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors flex items-center gap-2">
+                                            <FaCode className="w-4 h-4" />{" "}
+                                            GitHub Repository
                                         </a>
                                     )}
                                     {project?.githubLink2 && (
@@ -118,8 +125,9 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                             href={project.githubLink2}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="block text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors">
-                                            🔧 Additional Repository
+                                            className="block text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors flex items-center gap-2">
+                                            <Github className="w-4 h-4" />{" "}
+                                            Additional Repository
                                         </a>
                                     )}
                                 </div>
@@ -156,8 +164,8 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                 href={project.liveUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 md:text-base text-sm">
-                                🚀 View Live Demo
+                                className="flex-1 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[var(--glow-primary)]/50 md:text-base text-sm flex items-center justify-center gap-2">
+                                <FaRocket className="w-4 h-4" /> View Live Demo
                             </a>
                         )}
                         {project?.githubLink1 && (
@@ -165,8 +173,8 @@ const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
                                 href={project.githubLink1}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex-1 glass border border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold   transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--glow-secondary)]/30 md:text-base text-sm">
-                                💻 View Source Code
+                                className="flex-1 glass border border-[var(--border-color)]/50 hover:border-[var(--secondary-color)]/80 text-[var(--text-primary)] text-center md:py-4 py-3 md:px-6 px-4 rounded-xl font-bold   transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-[var(--glow-secondary)]/30 md:text-base text-sm flex items-center justify-center gap-2">
+                                <FaCode className="w-4 h-4" /> View Source Code
                             </a>
                         )}
                         {((project?.galleryImages?.length ?? 0) > 0 ||

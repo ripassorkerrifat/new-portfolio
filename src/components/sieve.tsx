@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./button";
+import {FaGlobe, FaPalette, FaCog, FaMobileAlt} from "react-icons/fa";
 
 export default function Sieve() {
     const services = [
@@ -7,25 +8,25 @@ export default function Sieve() {
             title: "Web Development",
             description:
                 "Building responsive and modern web applications using the latest technologies.",
-            icon: "🌐",
+            icon: <FaGlobe />,
         },
         {
             title: "Frontend Design",
             description:
                 "Creating beautiful and intuitive user interfaces with attention to detail.",
-            icon: "🎨",
+            icon: <FaPalette />,
         },
         {
             title: "Backend Solutions",
             description:
                 "Developing robust server-side applications and APIs for seamless functionality.",
-            icon: "⚙️",
+            icon: <FaCog />,
         },
         {
             title: "Mobile Development",
             description:
                 "Building cross-platform mobile applications for iOS and Android.",
-            icon: "📱",
+            icon: <FaMobileAlt />,
         },
     ];
 
@@ -51,7 +52,7 @@ export default function Sieve() {
                         <div
                             key={index}
                             className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                            <div className="text-4xl mb-4 text-center">
+                            <div className="text-4xl mb-4 text-center text-[var(--primary-color)]">
                                 {service.icon}
                             </div>
                             <h3 className="text-xl font-semibold text-white mb-3 text-center">

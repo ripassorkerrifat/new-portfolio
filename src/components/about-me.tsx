@@ -2,7 +2,14 @@
 "use client";
 
 import React from "react";
-import {FaDownload, FaEnvelope} from "react-icons/fa";
+import {
+    FaDownload,
+    FaEnvelope,
+    FaLightbulb,
+    FaStar,
+    FaBullseye,
+    FaCode,
+} from "react-icons/fa";
 import Image from "next/image";
 import profile from "../assets/images/profile.webp";
 import {useSettings} from "../contexts/SettingsContext";
@@ -258,7 +265,9 @@ const AboutMe = () => {
                     style={{animationDelay: "0.5s"}}>
                     {/* Card 1 */}
                     <div className="glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-300 group hover:shadow-lg hover:shadow-[var(--primary-color)]/20">
-                        <div className="text-3xl mb-3">�</div>
+                        <div className="text-3xl mb-3 text-[var(--primary-color)]">
+                            <FaCode />
+                        </div>
                         <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                             Full Stack
                         </h4>
@@ -269,7 +278,9 @@ const AboutMe = () => {
 
                     {/* Card 2 */}
                     <div className="glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--secondary-color)]/60 transition-all duration-300 group hover:shadow-lg hover:shadow-[var(--secondary-color)]/20">
-                        <div className="text-3xl mb-3">💡</div>
+                        <div className="text-3xl mb-3 text-[var(--secondary-color)]">
+                            <FaLightbulb />
+                        </div>
                         <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                             Problem Solving
                         </h4>
@@ -281,7 +292,9 @@ const AboutMe = () => {
 
                     {/* Card 3 */}
                     <div className="glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--accent-color)]/60 transition-all duration-300 group hover:shadow-lg hover:shadow-[var(--accent-color)]/20">
-                        <div className="text-3xl mb-3">✨</div>
+                        <div className="text-3xl mb-3 text-[var(--accent-color)]">
+                            <FaStar />
+                        </div>
                         <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                             Clean Code
                         </h4>
@@ -292,7 +305,9 @@ const AboutMe = () => {
 
                     {/* Card 4 */}
                     <div className="glass rounded-2xl p-6 border border-[var(--border-color)]/30 hover:border-[var(--primary-color)]/60 transition-all duration-300 group hover:shadow-lg hover:shadow-[var(--primary-color)]/20">
-                        <div className="text-3xl mb-3">🎯</div>
+                        <div className="text-3xl mb-3 text-[var(--primary-color)]">
+                            <FaBullseye />
+                        </div>
                         <h4 className="text-lg font-bold text-[var(--text-primary)] mb-2">
                             User Focused
                         </h4>

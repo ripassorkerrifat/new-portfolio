@@ -8,6 +8,13 @@ import {
     FaTwitter,
     FaInstagram,
     FaFacebook,
+    FaMapMarkerAlt,
+    FaPhone,
+    FaEnvelope,
+    FaCompass,
+    FaGlobe,
+    FaRocket,
+    FaHeart,
 } from "react-icons/fa";
 import {useSettings} from "../contexts/SettingsContext";
 
@@ -82,8 +89,8 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div className="text-center hidden md:block lg:text-left">
                         <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
-                                🧭
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base text-[var(--primary-color)]">
+                                <FaCompass />
                             </span>
                             <span className="text-sm font-semibold">
                                 Navigation
@@ -106,8 +113,8 @@ const Footer = () => {
                     {/* Social Links */}
                     <div className="text-center lg:text-left">
                         <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
-                                🌐
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base text-[var(--secondary-color)]">
+                                <FaGlobe />
                             </span>
                             <span className="text-sm font-semibold">
                                 Connect
@@ -140,8 +147,8 @@ const Footer = () => {
                     {/* Contact Info */}
                     <div className="text-center lg:text-left">
                         <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
-                                📞
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base text-[var(--accent-color)]">
+                                <FaPhone />
                             </span>
                             <span className="text-sm font-semibold">
                                 Contact
@@ -151,8 +158,8 @@ const Footer = () => {
                             <a
                                 href="mailto:ripassorkerrifat@gmail.com"
                                 className="group flex items-center justify-center lg:justify-start gap-3 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">
-                                <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
-                                    📧
+                                <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm text-[var(--primary-color)]">
+                                    <FaEnvelope />
                                 </span>
                                 <span className="text-base">
                                     ripassorkerrifat@gmail.com
@@ -161,16 +168,16 @@ const Footer = () => {
                             <a
                                 href="tel:+8801744876681"
                                 className="group flex items-center justify-center lg:justify-start gap-3 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-all duration-300 hover:translate-x-2">
-                                <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
-                                    📱
+                                <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm text-[var(--secondary-color)]">
+                                    <FaPhone />
                                 </span>
                                 <span className="text-base">
                                     +880 1744876681
                                 </span>
                             </a>
                             <div className="group flex items-center justify-center lg:justify-start gap-3 text-[var(--text-secondary)]">
-                                <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm">
-                                    📍
+                                <span className="w-6 h-6 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-sm text-[var(--accent-color)]">
+                                    <FaMapMarkerAlt />
                                 </span>
                                 <span className="text-sm sm:text-base lg:text-lg">
                                     Dhaka, Bangladesh
@@ -182,8 +189,8 @@ const Footer = () => {
                     {/* Newsletter/CTA Section */}
                     <div className="text-center lg:text-left">
                         <h4 className="text-lg sm:text-xl font-bold text-[var(--text-primary)] mb-6 sm:mb-8 flex items-center justify-center lg:justify-start gap-3 uppercase tracking-wider">
-                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base">
-                                💡
+                            <span className="w-8 h-8 bg-gradient-to-br from-[var(--primary-color)]/20 to-[var(--secondary-color)]/20 rounded-lg flex items-center justify-center text-base text-[var(--primary-color)]">
+                                <FaRocket />
                             </span>
                             <span className="text-sm font-semibold">
                                 Connect
@@ -198,7 +205,7 @@ const Footer = () => {
                             className="group inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] hover:from-[var(--primary-color)]/95 hover:to-[var(--secondary-color)]/95 text-white font-semibold px-6 py-3 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl hover:shadow-[var(--primary-color)]/40 text-sm sm:text-base overflow-hidden">
                             <span className="relative z-10">Get In Touch</span>
                             <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">
-                                🚀
+                                <FaRocket />
                             </span>
                             <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </a>
@@ -212,7 +219,9 @@ const Footer = () => {
                     <div className="text-center text-sm sm:text-base text-[var(--text-secondary)]">
                         &copy; {new Date().getFullYear()} Ripas Sorker Rifat.
                         Made with{" "}
-                        <span className="text-red-400 animate-pulse">❤️</span>
+                        <span className="text-red-400 animate-pulse inline-flex items-center">
+                            <FaHeart />
+                        </span>
                     </div>
                 </div>
             </div>
